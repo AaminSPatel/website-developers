@@ -11,20 +11,20 @@ export const metadata = {
   keywords: 'freelance web developer, web design, website development, startup development, custom websites, freelance website developer India, small business website developer, Next.js developer India, responsive website services under ₹1.3 lakh',
   creator: 'Website Developers',
   generator: 'Next.js',
-  metadataBase: new URL('https://website-developers.com'),
+  metadataBase: new URL('https://website-developers.vercel.app'),
   alternates: {
-    canonical: 'https://website-developers.com',
+    canonical: 'https://website-developers.vercel.app',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://website-developers.com',
+    url: 'https://website-developers.vercel.app',
     title: 'Website Developers India | Expert Freelance Web Design & Development',
     description: 'Professional freelance web development services for startups and businesses in India. Affordable websites under ₹1.3 lakh.',
     siteName: 'Website Developers',
     images: [
       {
-        url: 'https://website-developers.com/og-image.jpg',
+        url: 'https://website-developers.vercel.app/logo.png',
         width: 1200,
         height: 630,
         alt: 'Website Developers',
@@ -48,8 +48,8 @@ export const metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/apple-icon.png',
+        type: 'image/png',
       },
     ],
     apple: '/apple-icon.png',
@@ -78,14 +78,14 @@ export default function RootLayout({ children }) {
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'Website Developers',
-              url: 'https://website-developers.com',
-              logo: 'https://website-developers.com/logo.png',
+              url: 'https://website-developers.vercel.app',
+              logo: 'https://website-developers.vercel.app/logo.png',
               description: 'Professional freelance web development services for startups and businesses in India. Affordable websites under ₹1.3 lakh.',
-              sameAs: [
+             /*  sameAs: [
                 'https://www.linkedin.com',
                 'https://www.twitter.com',
                 'https://www.github.com'
-              ],
+              ], */
               contactPoint: {
                 '@type': 'ContactPoint',
                 telephone: '+91 93020 88025',
