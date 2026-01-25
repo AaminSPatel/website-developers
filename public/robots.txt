@@ -1,0 +1,13 @@
+# robots.txt for Website Developers
+# Allow search engines to crawl all public pages
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
+
+
+# Sitemap
+Sitemap: https://website-developers.vercel.app/sitemap.xml
+

@@ -1,0 +1,23 @@
+mkdir app\about app\api app\contact app\context app\blog app\case-studies app\projects app\services components\contact components\home components\ui
+echo. > app\layout.tsx
+echo. > app\page.jsx
+echo. > app\LayoutClient.jsx
+echo. > app\RootLayoutWrapper.jsx
+echo. > app\blog\page.jsx
+echo. > app\blog\BlogClient.jsx
+echo. > app\case-studies\page.jsx
+echo. > app\case-studies\CaseStudiesClient.jsx
+echo. > app\projects\page.jsx
+echo. > app\projects\ProjectsClient.jsx
+echo. > app\services\page.jsx
+echo. > app\services\ServicesClient.jsx
+echo. > components\contact\ContactForm.jsx
+echo. > components\contact\ContactInfo.jsx
+echo. > components\home\HeroSection.jsx
+echo. > components\home\ServicesSection.jsx
+echo. > components\home\ProjectsSection.jsx
+echo. > components\home\TestimonialsSection.jsx
+echo. > components\home\FaqSection.jsx
+echo. > components\home\CtaSection.jsx
+echo. > components\ui\Header.jsx
+echo. > components\ui\Footer.jsx
