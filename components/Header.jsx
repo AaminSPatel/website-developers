@@ -7,6 +7,7 @@ import { Button } from '@/components/ui'
 //import {  X } from 'react-icons/md'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { projectDetails } from '@/app/data/Projects'
+import Image from 'next/image'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -44,8 +45,8 @@ export function Header() {
             href="/"
             className="flex items-center gap-2 group"
           >
-            <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center font-bold text-primary-foreground text-sm md:text-base group-hover:shadow-lg transition-shadow">
-              WD
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center font-bold text-primary-foreground text-sm md:text-base group-hover:shadow-lg transition-shadow">
+              <Image src={'/apple-icon.jpeg'}  alt='Website Developer Logo Image' width={40} height={40} className='h-12 w-12 rounded-xl'/>
             </div>
             <span className="hidden sm:inline text-xl md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
               WebDev<span className="text-accent">.</span>

@@ -48,11 +48,11 @@ export const metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/apple-icon.png',
+        url: '/logo.png',
         type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/apple-icon.jpeg',
   },
   robots: {
     index: true,

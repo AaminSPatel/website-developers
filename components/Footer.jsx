@@ -5,6 +5,7 @@ import { FaLinkedin, FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa'
 import { contact } from '@/app/data/Contact'
 import TechSphere from './TechSphere'
 import Pyramid from './Pyramid'
+import Image from 'next/image'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -58,9 +59,9 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-secondary to-accent rounded-lg flex items-center justify-center font-bold text-primary">
-                WD
-              </div>
+              <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg flex items-center justify-center font-bold text-primary-foreground text-sm md:text-base group-hover:shadow-lg transition-shadow">
+                            <Image src={'/apple-icon.jpeg'} alt='Website Developer Logo Image' width={40} height={40} className='h-12 w-12 rounded-xl'/>
+                          </div>
               <h3 className="text-2xl font-bold">
                 WebDev<span className="text-accent">.</span>
               </h3>
