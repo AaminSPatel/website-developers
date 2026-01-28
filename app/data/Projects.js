@@ -1,5 +1,3 @@
-import { FaChartLine, FaCss3, FaDatabase, FaHtml5, FaNode, FaNodeJs, FaReact } from 'react-icons/fa';
-import {SiMysql,SiExpress,SiNextdotjs ,SiTailwindcss, SiJquery, SiMongodb, SiFramer } from 'react-icons/si';
 
 export const projectDetails = [
   {
@@ -20,7 +18,8 @@ export const projectDetails = [
       "Real-time package availability",
       "Automated inquiry management system"
     ],
-    images: [
+  link: "https://avantikatravels.com",
+   images: [
       "/avantika.png",
       "/assets/avantika1.png",
       "/assets/avantika3.png"
@@ -36,7 +35,7 @@ export const projectDetails = [
       quote: "This website transformed how we do business. We're now getting 3x more inquiries and closing deals faster than ever.",
       name: "Rajesh Kumar",
       role: "Owner, Avantika Travels",
-    avatar: "/images/clients/rahul.jpg" // Optional (agar photo na ho to hum initial use kar lenge)
+    avatar: "/link:'#', images/clients/rahul.jpg" // Optional (agar photo na ho to hum initial use kar lenge)
   
     }
   },
@@ -60,6 +59,8 @@ export const projectDetails = [
       "Role-based dashboards for different user types",
       "Mobile-first design for on-the-go bookings"
     ],
+    link: "https://safar--sathi.vercel.app",
+ 
     images: [
       "/safarsathi.png",
       "/assets/safar2.png",
@@ -98,7 +99,8 @@ export const projectDetails = [
       "Multiple contact channels for lead capture",
       "Mobile-first responsive design"
     ],
-    images: [
+     link: "https://a2zdm.com/",
+  images: [
       "/a2zdm.png",
       "/assets/az2.png",
       "/assets/az3.png"
@@ -135,6 +137,7 @@ export const projectDetails = [
       "Mobile-first responsive design for on-the-go listening",
       "Direct artist-fan engagement features"
     ],
+     link: "https://aaminspatel.github.io/new-spotify/",
     images: [
       "/spotify.png",
       "/assets/p112.png",
@@ -173,6 +176,7 @@ export const projectDetails = [
       "Mobile-optimized shopping experience",
       "Customer wishlist and personalized recommendations"
     ],
+    link: "https://e-commerce-nu-nine.vercel.app",
     images: [
       "/dealify.png",
       "/assets/e2.png",
@@ -211,7 +215,8 @@ export const projectDetails = [
       "Mobile-responsive design for on-the-go planning",
       "Service packages tailored for different wedding budgets"
     ],
-    images: [
+    link: "https://flowers-three-gamma.vercel.app/",
+     images: [
       "/flower.png",
       "/assets/pl2.png",
       "/assets/pl3.png"
@@ -229,88 +234,7 @@ export const projectDetails = [
       role: "Owner, Flower Elegance"
     }
   },
- /*  {
-    slug: "complete-e-commerce-solution",
-    clientName: "Demo Project",
-    headline: "Complete E-Commerce Solution That Attracted 100+ Daily Visitors",
-    problem: "Entrepreneurs and businesses needed a scalable e-commerce platform to launch online stores with professional features, user authentication, product management, and secure transactions.",
-    solution: "Built a full-featured e-commerce platform using ReactJS, Node.js, and MySQL with comprehensive online shopping functionality including user registration, product catalog, shopping cart, wishlist, secure checkout, admin panel for product management, order processing, and customer relationships.",
-    results: [
-      "Built complete e-commerce solution with 50 products",
-      "Attracted 100+ daily visitors with optimized UX",
-      "Implemented 6-table MySQL database for efficient operations",
-      "Achieved 75% mobile traffic with responsive design",
-      "Created comprehensive admin management system"
-    ],
-    highlights: [
-      "Complete admin management system",
-      "User authentication and profiles",
-      "Product search and filtering",
-      "Order tracking system"
-    ],
-    images: [
-      "/aminshop.png",
-      "/assets/p12.png",
-      "/assets/p13.png",
-      
-    ],
-    industry: "E-Commerce & Retail",
-    techStack: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "ReactJs",
-      "NodeJs",
-      "ExpressJs",
-      "MySql",
-      "TailwindCss",
-    ],
-    testimonial: {
-      quote: "This e-commerce platform demonstrates expertise in building scalable solutions ready for business deployment.",
-      name: "Portfolio Developer",
-      role: "Full Stack Developer"
-    }
-  },
-  {
-    slug: "triply-travel-agency-website",
-    clientName: "Demo Project",
-    headline: "Travel Agency Website That Achieved 95/100 Mobile Score with 40% Form Completion",
-    problem: "Travel agencies needed modern, responsive websites to effectively showcase destinations, packages, and generate leads through booking inquiry forms.",
-    solution: "Designed and developed a modern travel agency website with focus on user experience and conversion optimization, featuring destination showcases, package details, booking inquiry forms, responsive design using TailwindCSS, fast loading performance, and strategically placed call-to-action elements.",
-    results: [
-      "Achieved 95/100 mobile responsiveness score",
-      "Built fast-loading website with 2.1s load time",
-      "Created 8-page travel website with comprehensive content",
-      "Implemented booking system with 40% form completion rate",
-      "Designed conversion-optimized layout for travel services"
-    ],
-    highlights: [
-      "Mobile-first responsive design",
-      "Booking inquiry system",
-      "Fast loading performance",
-      "Clean user interface"
-    ],
-    images: [
-      "/triply.png",
-      "/assets/p62.png",
-      "/assets/p63.png",
-      
-    ],
-    industry: "Travel & Tourism",
-    techStack: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "TailwindCss",
-    ],
-    testimonial: {
-      quote: "This travel agency website demonstrates expertise in creating conversion-optimized business websites.",
-      name: "Portfolio Developer",
-      role: "Full Stack Developer"
-    }
-  },
- */
-  
+
  
   
 ]
