@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui'
 import { MdArrowForward } from 'react-icons/md'
 import TechGrid from '../TechGrid'
+
 export function HeroSection() {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -21,14 +22,11 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 py-20 md:py-32">
-      {/* Background image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"/*  style={{ backgroundImage: "url('/hero-banner.jpg')" }} */></div>
-      <div className="absolute inset-0 bg-black/"></div>
+      <div className="absolute inset-0 bg-black/0"></div>
 
- <section className='absolute opacity-40 top-0 left-0  h-full w-full'>
+      <section className='absolute z-0 opacity-40 top-0 left-0 h-full w-full'>
         <TechGrid />
-
-  </section>
+      </section>
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -44,7 +42,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"
           variants={containerVariants}
@@ -54,7 +52,7 @@ export function HeroSection() {
           {/* Badge */}
           <motion.div variants={itemVariants}>
             <span className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-semibold text-primary mb-6">
-              🏆 Trusted Website Developer in Ujjain & Indore
+              🏆 Expert Freelance Website Developer in India
             </span>
           </motion.div>
 
@@ -63,16 +61,15 @@ export function HeroSection() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight mb-6"
             variants={itemVariants}
           >
-
-            Get More Customers with a <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-orange-400 to-red-400">Professional Website</span>
+            Custom <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-orange-400 to-red-400">Website Development</span> That Grows Your Business
           </motion.h1>
 
-          {/* Description */}
+          {/* Description - Increased word count with keywords */}
           <motion.p
-            className="text-lg md:text-xl text-muted-foreground text-balance max-w-2xl mx-auto mb-8"
+            className="text-lg md:text-xl text-muted-foreground text-balance max-w-3xl mx-auto mb-8 leading-relaxed"
             variants={itemVariants}
           >
-           Local website developer helping Ujjain & Indore businesses get more customers. Fast, mobile-friendly websites with SEO that actually bring real leads and sales.
+            Looking for affordable and high-performance web design? I help <strong>Small Businesses, Travel Agencies, and Freelancers</strong> across Mumbai, Delhi, and Bangalore get more customers. Get a mobile-friendly, SEO-optimized website built with Next.js that loads fast and ranks high on Google.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -88,7 +85,7 @@ export function HeroSection() {
             </Link>
             <Link href="/projects">
               <Button size="lg" variant="outline" className='hover:text-white'>
-                View Our Work
+                View Portfolio
               </Button>
             </Link>
           </motion.div>
@@ -100,15 +97,15 @@ export function HeroSection() {
           >
             <div className="text-center">
               <p className="text-2xl font-bold text-primary">5+</p>
-              <p className="text-sm text-muted-foreground">Customers Got More Business</p>
+              <p className="text-sm text-muted-foreground">Successful Projects</p>
             </div>
             <div className="text-center">
               <p className="text-2xl font-bold text-primary">3+</p>
-              <p className="text-sm text-muted-foreground">Years Local Experience</p>
+              <p className="text-sm text-muted-foreground">Years Experience</p>
             </div>
             <div className="text-center">
-              <p className="text-2xl font-bold text-primary">24hrs</p>
-              <p className="text-sm text-muted-foreground">Response Time</p>
+              <p className="text-2xl font-bold text-primary">100%</p>
+              <p className="text-sm text-muted-foreground">SEO Optimized</p>
             </div>
           </motion.div>
         </motion.div>

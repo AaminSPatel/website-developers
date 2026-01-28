@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -29,56 +28,54 @@ export function AboutClient() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
   };
 
+  // Values updated with specific Tech & Business keywords
   const values = [
     {
-      title: "Excellence",
+      title: "Technical Excellence",
       description:
-        "We deliver high-quality solutions that exceed expectations.",
+        "We don't use old templates. We build custom, fast-loading sites using Next.js & React.",
     },
     {
-      title: "Innovation",
-      description: "We stay ahead of trends and use cutting-edge technologies.",
+      title: "Business-Centric Innovation",
+      description: "We focus on features that bring sales, like WhatsApp integration and SEO structures.",
     },
     {
-      title: "Client-First",
-      description: "Your success is our success. We prioritize your goals.",
+      title: "Small Business Focus",
+      description: "We understand budget constraints and offer premium quality at affordable freelance rates.",
     },
     {
-      title: "Transparency",
-      description: "Clear communication and honest collaboration throughout.",
+      title: "100% Transparency",
+      description: "No hidden costs. Whether you are in Mumbai or Indore, you get clear pricing upfront.",
     },
     {
-      title: "Reliability",
-      description: "You can count on us to deliver on time and on budget.",
+      title: "Reliability & Speed",
+      description: "We respect deadlines. Most small business websites are delivered within 7-10 days.",
     },
     {
-      title: "Scalability",
-      description: "Solutions built to grow with your business.",
+      title: "Long-Term Growth",
+      description: "Our websites are scalable. Start small, and grow your digital presence as you earn.",
     },
   ];
 
   const team = [
     {
       name: "Aamin",
-      profilePic:'/profile.png',
+      profilePic: '/profile.png',
       role: "Lead Developer",
-      expertise: "Full-Stack Development",
+      expertise: "Full-Stack & Next.js",
     },
-    { name: "Shubham",
-      profilePic:'/shubh.jpeg', 
+    { 
+      name: "Shubham",
+      profilePic: '/shubh.jpeg', 
       role: "Design Lead", 
-      expertise: "UI/UX Design" },
+      expertise: "UI/UX & Branding" 
+    },
     {
       name: "Kuldeep",
-      profilePic:'/kuldeep.png',
-      role: "SEO Expert",
-      expertise: "SEO & Marketing",
+      profilePic: '/kuldeep.png',
+      role: "SEO Strategist",
+      expertise: "Local SEO & Marketing",
     },
-    /* {
-      name: "Emma Project Manager",
-      role: "PM",
-      expertise: "Project Management",
-    }, */
   ];
 
   return (
@@ -91,21 +88,21 @@ export function AboutClient() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">About Us</h1>
-          <p className="text-xl text-muted-foreground">
-            We're a team of passionate developers and designers dedicated to
-            creating exceptional digital experiences.
+          {/* H1 Optimized for broad search */}
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Expert Web Development Team in <span className="text-primary">India</span>
+          </h1>
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            Bridging the gap between affordable freelance rates and premium agency quality for businesses worldwide.
           </p>
         </motion.div>
-        <section className="absolute opacity-60 top-0 left-0  h-[70vh] w-full">
+        <section className="absolute opacity-60 top-0 left-0 h-[70vh] w-full">
           <TechGrid />
         </section>
-        <section className="absolute z-0 opacity-60 top-0 left-0  h-[30vh] w-full">
-          <DotsStructure />
-        </section>
+     
       </section>
 
-      {/* Our Story */}
+      {/* Our Story - Mixing Local Roots with National Reach */}
       <section className="py-20 md:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -115,24 +112,18 @@ export function AboutClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Founded in 2023, Website Developers began with a simple mission:
-              to help businesses succeed online. What started as a small team of
-              passionate developers has grown into a full-service web
-              development agency.
-            </p>
-            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
-              Over the years, we've had the privilege of working with startups,
-              small businesses, and enterprises across various industries. Each
-              project has taught us something new and helped us refine our
-              processes and expertise.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Today, we're committed to helping growth-focused businesses
-              leverage technology to achieve their goals and stay ahead of the
-              competition.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Journey: From Indore to India</h2>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+              <p>
+                Founded in 2023, our journey began in the historic cities of <strong>Indore and Ujjain</strong> with a simple mission: to make high-quality web development accessible to small businesses. We noticed that local businesses were often stuck with slow, outdated websites that didn't generate leads.
+              </p>
+              <p>
+                What started as a passion for coding has grown into a specialized <strong>Freelance Web Development Agency</strong>. Today, while we stay true to our roots in Madhya Pradesh, we proudly serve a diverse clientele—from <strong>Travel Agencies in Delhi</strong> needing complex booking engines to <strong>Startups in Bangalore</strong> looking for modern Next.js portfolios.
+              </p>
+              <p>
+                We believe you don't need a massive budget to have a world-class website. By keeping our operations lean and remote, we deliver <strong>Mumbai-agency quality work</strong> at a fraction of the cost, helping you dominate your local market.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -147,9 +138,9 @@ export function AboutClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Clients Choose Us?</h2>
             <p className="text-lg text-muted-foreground">
-              These principles guide everything we do
+              Our core principles that drive digital success
             </p>
           </motion.div>
 
@@ -162,10 +153,12 @@ export function AboutClient() {
           >
             {values.map((value, idx) => (
               <motion.div key={idx} variants={itemVariants}>
-                <Card variant="elevated">
+                <Card variant="elevated" className="h-full hover:shadow-lg transition-shadow">
                   <CardContent className="pt-6">
-                    <CardTitle className="mb-2">{value.title}</CardTitle>
-                    <CardDescription>{value.description}</CardDescription>
+                    <CardTitle className="mb-3 text-xl">{value.title}</CardTitle>
+                    <CardDescription className="text-base leading-relaxed">
+                      {value.description}
+                    </CardDescription>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -184,14 +177,14 @@ export function AboutClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-4">Our Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet The Experts</h2>
             <p className="text-lg text-muted-foreground">
-              Meet the talented people behind your success
+              A dedicated team of developers and SEO specialists working for your growth
             </p>
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -199,17 +192,20 @@ export function AboutClient() {
           >
             {team.map((member, idx) => (
               <motion.div key={idx} variants={itemVariants}>
-                <Card variant="elevated" className="text-center">
-                  <CardContent className="pt-6">
-                    <div className="w-20 h-20 bg-primary/50 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <img src={member.profilePic} alt={member.name + member.role + member.expertise}
-                      className="w-28 h-24 rounded-2xl" />
+                <Card variant="elevated" className="text-center hover:-translate-y-2 transition-transform duration-300">
+                  <CardContent className="pt-8 pb-8">
+                    <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden border-2 border-primary/20">
+                      <img 
+                        src={member.profilePic} 
+                        alt={`${member.name} - ${member.role} based in Indore`}
+                        className="w-full h-full object-cover" 
+                      />
                     </div>
-                    <CardTitle className="mb-1">{member.name}</CardTitle>
-                    <p className="text-sm font-medium text-primary mb-2">
+                    <CardTitle className="mb-2 text-xl">{member.name}</CardTitle>
+                    <p className="text-sm font-semibold text-primary mb-3 uppercase tracking-wide">
                       {member.role}
                     </p>
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="px-3 py-1">
                       {member.expertise}
                     </Badge>
                   </CardContent>
@@ -224,34 +220,34 @@ export function AboutClient() {
       <section className="py-20 md:py-32 bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             <motion.div variants={itemVariants}>
-              <p className="text-5xl font-bold mb-2">3+</p>
-              <p className="opacity-80">Years in Business</p>
+              <p className="text-4xl md:text-5xl font-bold mb-2">3+</p>
+              <p className="opacity-90 text-sm md:text-base">Years Experience</p>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="text-5xl font-bold mb-2">8+</p>
-              <p className="opacity-80">Projects Delivered</p>
+              <p className="text-4xl md:text-5xl font-bold mb-2">10+</p>
+              <p className="opacity-90 text-sm md:text-base">Websites Launched</p>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="text-5xl font-bold mb-2">5+</p>
-              <p className="opacity-80">Happy Clients</p>
+              <p className="text-4xl md:text-5xl font-bold mb-2">100%</p>
+              <p className="opacity-90 text-sm md:text-base">Client Satisfaction</p>
             </motion.div>
             <motion.div variants={itemVariants}>
-              <p className="text-5xl font-bold mb-2">₹50K+</p>
-              <p className="opacity-80">Revenue Influenced</p>
+              <p className="text-4xl md:text-5xl font-bold mb-2">24/7</p>
+              <p className="opacity-90 text-sm md:text-base">Support Available</p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 md:py-32 text-center">
+      <section className="py-20 md:py-32 text-center bg-background">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -259,13 +255,13 @@ export function AboutClient() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-bold mb-6">Ready to Work Together?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Let's Grow Your Business Online</h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Let's discuss how we can help bring your vision to life.
+              Whether you need a simple portfolio or a complex travel website, we are ready to build it.
             </p>
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="group">
-                Get in Touch
+              <Button size="lg" variant="default" className="group px-8 py-6 text-lg">
+                Start Your Project
                 <MdArrowForward className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

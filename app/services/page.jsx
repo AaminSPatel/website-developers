@@ -1,12 +1,43 @@
 import { ServicesClient } from './ServicesClient'
 
 export const metadata = {
-  title: 'Freelance Web Development Services India | Custom Website Design & Development | Next.js, React, SEO Optimization | Affordable Websites Under ₹1.3 Lakh',
-  description: 'Discover comprehensive freelance web development services in India tailored for small businesses, startups, and entrepreneurs. Our expert team specializes in custom website design and development using cutting-edge technologies like Next.js, React, and Tailwind CSS. Get professional web development services including responsive website design, SEO optimization, e-commerce development, mobile-friendly websites, and ongoing maintenance - all under ₹1.3 lakh. We deliver high-quality, fast-loading websites that rank well on search engines and drive customer conversions. From initial consultation to launch and beyond, our skilled developers provide end-to-end web solutions that transform your online presence. Choose from our affordable packages designed for different business needs, including business websites, portfolio sites, restaurant websites, and professional service websites. Benefit from our technical expertise, creative design approach, and commitment to delivering websites that not only look great but also perform exceptionally well in attracting and retaining customers.',
-  keywords: 'freelance web development services India, custom website design, Next.js development services, React web development, SEO optimization experts, responsive website design, affordable websites under ₹1.3 lakh, small business web solutions, startup website development, entrepreneur web services, e-commerce website development, mobile-friendly website design, professional website portfolios, restaurant website development, business website creation, portfolio website design, web development packages, technical expertise web, creative web design, customer conversion websites, search engine ranking, fast-loading websites, end-to-end web solutions, online presence transformation, website maintenance services, web development consultation, affordable web packages, business growth websites, digital transformation services, website performance optimization, user experience design, conversion rate optimization, lead generation websites, customer acquisition tools, web development projects, modern web technologies, Tailwind CSS development',
+  // Title: Service + Location + Niche
+  title: 'Web Development Services India | Travel, Small Business & Portfolio Websites',
+  
+  // Description: Problem Solving Approach + Tech + ROI
+  description: 'Looking for expert Web Development Services in India? We specialize in building fast, SEO-optimized websites for Travel Agencies, Small Businesses, and Freelancers using Next.js & React. From custom e-commerce stores to personal portfolios, get a mobile-friendly site that drives sales. Affordable packages starting under ₹1.3 Lakh.',
+  
+  // Keywords Strategy: Broken down by category
+  keywords: [
+    // Core Services
+    'web development services India',
+    'custom website design company',
+    'Next.js development services',
+    'freelance web developer India',
+    
+    // Niche Specific
+    'travel agency website development',
+    'small business website packages',
+    'personal portfolio website builder',
+    'restaurant website design',
+    
+    // Location Based
+    'web developer in Indore',
+    'website design Mumbai',
+    'affordable web development Delhi',
+    
+    // Tech & Benefits
+    'SEO friendly website design',
+    'mobile responsive web development',
+    'fast loading websites',
+    'React js developer for hire'
+  ].join(', '),
+  
   openGraph: {
-    title: 'Freelance Web Development Services India | Custom Website Design & Development | Next.js, React, SEO Optimization',
-    description: 'Discover comprehensive freelance web development services in India. Custom website design, Next.js development, SEO optimization, responsive websites under ₹1.3 lakh for small businesses.'
+    title: 'Web Development Services India | Grow Your Business Online',
+    description: 'Custom websites for Travel Agencies, Startups & Freelancers. Fast, SEO-ready, and Affordable.',
+    url: 'https://yourwebsite.com/services', // Apna URL add karein
+    type: 'website',
   }
 }
 

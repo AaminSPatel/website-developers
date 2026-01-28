@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Card, CardContent, Badge } from '@/components/ui'
+import { Card, Badge } from '@/components/ui'
 import { MdStar } from 'react-icons/md'
 
 export function TestimonialsSection() {
@@ -10,28 +10,28 @@ export function TestimonialsSection() {
       id: 1,
       name: 'Sarah Johnson',
       title: 'CEO, TechStartup Inc',
-      text: 'Exceptional work! They transformed our vision into a stunning reality. Highly recommended.',
+      text: 'Exceptional work! They transformed our vision into a stunning reality. The website is fast, looks great on mobile, and our leads have increased significantly.',
       rating: 5
     },
     {
       id: 2,
       name: 'Mike Chen',
-      title: 'Founder, Digital Co',
-      text: 'Professional, responsive, and delivered on time. Great experience working with this team.',
+      title: 'Founder, Travel Agency',
+      text: 'Professional, responsive, and delivered on time. The booking features they built for our travel portal are working perfectly. Highly recommended for tourism websites.',
       rating: 5
     },
     {
       id: 3,
       name: 'Emma Davis',
       title: 'Marketing Director',
-      text: 'Outstanding design and development. They really understood our needs.',
+      text: 'Outstanding design and development. They really understood our SEO needs and created a site that actually ranks. Great experience working with this freelance team.',
       rating: 5
     },
     {
       id: 4,
       name: 'John Wilson',
       title: 'Business Owner',
-      text: 'Best investment we made. Our website generates leads consistently now.',
+      text: 'Best investment we made. Our local business website generates leads consistently now. The direct WhatsApp support makes everything so easy.',
       rating: 5
     }
   ]
@@ -61,10 +61,11 @@ export function TestimonialsSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            What Our Clients Say
+            Trusted by Businesses Across India
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Trusted by leading businesses and startups worldwide
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            From ambitious startups in Bangalore to established Travel Agencies in Delhi, 
+            see why business owners trust us for their web development needs.
           </p>
         </motion.div>
 
@@ -79,9 +80,8 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial) => (
             <motion.div
             initial={{ opacity: 0, y: 20, scale:0.5 }}
-          whileInView={{ opacity: 1, y: 0, scale:1 }}
-          /* viewport={{ once: true }} */
-          transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0, scale:1 }}
+            transition={{ duration: 0.6 }}
             key={testimonial.id} variants={itemVariants}>
               <Card variant="elevated" className="h-full flex flex-col p-6 hover:shadow-lg transition-shadow">
                 {/* Stars */}
@@ -92,21 +92,21 @@ export function TestimonialsSection() {
                 </div>
 
                 {/* Testimonial text */}
-                <p className="text-foreground mb-6 flex-1 leading-relaxed">
+                <p className="text-foreground mb-6 flex-1 leading-relaxed text-sm">
                   "{testimonial.text}"
                 </p>
 
                 {/* Author */}
                 <div>
                   <p className="font-semibold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                  <p className="text-xs text-muted-foreground">{testimonial.title}</p>
                 </div>
               </Card>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Trust badges */}
+        {/* Trust badges - Enhanced Text */}
         <motion.div
           className="mt-16 pt-12 border-t border-border flex flex-wrap justify-center gap-4"
           initial={{ opacity: 0 }}
@@ -114,13 +114,13 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <Badge variant="secondary" className="text-base py-2">
-            ⭐ 4.9/5 Average Rating
+          <Badge variant="secondary" className="text-sm py-2 px-4">
+            ⭐ 5-Star Rated Service
           </Badge>
-          <Badge variant="secondary" className="text-base py-2">
-            🏆 Award-Winning
+          <Badge variant="secondary" className="text-sm py-2 px-4">
+            🏆 Expert Development Team
           </Badge>
-          <Badge variant="secondary" className="text-base py-2">
+          <Badge variant="secondary" className="text-sm py-2 px-4">
             ✅ 100% Client Satisfaction
           </Badge>
         </motion.div>

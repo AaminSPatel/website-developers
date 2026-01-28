@@ -10,12 +10,12 @@ function TechGrid1() {
       renderOrder={-1}
       position={[0, -1.5, 0]}
       infiniteGrid
-      cellSize={0.6}
+      cellSize={1.0}
       cellThickness={1}
       sectionSize={3}
       sectionThickness={1.5}
       sectionColor="#ff4433"
-      fadeDistance={45}
+      fadeDistance={25}
     />
   );
 }

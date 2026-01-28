@@ -3,9 +3,7 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui'
-import { MdArrowForward, MdCall } from 'react-icons/md'
-import ParticleStorm from '../ParticleStorm'
-import TechSphere from '../TechSphere'
+import { MdCall, MdEmail } from 'react-icons/md'
 import { contact } from '../../app/data/Contact'
 
 export function CtaSection() {
@@ -19,13 +17,7 @@ export function CtaSection() {
           transition={{ duration: 8, repeat: Infinity }}
         />
       </div>
- <section className='absolute opacity-80 top-0 left-0  h-[60vh] w-screen'>
-        <ParticleStorm />
-  </section> 
-  <section className='absolute flex items-start justify-center z-0 opacity-40 lg:-top-10 md:-top-10 left-0  h-[60vh] w-screen'>
-       
- <TechSphere line={8} />
-  </section>
+
       <div className="relative max-w-4xl z-20 mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -33,11 +25,14 @@ export function CtaSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Let’s Build a Website That Brings You Customers
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+            Ready to Build a Website That Actually Brings Customers?
           </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            If you are a business owner and want a professional website that actually works, let’s talk.
+          
+          <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+            Stop losing potential clients to competitors with outdated websites. 
+            Whether you run a <strong>Travel Agency</strong> needing a booking portal, or a <strong>Small Business</strong> looking for local visibility, 
+            I provide custom web development solutions that fit your budget and goals.
           </p>
 
           <motion.div
@@ -47,34 +42,36 @@ export function CtaSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-         <Link href="tel:+919202302304">
-  <Button 
-    size="lg"
-    className="bg-primary-foreground text-primary hover:bg-opacity-90 group"
-  >
-    Get Free Website Consultation Now
-    <MdCall className="ml-2 group-hover:translate-x-1 transition-transform" />
-  </Button>
-</Link>
-
-            <Link href="/projects">
+            <Link href="tel:+919302088025">
               <Button 
                 size="lg"
-                className="border-2 border-primary-foreground hover:text-primary text-primary-foreground hover:bg-primary-foreground/10"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 group px-8"
               >
-                View Projects
+                Get Free Website Consultation
+                <MdCall className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+
+            <Link href="/contact">
+              <Button 
+                size="lg"
+                variant="outline"
+                className="border-2 hover:bg-muted group px-8"
+              >
+                Request a Quote
+                <MdEmail className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </motion.div>
 
           <motion.p
-            className="mt-8 text-muted-foreground text-sm"
+            className="mt-10 text-muted-foreground text-sm"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            📞 Or call us at {contact.phone} for a quick consultation
+            ⚡ Fast Response Guaranteed • 📞 Direct Support at {contact.phone}
           </motion.p>
         </motion.div>
       </div>

@@ -35,7 +35,9 @@ export const projectDetails = [
     testimonial: {
       quote: "This website transformed how we do business. We're now getting 3x more inquiries and closing deals faster than ever.",
       name: "Rajesh Kumar",
-      role: "Owner, Avantika Travels"
+      role: "Owner, Avantika Travels",
+    avatar: "/images/clients/rahul.jpg" // Optional (agar photo na ho to hum initial use kar lenge)
+  
     }
   },
   {

@@ -5,58 +5,66 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
 import { motion } from 'framer-motion'
-import { Card, CardContent, Badge, Button, Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui'
-import Autoplay from "embla-carousel-autoplay"
-import { MdArrowBack, MdCall, MdLaunch } from 'react-icons/md'
+import { Badge, Button, Card, CardContent } from '@/components/ui'
+import { MdArrowBack, MdLaunch, MdStar } from 'react-icons/md'
+import { FaPhone, FaWhatsapp, FaQuoteLeft } from 'react-icons/fa'
 import { projectDetails } from '../../data/Projects'
 import { contact } from '../../data/Contact'
-import { FaPhone, FaWhatsapp } from 'react-icons/fa'
 
 export function ProjectSlugClient({ slug }) {
   const [project, setProject] = useState(null)
+  
   useEffect(() => {
-    //console.log('slug',slug);
-    
     const foundProject = projectDetails?.find(p => p.slug === slug)
-   // console.log('found project', foundProject);
-    
     setProject(foundProject)
   }, [slug])
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="animate-pulse flex flex-col items-center">
+            <div className="h-4 w-32 bg-muted rounded mb-4"></div>
+            <p className="text-muted-foreground">Loading Case Study...</p>
+        </div>
       </div>
     )
   }
 
-  // Structured data for SEO
+  // Enhanced Structured Data with Review
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": project.headline,
+    "@type": "CreativeWork",
+    "name": `${project.headline} Case Study`,
+    "headline": project.headline,
     "description": project.problem,
-    "url": `${contact.url}/projects/${slug}`,
     "image": project.images[0],
-    "applicationCategory": "WebApplication",
-    "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
     "author": {
-      "@type": "Person",
-      "name": "Portfolio Developer"
+      "@type": "Organization",
+      "name": "Website Developers India"
     },
-    "keywords": project.techStack ? project.techStack.join(", ") : [],
-    "featureList": project.highlights || [],
-    "screenshot": project.images
+    "keywords": project.techStack ? project.techStack.join(", ") : "",
+    "url": `${contact.url}/projects/${slug}`,
+    ...(project.link && { "sameAs": project.link }),
+    // Adding Review Schema for Rich Snippets
+    ...(project.testimonial && {
+      "review": {
+        "@type": "Review",
+        "author": {
+          "@type": "Person",
+          "name": project.testimonial.name
+        },
+        "reviewBody": project.testimonial.content,
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        }
+      }
+    })
   }
 
   return (
-    <>
+    <article className="min-h-screen bg-background text-foreground">
       <Head>
         <script
           type="application/ld+json"
@@ -65,57 +73,60 @@ export function ProjectSlugClient({ slug }) {
           }}
         />
       </Head>
-      <div className="min-h-screen bg-background">
+
       {/* Hero Section */}
-      <section className="bg-muted/30 py-16 md:py-24">
+      <header className="bg-muted/30 py-16 md:py-24 border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/projects" className="inline-flex items-center text-muted-foreground hover:text-foreground mb-8">
-            <MdArrowBack className="mr-2" />
+          <Link href="/projects" className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors mb-8 group">
+            <MdArrowBack className="mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Case Studies
           </Link>
 
           <div className="text-center mb-8">
-            <Badge variant="outline" className="mb-4">
-              {project.industry || "Business Solution"}
+            <Badge variant="secondary" className="mb-4 text-sm px-3 py-1 uppercase tracking-wide">
+              {project.industry || "Web Development"}
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              {project.headline || project.name}
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+              {project.headline}
             </h1>
-            <p className="text-xl text-muted-foreground mb-6">
-              {project.clientName && `Client: ${project.clientName}`}
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              How we helped {project.clientName || "our client"} achieve digital success.
             </p>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={`tel:${contact.phone.replace(/\D/g, '')}`}>
-              <Button size="lg" variant="outline" className="group">
-                Build a Similar Website <FaPhone />
-              </Button>
-            </a>
-            <a href={`https://wa.me/${contact.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hi Aamin, I saw your ${project.headline} project and want to know more about this project and budget.`)}`} target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="secondary">
-                WhatsApp Us <FaWhatsapp />
-              </Button>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              {project.link && (
+                 <a href={project.link} target="_blank" rel="noopener noreferrer">
+                   <Button size="lg" variant="primary" className="shadow-lg hover:shadow-primary/25">
+                     Visit Live Website <MdLaunch className="ml-2" />
+                   </Button>
+                 </a>
+              )}
+
+              <a href={`https://wa.me/${contact.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hi, I saw the ${project.headline} case study. I'm interested in a similar website.`)}`} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="border-green-500 text-green-600 hover:bg-green-50 hover:text-green-700">
+                  Discuss on WhatsApp <FaWhatsapp className="ml-2 text-lg" />
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
-      </section>
+      </header>
 
       {/* The Problem */}
-      <section className="py-16 bg-muted/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-background">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">The Problem</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center">The Challenge</h2>
             <div className="text-lg text-muted-foreground leading-relaxed">
               {project.problem ? (
                 <p>{project.problem}</p>
               ) : (
-                <p>Our client was struggling with outdated online presence and losing potential customers to competitors. Their basic website couldn't handle modern business requirements effectively.</p>
+                <p>The client needed a robust digital solution to overcome operational inefficiencies and improve their online visibility in a competitive market.</p>
               )}
             </div>
           </motion.div>
@@ -123,59 +134,22 @@ export function ProjectSlugClient({ slug }) {
       </section>
 
       {/* The Solution */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-muted/20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">The Solution</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center">Our Approach</h2>
             <div className="text-lg text-muted-foreground leading-relaxed">
               {project.solution ? (
                 <p>{project.solution}</p>
               ) : (
-                <div className="prose prose-lg max-w-none">
-                  {project?.details?.split('\n').map((paragraph, idx) => (
-                    <p key={idx}>{paragraph?.trim()}</p>
-                  ))}
+                <div className="prose prose-lg max-w-none text-muted-foreground">
+                    <p>We implemented a custom Next.js solution focusing on speed, SEO, and user conversion.</p>
                 </div>
-              )}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* The Results */}
-      <section className="py-16 bg-primary/5">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">The Results</h2>
-            <div className="grid gap-4">
-              {project.results ? (
-                project.results.map((result, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <span className="text-primary text-2xl mr-4">✓</span>
-                    <p className="text-lg">{result}</p>
-                  </div>
-                ))
-              ) : project.businessMetrics ? (
-                Object.entries(project.businessMetrics).map(([key, value]) => (
-                  <div key={key} className="flex items-start">
-                    <span className="text-primary text-2xl mr-4">✓</span>
-                    <p className="text-lg capitalize">
-                      {key.replace(/([A-Z])/g, ' $1').trim()}: {value}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-lg text-muted-foreground">Measurable business results achieved through this solution.</p>
               )}
             </div>
           </motion.div>
@@ -183,124 +157,120 @@ export function ProjectSlugClient({ slug }) {
       </section>
 
       {/* Visual Proof */}
-      <section className="py-16">
+      <section className="py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Visual Proof</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {project?.images?.slice(0, 6).map((image, idx) => (
-                <div key={idx} className="relative h-64 rounded-lg overflow-hidden group">
-                  <Image
-                    src={image}
-                    alt={`${project.headline} - Screenshot ${idx + 1}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+           <h2 className="text-3xl font-bold mb-10 text-center">Project Gallery</h2>
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             {project?.images?.map((img, idx) => (
+                <div key={idx} className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-border">
+                    <Image 
+                        src={img} 
+                        alt={`${project.headline} Screenshot ${idx + 1}`}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-500"
+                    />
                 </div>
-              ))}
-            </div>
-          </motion.div>
+             ))}
+           </div>
         </div>
       </section>
 
-      {/* What This Website Does For The Business */}
-      <section className="py-16 bg-muted/20">
+      {/* The Results */}
+      <section className="py-16 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              What This Website Does For The Business
-            </h2>
-            <div className="grid gap-4">
-              {project.highlights ? (
-                project.highlights.map((highlight, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <span className="text-primary text-2xl mr-4">✓</span>
-                    <p className="text-lg">{highlight}</p>
-                  </div>
-                ))
-              ) : project.keyFeatures ? (
-                project.keyFeatures.slice(0, 5).map((feature, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <span className="text-primary text-2xl mr-4">✓</span>
-                    <p className="text-lg">{feature}</p>
+            <h2 className="text-3xl font-bold mb-10 text-center">Impact & Results</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {project.results ? (
+                project.results.slice(0,3).map((result, idx) => (
+                  <div key={idx} className="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
+                    <span className="text-3xl font-bold mb-2 block">✓</span>
+                    <p className="text-lg font-medium">{result}</p>
                   </div>
                 ))
               ) : (
-                <div className="text-lg text-muted-foreground">
-                  <p>This website delivers measurable business benefits including increased leads, improved customer engagement, and streamlined operations.</p>
-                </div>
+                <p className="text-center w-full">Project delivered successfully with high client satisfaction.</p>
               )}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Technologies */}
-      <section className="py-12 bg-muted/30">
+      {/* NEW: Client Testimonial Section */}
+      {project.testimonial && (
+        <section className="py-20 bg-background relative overflow-hidden">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                >
+                    <div className="text-center mb-8">
+                         <h2 className="text-3xl font-bold mb-2">What the Client Says</h2>
+                         <div className="flex justify-center gap-1 text-yellow-400">
+                             {[...Array(5)].map((_, i) => <MdStar key={i} size={24} />)}
+                         </div>
+                    </div>
+                    
+                    <Card className="bg-muted/30 border-primary/20 relative">
+                        <div className="absolute top-0 left-0 -mt-6 ml-6 text-primary/20">
+                            <FaQuoteLeft size={60} />
+                        </div>
+                        <CardContent className="p-8 md:p-12 text-center">
+                            <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 relative z-10">
+                                "{project.testimonial.content}"
+                            </blockquote>
+                            
+                            <div className="flex items-center justify-center gap-4">
+                                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-lg overflow-hidden">
+                                   {project.testimonial.avatar ? (
+                                     <Image src={project.testimonial.avatar} alt={project.testimonial.name} width={48} height={48} className="object-cover" />
+                                   ) : (
+                                     project.testimonial.name.charAt(0)
+                                   )}
+                                </div>
+                                <div className="text-left">
+                                    <div className="font-bold text-foreground">{project.testimonial.name}</div>
+                                    <div className="text-sm text-muted-foreground">{project.testimonial.role}</div>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </motion.div>
+            </div>
+        </section>
+      )}
+
+      {/* Tech Stack */}
+      <section className="py-16 bg-muted/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-2xl font-bold mb-6">Technologies Used</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {project.techStack.map((tech, idx) => (
-                <Card key={idx} className="text-center p-4">
-                  <CardContent className="p-0">
-                    <p className="font-semibold">{tech}</p>
-                  </CardContent>
-                </Card>
+            <h2 className="text-2xl font-bold mb-8 text-center">Technology Stack</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {project.techStack?.map((tech, idx) => (
+                <Badge key={idx} variant="secondary" className="px-4 py-2 text-base">
+                  {tech}
+                </Badge>
               ))}
             </div>
-          </motion.div>
         </div>
       </section>
 
-      {/* Strong Closing CTA Section */}
-      <section className="py-20 bg-primary/10">
+      {/* Bottom CTA */}
+      <section className="py-20 bg-muted/30 border-t border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Want Similar Results for Your Business?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-8">
-              Let's discuss how we can transform your business with a high-converting website.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={`tel:${contact.phone}`}  className='w-fit mx-auto'>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-4 cursor-pointer">
-                  Call Now: {contact.phone}
-                </Button>
-              </a>
-              <a href={`https://wa.me/${contact.phone.replace(/\D/g, '')}?text=${encodeURIComponent(`Hi Aamin, I saw your ${project.headline} project and want to know more about this project and budget.`)}`} target="_blank" rel="noopener noreferrer" className='w-fit mx-auto'>
-                <Button size="lg" variant="secondary" className="text-lg px-8 py-4 cursor-pointer">
-                  WhatsApp Us <FaWhatsapp size={21} className='text-green-500 p-0.5 scale-125 bg-white rounded-full'/>
-                </Button>
-              </a>
-
-            </div>
-          </motion.div>
+            <h2 className="text-3xl font-bold mb-4">Need a website like this?</h2>
+            <p className="text-muted-foreground mb-8">Let's build a high-performance website for your business.</p>
+            <a href={`tel:${contact.phone.replace(/\D/g, '')}`}>
+              <Button size="lg" variant="primary" className="px-8 shadow-xl">
+                Start Your Project <FaPhone className="ml-2" />
+              </Button>
+            </a>
         </div>
       </section>
-    </div>
-    </>
+    </article>
   )
 }

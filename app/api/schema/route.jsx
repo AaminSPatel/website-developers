@@ -1,197 +1,175 @@
 import { contact } from "../../data/Contact"
 
 export async function GET() {
+  const baseUrl = 'https://website-developers.vercel.app' // Centralized URL
+  const mainKeyword = "Freelance Web Developer India"
+
   const schemas = {
+    // 1. Organization & Local Business Schema (The most important one)
     organization: {
       '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Website Developers',
-      url: 'https://website-developers.vercel.app',
-      logo: 'https://website-developers.vercel.app/logo.png',
-      description: 'Professional freelance web development services for startups and businesses.',
+      '@type': 'ProfessionalService', // Better than 'Organization' for freelancers/agencies
+      name: 'Website Developers India',
+      image: `${baseUrl}/logo.png`,
+      url: baseUrl,
+      telephone: contact.phone,
+      email: contact.email,
+      priceRange: '₹15,000 - ₹1,50,000', // Helps appear in rich snippets
+      description: `Top-rated ${mainKeyword} offering custom Next.js and React websites. specialized in Travel Agency Portals, Small Business Websites, and SEO services under ₹1.3 Lakh.`,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Indore',
+        addressRegion: 'Madhya Pradesh',
+        addressCountry: 'IN'
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '22.7196', // Indore Coordinates
+        longitude: '75.8577'
+      },
       foundingDate: '2023',
-      founders: [
-        {
-          '@type': 'Person',
-          name: 'Website Developers'
-        }
-      ],
+      founder: {
+        '@type': 'Person',
+        name: 'Aamin', // Aapka naam ya Brand Owner ka naam
+        jobTitle: 'Senior Web Developer'
+      },
       sameAs: [
         'https://www.linkedin.com/company/website-developers',
-        'https://www.twitter.com/websitedevelopers',
-        'https://www.github.com/websitedevelopers'
+        'https://www.instagram.com/websitedevelopers',
+        'https://www.facebook.com/websitedevelopers'
       ],
-      contactPoint: {
-        '@type': 'ContactPoint',
-        telephone: contact.phone,
-        contactType: 'Customer Service',
-        areaServed: 'IN',
-        availableLanguage: 'en'
+      openingHoursSpecification: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday'
+        ],
+        opens: '09:00',
+        closes: '20:00'
       }
     },
 
+    // 2. WebSite Schema (For Sitelinks Search Box)
+    website: {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      url: baseUrl,
+      name: 'Website Developers India',
+      alternateName: 'Freelance Web Developer Indore',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${baseUrl}/search?q={search_term_string}`,
+        'query-input': 'required name=search_term_string'
+      }
+    },
+
+    // 3. Services Schema (ItemList)
     services: {
       '@context': 'https://schema.org',
-      '@type': 'LocalBusiness',
-      name: 'Website Developers',
-      description: 'Web Development & Design Services',
-      areaServed: {
-        '@type': 'Country',
-        name: 'IN'
-      },
-      offers: [
+      '@type': 'ItemList',
+      itemListElement: [
         {
           '@type': 'Service',
-          name: 'Web Design',
-          description: 'Beautiful, modern designs that convert visitors into customers.',
-          areaServed: 'IN'
+          position: 1,
+          name: 'Custom Website Development',
+          description: 'Tailored Next.js and React websites for startups and small businesses in India.',
+          provider: {
+            '@type': 'ProfessionalService',
+            name: 'Website Developers India'
+          }
         },
         {
           '@type': 'Service',
-          name: 'Web Development',
-          description: 'High-performance, scalable websites built with latest technologies.',
-          areaServed: 'IN'
+          position: 2,
+          name: 'Travel Portal Development',
+          description: 'Booking engines and itinerary management systems for Travel Agencies.',
+          provider: {
+            '@type': 'ProfessionalService',
+            name: 'Website Developers India'
+          }
         },
         {
           '@type': 'Service',
-          name: 'E-Commerce Solutions',
-          description: 'Powerful e-commerce solutions with payment integration and analytics.',
-          areaServed: 'IN'
-        },
-        {
-          '@type': 'Service',
-          name: 'SEO & Marketing',
-          description: 'Increase visibility and drive organic traffic to your website.',
-          areaServed: 'IN'
+          position: 3,
+          name: 'Local SEO Services',
+          description: 'Ranking local businesses in Indore, Mumbai, and Delhi on Google Maps.',
+          provider: {
+            '@type': 'ProfessionalService',
+            name: 'Website Developers India'
+          }
         }
       ]
     },
 
+    // 4. FAQ Schema (Expanded for Voice Search)
     faq: {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
       mainEntity: [
         {
           '@type': 'Question',
-          name: 'What is your typical project timeline?',
+          name: 'How much does a freelance web developer cost in India?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Most projects take between 4-12 weeks depending on complexity and scope. We break down the project into phases and keep you updated throughout the process.'
+            text: 'Our freelance web development packages start from ₹15,000 for basic business websites and go up to ₹1.3 Lakh for complex custom applications like Travel Portals or E-commerce stores.'
           }
         },
         {
           '@type': 'Question',
-          name: 'Do you provide ongoing support and maintenance?',
+          name: 'Do you provide website maintenance services?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Yes! We offer ongoing support and maintenance packages to keep your website running smoothly, secure, and up-to-date with the latest features.'
+            text: 'Yes, we offer ongoing support and maintenance. This includes server monitoring, content updates, and security patches to keep your business online 24/7.'
           }
         },
         {
           '@type': 'Question',
-          name: 'What technologies do you use?',
+          name: 'Why choose Next.js over WordPress?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'We primarily use Next.js, React, Node.js, PostgreSQL, and other modern technologies. We choose the best stack for your specific needs.'
+            text: 'We use Next.js because it is significantly faster, more secure, and ranks better on Google compared to traditional WordPress sites. It provides a premium user experience for your customers.'
           }
         },
         {
           '@type': 'Question',
-          name: 'Will my website be optimized for SEO?',
+          name: 'Can you build websites for clients outside Indore?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Absolutely. We implement comprehensive SEO best practices including semantic HTML, meta tags, schema markup, and performance optimization.'
+            text: 'Absolutely. While we are based in Indore, we serve clients across Mumbai, Bangalore, Delhi, and internationally using remote collaboration tools.'
           }
         }
       ]
     },
 
-    breadcrumb: {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: 'https://website-developers.vercel.app/'
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Services',
-          item: 'https://website-developers.vercel.app/services'
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: 'Projects',
-          item: 'https://website-developers.vercel.app/projects'
-        },
-         {
-          '@type': 'ListItem',
-          position: 4,
-          name: 'Blogs',
-          item: 'https://website-developers.vercel.app/blog'
-        },
-        {
-          '@type': 'ListItem',
-          position: 5,
-          name: 'Contact',
-          item: 'https://website-developers.vercel.app/contact'
-        },
-
-      ]
-    },
-
+    // 5. Portfolio/Case Studies Schema
     caseStudies: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: 'Web Development Case Studies',
-      description: 'Comprehensive collection of freelance web development case studies showcasing successful projects, measurable results, and business transformations in India.',
-      url: 'https://website-developers.vercel.app/projects',
+      name: 'Web Development Projects Portfolio',
+      description: `Case studies of successful projects delivered by our ${mainKeyword} team.`,
+      url: `${baseUrl}/projects`,
       mainEntity: {
         '@type': 'ItemList',
-        name: 'Case Studies',
-        description: 'Real-world examples of successful web development projects with detailed results and outcomes.',
-        numberOfItems: 8,
         itemListElement: [
           {
             '@type': 'CreativeWork',
-            '@id': 'https://website-developers.vercel.app/projects/safar-sathi-multi-service-growth',
-            name: 'Safar Sathi Booking Website Development',
-            description: 'We built a unified multi-service booking platform that combines ride-hailing, hotel bookings, and logistics services in one seamless experience. The platform features real-time driver tracking, instant hotel availability, and integrated payment processing. We created separate dashboards for customers, drivers, and hotel managers to streamline operations and improve service delivery.',
-            creator: {
-              '@type': 'Organization',
-              name: 'Website Developers'
-            },
-            datePublished: '2025-11-15',
-            about: {
-              '@type': 'Thing',
-              name: 'Booking Platform Website'
-            }
+            position: 1,
+            name: 'Safar Sathi - Travel Booking Platform',
+            description: 'A multi-service travel booking website with real-time tracking.',
+            url: `${baseUrl}/projects/safar-sathi-multi-service-growth`
           },
           {
             '@type': 'CreativeWork',
-            '@id': 'https://website-developers.vercel.app/projects/avantika-travels-booking-increase',
-            name: 'Avantika Travels Website',
-            description: 'We built a comprehensive travel booking platform that puts customer convenience first. The new website features instant WhatsApp integration, allowing potential travelers to connect immediately with booking agents. We created an intuitive package browsing system with detailed destination information, pricing, and booking forms that convert visitors into paying customers.',
-            creator: {
-              '@type': 'Organization',
-              name: 'Website Developers'
-            },
-            datePublished: '2026-01-21',
-            about: {
-              '@type': 'Thing',
-              name: 'Travel Agency Website'
-            }
+            position: 2,
+            name: 'Avantika Travels - Agency Website',
+            description: 'High-conversion travel agency website with WhatsApp booking integration.',
+            url: `${baseUrl}/projects/avantika-travels-booking-increase`
           }
         ]
-      },
-      provider: {
-        '@type': 'Organization',
-        name: 'Website Developers',
-        url: 'https://website-developers.vercel.app'
       }
     }
   }
@@ -199,7 +177,7 @@ export async function GET() {
   return Response.json(schemas, {
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'public, max-age=3600'
+      'Cache-Control': 'public, s-maxage=86400, stale-while-revalidate=43200' // Cache for 24 hours
     }
   })
 }

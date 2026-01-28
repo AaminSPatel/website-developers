@@ -14,7 +14,7 @@ function PyramidStructure() {
 
   return (
     <mesh ref={meshRef}>
-      <coneGeometry args={[2, 3, 4]} />
+      <coneGeometry args={[1.5, 2.5, 3]} />
       <meshBasicMaterial
         color="#8b5cf6"
         wireframe
