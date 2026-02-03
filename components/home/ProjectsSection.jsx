@@ -63,7 +63,7 @@ export function ProjectsSection() {
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={project.images[0]}
-                      alt={`${project.headline} - Website Project`}
+                      alt={`${project.headline} - Website design for small business in Indore`}
                       width={400}
                       height={300}
                       className="w-full h-full object-contain scale-90"

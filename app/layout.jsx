@@ -71,7 +71,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+      
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZLQWR4XK1R"></script>
+
+
         <meta name="google-site-verification" content="Gw0kKrcBORBSuCsj5fpyVGYEYahY47h7CpJufGEWshY" />
+      
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -126,6 +131,7 @@ export default function RootLayout({ children }) {
             })
           }}
         />
+        
       </head>
       <body className="font-sans antialiased bg-background text-foreground">
         <AppClient>
