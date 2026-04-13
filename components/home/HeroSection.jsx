@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui'
 import { MdCall, MdArrowForward } from 'react-icons/md'
-import TechGrid from '../TechGrid'
+import SquircleButton from '../SquircleButton'
+import Squircle3D from '../Squircle3D'
 
 export function HeroSection() {
   const containerVariants = {
@@ -17,9 +18,9 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-primary/5 py-20 md:py-32">
-      <section className='absolute z-0 opacity-40 top-0 left-0 h-full w-full'>
+      {/* <section className='absolute z-0 opacity-40 top-0 left-0 h-full w-full'>
         <TechGrid />
-      </section>
+      </section> */}
 
       <div className="relative z-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="text-center" variants={containerVariants} initial="hidden" animate="visible">
@@ -39,15 +40,35 @@ export function HeroSection() {
 
           <motion.div className="flex flex-col sm:flex-row gap-4 justify-center items-center" variants={itemVariants}>
             <Link href="tel:+919302088025">
-              <Button size="lg" variant="primary" className="group border-2 border-accent">
+              {/* <Button size="lg" variant="primary" className="group border-2 border-accent">
                 Free Website Consultation
                 <MdCall className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              </Button> */}
+              {/* <SquircleButton
+        color="orange"
+        label={`Free Website Consultation`}
+        icon=""
+        className="w-full"
+      />  */}
+       <SquircleButton
+        color="orange"
+        icon="phone"
+        label='Free Website Consultation'
+        
+        floatig
+      />
+
             </Link>
             <Link href="/projects">
-              <Button size="lg" variant="outline" className='hover:text-white'>
+           {/*    <Button size="lg" variant="outline" className='hover:text-white'>
                 View Case Studies
-              </Button>
+              </Button> */}
+              <SquircleButton
+        color="white"
+        label="View Case Studies"
+        className='px-4'
+      />
+      
             </Link>
           </motion.div>
         </motion.div>

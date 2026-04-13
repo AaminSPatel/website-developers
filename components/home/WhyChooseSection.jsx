@@ -8,6 +8,7 @@ import {
   MdPhone,
   MdCheckCircle,
 } from "react-icons/md";
+import Squircle3D from "../Squircle3D";
 
 export function WhyChooseSection() {
   const containerVariants = {
@@ -78,8 +79,10 @@ export function WhyChooseSection() {
           {reasons.map((reason, index) => {
             const IconComponent = reason.icon;
             return (
+
+              
               <motion.div key={index} variants={itemVariants}>
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full  shadow-none transition-shadow rounded-3xl three-d-box-blue">
                   <CardContent className="p-8">
                     <div className="flex items-start gap-4">
                       <div className="flex-shrink-0">

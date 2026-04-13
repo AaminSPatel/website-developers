@@ -6,15 +6,13 @@ import {
   CardContent,
   CardDescription,
   CardTitle,
-  Button,
   Badge,
 } from "@/components/ui";
+import SquircleButton from '@/components/SquircleButton';
 import Link from "next/link";
 import * as Icons from "react-icons/md";
 import { useEffect, useState } from "react";
 import { useSiteContext } from "../context/SiteContext";
-import TechGrid from "../../components/TechGrid";
-import DotsStructure from "../../components/DotsStructure";
 import { FaLaptopCode, FaRocket, FaSearchDollar } from "react-icons/fa";
 
 export function ServicesClient() {
@@ -71,9 +69,7 @@ export function ServicesClient() {
           </p>
         </motion.div>
 
-        <section className="absolute z-0 opacity-60 top-0 left-0 h-[70vh] w-full">
-          <TechGrid />
-        </section>
+        
       </section>
 
       {/* NEW SECTION: The "Why Custom" Argument (SEO Text) */}
@@ -154,7 +150,7 @@ export function ServicesClient() {
                 <motion.div key={service.id}>
                   <Card
                     variant="elevated"
-                    className="h-full flex flex-col hover:-translate-y-2 transition-transform duration-300 border-border/50"
+                    className="h-full flex flex-col hover:-translate-y-2 transition-transform duration-300 border-border/50 three-d-box-white"
                   >
                     <CardContent className="pt-8 px-8 pb-8 flex-1 flex flex-col">
                       <div className="mb-6">
@@ -202,7 +198,7 @@ export function ServicesClient() {
                   {industries.map((item, idx) => (
                       <motion.div 
                         key={idx}
-                        className="p-6 rounded-2xl border border-border bg-muted/10 hover:bg-muted/30 transition-colors"
+                      className="p-6 rounded-2xl border border-border bg-muted/10 hover:bg-muted/30 transition-colors three-d-box-white"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -236,14 +232,10 @@ export function ServicesClient() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
-                <Button size="lg" variant="primary" className='px-8 py-6 text-lg shadow-lg hover:shadow-primary/25'>
-                    Get a Free Quote
-                </Button>
+                <SquircleButton color="blue" label="Get a Free Quote"/>
                 </Link>
                 <Link href="/projects">
-                <Button size="lg" variant="outline" className='px-8 py-6 text-lg'>
-                    View Our Work
-                </Button>
+                <SquircleButton color="white" label="View Our Work"/>
                 </Link>
             </div>
           </motion.div>

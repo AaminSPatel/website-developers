@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import TechGrid from "../../components/TechGrid";
-import DotsStructure from "../../components/DotsStructure";
 import { MdBusinessCenter, MdFlightTakeoff, MdLaptopMac } from "react-icons/md";
 
 export function ContactClient() {

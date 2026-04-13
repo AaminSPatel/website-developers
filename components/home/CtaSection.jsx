@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui'
 import { MdCall, MdEmail } from 'react-icons/md'
 import { contact } from '../../app/data/Contact'
+import SquircleButton from '../SquircleButton'
 
 export function CtaSection() {
   return (
@@ -19,15 +20,19 @@ export function CtaSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="tel:+919302088025">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+                        <SquircleButton color='orange' label='Call Local Support' icon='phone'/>
+
+             {/*  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
                 Call Local Support <MdCall className="ml-2" />
-              </Button>
+              </Button> */}
             </Link>
 
             <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-2 px-8">
+            <SquircleButton color='white' label='Request a Quote' icon='email' className='px-8'/>
+            
+             {/*  <Button size="lg" variant="outline" className="border-2 px-8">
                 Request a Quote <MdEmail className="ml-2" />
-              </Button>
+              </Button> */}
             </Link>
           </div>
         </motion.div>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui'
 import { MdAdd, MdRemove } from 'react-icons/md'
+import SquircleButton from '../SquircleButton'
 
 export function FaqSection() {
   const [openId, setOpenId] = useState(null)
@@ -22,14 +23,16 @@ export function FaqSection() {
           <h2 className="text-3xl md:text-5xl font-bold mb-4">FAQs about Web Design in Indore</h2>
           <p className="text-lg text-muted-foreground">Everything you need to know about our local development services</p>
         </motion.div>
-        <div className="space-y-4">
+        <div className="space-y-8">
           {faqs.map((faq) => (
-            <Card key={faq.id} className="cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setOpenId(openId === faq.id ? null : faq.id)}>
+            <Card key={faq.id} className="three-d-box-white w-full cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setOpenId(openId === faq.id ? null : faq.id)}>
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-left">{faq.question}</h3>
-                  <div className="text-primary">{openId === faq.id ? <MdRemove size={24} /> : <MdAdd size={24} />}</div>
-                </div>
+                 {/*  <SquircleButton color='white' label={faq.question} className='w-full'/> */}
+                  <SquircleButton color='blue' height={44} square icon={openId === faq.id ? 'remove' : 'add' }/>
+                 {/*  <div className="text-primary">{openId === faq.id ? <MdRemove size={24} /> : <MdAdd size={24} />}</div>
+               */}  </div>
                 {openId === faq.id && <p className="text-muted-foreground mt-4 leading-relaxed text-left">{faq.answer}</p>}
               </div>
             </Card>

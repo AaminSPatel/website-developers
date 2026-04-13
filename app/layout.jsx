@@ -6,36 +6,36 @@ const _poppins = Poppins({ subsets: ["latin"], weight: ['300', '400', '500', '60
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata = {
-  title: 'Website Developers India | Expert Freelance Web Design & Development',
-  description: 'Professional freelance web development services for startups and businesses in India. Custom website design, development, and optimization by experienced developers. Affordable websites under ₹1.3 lakh.',
-  keywords: 'freelance web developer, web design, website development, startup development, custom websites, freelance website developer India, small business website developer, Next.js developer India, responsive website services under ₹1.3 lakh',
-  creator: 'Website Developers',
+  title: 'Business Sathi | Your Trusted Business Partner for Digital Growth',
+  description: 'Business Sathi - Your partner for websites, digital growth, and business success. Expert solutions for startups, small businesses, and professionals.',
+  keywords: 'business partner, digital growth, website development, small business websites, startup solutions, business services India, affordable digital solutions',
+  creator: 'Business Sathi',
   generator: 'Next.js',
-  metadataBase: new URL('https://website-developers.vercel.app'),
+  metadataBase: new URL('https://businesssathi.vercel.app'),
   alternates: {
-    canonical: 'https://website-developers.vercel.app',
+    canonical: 'https://businesssathi.vercel.app',
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://website-developers.vercel.app',
-    title: 'Website Developers India | Expert Freelance Web Design & Development',
-    description: 'Professional freelance web development services for startups and businesses in India. Affordable websites under ₹1.3 lakh.',
-    siteName: 'Website Developers',
+    url: 'https://businesssathi.vercel.app',
+    title: 'Business Sathi | Your Trusted Business Partner for Digital Growth',
+    description: 'Business Sathi - Your partner for websites, digital growth, and business success. Expert solutions for small businesses and startups.',
+    siteName: 'Business Sathi',
     images: [
       {
-        url: 'https://website-developers.vercel.app/logo.png',
+        url: 'https://businesssathi.vercel.app/logo.png',
         width: 1200,
         height: 630,
-        alt: 'Website Developers',
+        alt: 'Business Sathi',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Website Developers India | Expert Freelance Web Design & Development',
-    description: 'Professional freelance web development services for startups and businesses in India. Affordable websites under ₹1.3 lakh.',
-    creator: '@websitedevelopers',
+    title: 'Business Sathi | Your Trusted Business Partner for Digital Growth',
+    description: 'Business Sathi - Your partner for websites, digital growth, and business success. Expert solutions for small businesses and startups.',
+    creator: '@businesssathi',
   },
   icons: {
     icon: [
@@ -76,17 +76,20 @@ export default function RootLayout({ children }) {
 
 
         <meta name="google-site-verification" content="Gw0kKrcBORBSuCsj5fpyVGYEYahY47h7CpJufGEWshY" />
-      
+      <link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Material+Icons"
+rel="stylesheet"
+/>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'Organization',
-              name: 'Website Developers',
-              url: 'https://website-developers.vercel.app',
-              logo: 'https://website-developers.vercel.app/logo.png',
-              description: 'Professional freelance web development services for startups and businesses in India. Affordable websites under ₹1.3 lakh.',
+              name: 'Business Sathi',
+              url: 'https://businesssathi.vercel.app',
+              logo: 'https://businesssathi.vercel.app/logo.png',
+              description: 'Business Sathi - Your trusted partner for websites, digital growth, and business success in India.',
              /*  sameAs: [
                 'https://www.linkedin.com',
                 'https://www.twitter.com',
@@ -94,12 +97,12 @@ export default function RootLayout({ children }) {
               ], */
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+91 93020 88025',
+                telephone: '+919302088025',
                 contactType: 'Customer Service',
                 areaServed: 'India',
                 availableLanguage: 'en'
               },
-              serviceType: 'Freelance Web Development',
+              serviceType: 'Business Development Services',
               areaServed: [
                 {
                   '@type': 'Country',
@@ -108,22 +111,22 @@ export default function RootLayout({ children }) {
               ],
               hasOfferCatalog: {
                 '@type': 'OfferCatalog',
-                name: 'Web Development Services',
+                name: 'Business Growth Services',
                 itemListElement: [
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Small Business Website Development',
-                      description: 'Affordable website development for small businesses under ₹1.3 lakh.'
+                      name: 'Digital Solutions for Small Businesses',
+                      description: 'Affordable website and growth solutions for small businesses.'
                     }
                   },
                   {
                     '@type': 'Offer',
                     itemOffered: {
                       '@type': 'Service',
-                      name: 'Next.js Development',
-                      description: 'Custom Next.js web development services in India.'
+                      name: 'Website Development',
+                      description: 'Custom web development services with modern technologies.'
                     }
                   }
                 ]

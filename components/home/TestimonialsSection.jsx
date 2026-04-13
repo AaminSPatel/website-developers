@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card, Badge } from '@/components/ui'
 import { MdStar } from 'react-icons/md'
+import SquircleButton from '../SquircleButton'
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -82,8 +83,8 @@ export function TestimonialsSection() {
             initial={{ opacity: 0, y: 20, scale:0.5 }}
             whileInView={{ opacity: 1, y: 0, scale:1 }}
             transition={{ duration: 0.6 }}
-            key={testimonial.id} variants={itemVariants}>
-              <Card variant="elevated" className="h-full flex flex-col p-6 hover:shadow-lg transition-shadow">
+            key={testimonial.id} variants={itemVariants} className='three-d-box-white'>
+              <Card variant="elevated" className="h-full flex flex-col p-6 shadow-none border-none transition-shadow bg-transparent">
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
@@ -114,15 +115,19 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <Badge variant="secondary" className="text-sm py-2 px-4">
+          <SquircleButton color='green' label='⭐ 5-Star Rated Service'/>
+          <SquircleButton color='green' label='🏆 Expert Development Team' />
+          <SquircleButton color='green' label='✅ 100% Client Satisfaction' />
+
+         {/*  <Badge variant="secondary" className="text-sm py-2 px-4">
             ⭐ 5-Star Rated Service
-          </Badge>
-          <Badge variant="secondary" className="text-sm py-2 px-4">
+          </Badge> */}
+          {/* <Badge variant="secondary" className="text-sm py-2 px-4">
             🏆 Expert Development Team
           </Badge>
           <Badge variant="secondary" className="text-sm py-2 px-4">
             ✅ 100% Client Satisfaction
-          </Badge>
+          </Badge> */}
         </motion.div>
       </div>
     </section>

@@ -9,13 +9,11 @@ import {
   CardDescription,
   CardTitle,
   Badge,
-  Button,
 } from "@/components/ui";
+import SquircleButton from '@/components/SquircleButton';
 import Link from "next/link";
 import { FaAngleDoubleRight, FaChartLine, FaLaptopCode, FaRocket } from "react-icons/fa";
-import TechGrid from "../../components/TechGrid";
 import { projectDetails } from "../data/Projects";
-import DotsStructure from "../../components/DotsStructure";
 
 export function ProjectsClient() {
   const [projects, setProjects] = useState([]);
@@ -55,9 +53,7 @@ export function ProjectsClient() {
           </p>
         </motion.div>
         
-        <section className="absolute z-0 opacity-60 sm:top-0 left-0 h-[70vh] w-full">
-          <TechGrid />
-        </section>
+     
       </section>
 
       {/* NEW SEO SECTION: Methodology & Industry Focus (Word Count Booster) */}
@@ -148,7 +144,7 @@ export function ProjectsClient() {
               <motion.article key={project.slug} variants={itemVariants}>
                 <Card
                   variant="elevated"
-                  className="h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 group border-border/50"
+                  className="h-full flex flex-col overflow-hidden hover:shadow-2xl transition-all duration-300 group border-border/50 three-d-box-white"
                 >
                   <div className="relative h-64 overflow-hidden bg-muted/20">
                     <div className="flex items-center justify-center h-full">
@@ -199,10 +195,7 @@ export function ProjectsClient() {
                     </div>
 
                     <Link href={`/projects/${project.slug}`} className="w-full mt-auto">
-                      <Button variant="outline" className="w-full group hover:border-primary hover:text-primary transition-all">
-                        Read Full Case Study 
-                        <FaAngleDoubleRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                      <SquircleButton color="white" label="Read Full Case Study"/>
                     </Link>
                   </CardContent>
                 </Card>
@@ -228,9 +221,7 @@ export function ProjectsClient() {
               Whether you need a <strong>Personal Portfolio</strong> or a complex <strong>Travel Booking Website</strong>, we have the expertise to build it.
             </p>
             <Link href="/contact">
-              <Button size="lg" variant="primary" className="px-8 py-6 text-lg shadow-lg hover:shadow-primary/25 transition-all">
-                Get a Free Quote
-              </Button>
+              <SquircleButton color="blue" label="Get a Free Quote"/>
             </Link>
           </motion.div>
         </div>

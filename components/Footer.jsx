@@ -3,9 +3,8 @@
 import Link from 'next/link'
 import { FaLinkedin, FaTwitter, FaGithub, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
 import { contact } from '@/app/data/Contact'
-import TechSphere from './TechSphere'
-import Pyramid from './Pyramid'
 import Image from 'next/image'
+import SquircleButton from '@/components/SquircleButton'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -41,16 +40,7 @@ export function Footer() {
   return (
     <footer className="bg-gradient-to-tr relative from-black/95 via-slate-950 to-black text-primary-foreground border-t border-border/20 overflow-hidden font-sans">
       
-      {/* Background Animations */}
-      <section className='absolute z-0 opacity-40 top-0 left-0 h-full w-full pointer-events-none'>
-        <div className='absolute z-10 opacity-60 sm:top-30 top-40 left-1/2 sm:left-2/3'>
-           <TechSphere line={2} />
-        </div>
-        <div className='absolute z-10 opacity-60 sm:top-30 top-70 left-1/3 sm:left-1/3'>
-           <Pyramid />
-        </div>
-      </section>
-      
+  
       {/* Main Footer Content */}
       <div className="max-w-7xl z-20 relative mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
@@ -59,18 +49,19 @@ export function Footer() {
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 backdrop-blur-sm">
-                 <Image src={'/apple-icon.jpeg'} alt='Freelance Website Developer India Logo' width={40} height={40} className='h-10 w-10 rounded-lg'/>
+                 <Image src={'/apple-icon.jpeg'} alt='Business Sathi Logo' width={40} height={40} className='h-10 w-10 rounded-lg'/>
               </div>
               <h2 className="text-2xl font-bold tracking-tight">
-                WebDev<span className="text-primary">.</span>
+                BS<span className="text-primary">.</span>
               </h2>
             </div>
             <p className="opacity-70 text-sm leading-7 mb-6 pr-4">
-              We are a team of expert <strong>Freelance Web Developers in India</strong> dedicated to helping Startups, Travel Agencies, and Small Businesses grow. 
-              Using advanced tech like <strong>Next.js and React</strong>, we build mobile-friendly, high-performance websites that rank on Google and drive real sales. 
-              Trusted by clients in Indore, Mumbai, and globally.
+              We are Business Sathi, your trusted partner helping Startups, Small Businesses, and Professionals grow digitally. 
+              Using advanced tech like <strong>Next.js and React</strong>, we create mobile-friendly solutions that drive real growth. 
+              Trusted by clients across India.
             </p>
             <div className="flex gap-4">
+
               {Object.entries(contact.socialLinks).map(([platform, url]) => {
                 const Icon = socialIcons[platform]
                 return (
@@ -82,7 +73,7 @@ export function Footer() {
                     className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary hover:text-white transition-all duration-300 border border-white/10"
                     aria-label={`Follow us on ${platform}`}
                   >
-                    <Icon size={18} />
+                    <Icon   />
                   </a>
                 )
               })}
@@ -182,7 +173,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
             <p className="text-center md:text-left">
-              &copy; {currentYear} Website Developers India. All rights reserved. | Built with ❤️ & Next.js
+              &copy; {currentYear} Business Sathi. All rights reserved. | Built with ❤️ & Next.js
             </p>
             <div className="flex items-center gap-6">
                <span className="hidden md:inline">Serving clients in India, USA, UK & UAE</span>

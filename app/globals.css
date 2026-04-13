@@ -123,3 +123,139 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+/* 3D Squircle Effect Class */
+.three-d-box {
+  --box-color: #e5f2faea; /* Default Blue */
+  --box-depth: 8px;
+  --box-radius: 24px;
+  --box-border: rgba(225, 228, 231, 0.952);
+  
+  position: relative;
+  display: inline-block;
+  /* background-color: var(--box-color); */
+  border-radius: var(--box-radius);
+  /* color: white; */
+  
+  /* 3D Depth Effect using Box Shadow */
+  /* Pehla shadow side walls ke liye, doosra niche ki main shadow ke liye */
+  box-shadow: 
+    0 var(--box-depth) 0 0 color-mix(in srgb, var(--box-color), rgb(84, 159, 180) 25%), 0 8.6px 0 rgba(6, 6, 6, 0.27),
+    0 calc(var(--box-depth) + 4px) 10px rgba(87, 87, 87, 0.2);
+    
+  /* Smooth Border/Highlight */
+  border: 1.5px solid var(--box-border);
+  /* border-bottom:  2px solid rgba(222, 226, 239, 0.97);
+   */
+  /* Squircle Shape (Optional but recommended) */
+  /* Agar exact squircle chahiye to ye clip-path use karein */
+  mask-image: paint(squircle); 
+  -webkit-mask-image: paint(squircle);
+}
+
+/* Optional: Hover ya Active state agar chahiye ho */
+.three-d-box:active {
+  transform: translateY(2px);
+  box-shadow: 
+    0 calc(var(--box-depth) - 2px) 0 0 color-mix(in srgb, var(--box-color), rgba(84, 159, 180, 0.64) 25%),0 6.6px 0 rgba(6, 6, 6, 0.27),
+    0 calc(var(--box-depth) + 0px) 5px rgba(0, 0, 0, 0.2);
+}
+
+
+  
+  .three-d-box-blue {
+  --box-color: #ffffff;
+  --box-depth: 9px;
+  --box-radius: 28px;
+  --box-border: #129bdf3d;
+  /* 
+  position: relative; */
+  display: inline-block;
+/*   background-color: var(--box-color); */
+  border-radius: var(--box-radius);
+ /*  padding: 12px 28px; */
+ /*  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+  font-family: system-ui; */
+  
+  /* 3D Depth Effect */
+  box-shadow: 
+    0 var(--box-depth) 0 0 #13566985,
+    0 8.6px 0 rgba(0, 0, 0, 0.1),
+    0 calc(var(--box-depth) + 6px) 6px #20cfff98;
+    
+  border: 2px solid var(--box-border);
+  border-bottom: 2px solid #129bdf6d;
+  transition: all 0.05s linear;
+}
+
+.three-d-box-blue:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 calc(var(--box-depth) - 4px) 0 0 #13566985,
+    0 4px 0 rgba(0, 0, 0, 0.1),
+    0 calc(var(--box-depth) ) 2px #20cfff98;
+}
+
+.three-d-box-white {
+  --box-color: #ffffff;
+  --box-depth: 9px;
+  --box-radius: 28px;
+  --box-border: rgba(0, 0, 0, 0.1);
+
+  display: inline-block;
+  background-color: var(--box-color);
+  border-radius: var(--box-radius);
+
+  /* 3D Depth Effect (Black/Grey) */
+  box-shadow: 
+    0 var(--box-depth) 0 0 rgba(0, 0, 0, 0.25),
+    0 8px 0 rgba(0, 0, 0, 0.08),
+    0 calc(var(--box-depth) + 6px) 6px rgba(0, 0, 0, 0.2);
+
+  border: 2px solid var(--box-border);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+
+  transition: all 0.05s linear;
+}
+
+.three-d-box-white:active {
+  transform: translateY(4px);
+
+  box-shadow: 
+    0 calc(var(--box-depth) - 4px) 0 0 rgba(0, 0, 0, 0.25),
+    0 4px 0 rgba(0, 0, 0, 0.08),
+    0 var(--box-depth) 2px rgba(0, 0, 0, 0.2);
+}
+
+.three-d-box-orange {
+  --box-color: #ff6b35;
+  --box-depth: 9px;
+  --box-radius: 28px;
+  --box-border: #fed4b8;
+  
+
+  border-radius: var(--box-radius);
+ 
+  /* 3D Depth Effect */
+  box-shadow: 
+    0 var(--box-depth) 0 0 #cd681f,
+    0 8.6px 0 rgba(0, 0, 0, 0.1),
+    0 calc(var(--box-depth) + 6px) 6px rgba(255, 107, 53, 0.4);
+    
+  border: 2px solid var(--box-border);
+  border-bottom: 2px solid #fbb88e;
+  transition: all 0.05s linear;
+}
+
+.three-d-box-orange:active {
+  transform: translateY(4px);
+  box-shadow: 
+    0 calc(var(--box-depth) - 4px) 0 0 #cc5500,
+    0 4px 0 rgba(0, 0, 0, 0.1),
+    0 calc(var(--box-depth)) 2px rgba(255, 107, 53, 0.3);
+}

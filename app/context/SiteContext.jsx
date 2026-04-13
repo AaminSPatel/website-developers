@@ -3186,9 +3186,9 @@ Our team specializes in 2026 travel websites with proven booking growth strategi
     ],
 
     contact: {
-      email: 'hello@website-developers.com',
-      phone: '+1 (555) 123-4567',
-      address: '123 Tech Street, San Francisco, CA 94105',
+      email: 'aameenpatel122436@gmail.com',
+      phone: '+919302088025',
+      address: 'Nearby Ujjain',
       socialLinks: {
         linkedin: 'https://linkedin.com',
         twitter: 'https://twitter.com',
@@ -3198,10 +3198,10 @@ Our team specializes in 2026 travel websites with proven booking growth strategi
     },
 
     seo: {
-      siteUrl: 'https://website-developers.vercel.app/',
-      siteName: 'Website Developers',
-      description: 'Professional freelance web development services for startups and businesses.',
-      author: 'Website Developers'
+      siteUrl: 'https://businesssathi.vercel.app/',
+      siteName: 'Business Sathi',
+      description: 'Your trusted business partner for websites, growth, and digital success.',
+      author: 'Business Sathi'
     }
   }
 

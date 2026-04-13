@@ -2,7 +2,7 @@
       email: 'locomail112@gmail.com',
       phone: '+91 93020 88025',
       address: 'Nearby Ujjain',
-      url:'https://website-developers.vercel.app/',
+      url:'https://businesssathi.vercel.app/',
       socialLinks: {
         linkedin: 'https://linkedin.com',
         twitter: 'https://twitter.com',

@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Button } from '@/components/ui'
+import SquircleButton from '@/components/SquircleButton'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { projectDetails } from '@/app/data/Projects'
 import Image from 'next/image'
@@ -46,13 +46,14 @@ export function Header() {
             <Link 
               href="/"
               className="flex items-center gap-2 group"
-              aria-label="Website Developers India - Home"
-              title="Freelance Web Developer India"
+              aria-label="Business Sathi - Home"
+              title="Trusted Business Partner"
             >
+
               <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-sm shadow-md border border-primary/10 group-hover:shadow-lg transition-all duration-300">
                 <Image 
                     src={'/apple-icon.jpeg'} 
-                    alt='Freelance Website Developer Logo' 
+                    alt='Business Sathi Logo' 
                     fill
                     className='object-cover'
                     sizes="(max-width: 768px) 40px, 48px"
@@ -60,7 +61,7 @@ export function Header() {
                 />
               </div>
               <span className="hidden sm:block text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                WebDev<span className="text-primary">.</span>
+                BS<span className="text-primary">.</span>
               </span>
             </Link>
           </div>
@@ -148,22 +149,13 @@ export function Header() {
                 <span>{contact.phone}</span>
             </a>
             <Link href="/contact">
-              <Button size="default" variant="default" className="shadow-md hover:shadow-lg transition-all">
-                Get Started
-              </Button>
+              <SquircleButton color="blue" label="Get Started"/>
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="flex lg:hidden items-center">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted rounded-md transition-colors focus:outline-none"
-              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              aria-expanded={isMenuOpen}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <SquircleButton color="blue" square icon={isMenuOpen ? "close" : "menu"} onClick={() => setIsMenuOpen(!isMenuOpen)} />
           </div>
         </div>
       </div>
@@ -248,9 +240,7 @@ export function Header() {
 
               <div className="pt-4 mt-4 border-t border-border">
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full py-6 text-lg" size="lg">
-                    Start Your Project
-                  </Button>
+                  <SquircleButton color="orange" label="Start Your Project" className='w-full'/>
                 </Link>
                 <div className="mt-4 text-center">
                     <a href={`tel:${contact.phone}`} className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 py-2">

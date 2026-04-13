@@ -2,7 +2,8 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Card, CardContent, CardDescription, CardTitle, Input, Textarea, Select, SelectContent, SelectItem, SelectTrigger, SelectValue, Button } from '@/components/ui'
+import { Card, CardContent, CardDescription, CardTitle, Input, Textarea, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui'
+import SquircleButton from '@/components/SquircleButton'
 
 export function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -209,15 +210,7 @@ export function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <Button
-              type="submit"
-              size="lg"
-              variant="secondary"
-              className="w-full"
-              disabled={isLoading}
-            >
-              {isLoading ? 'Sending...' : 'Send Message'}
-            </Button>
+            <SquircleButton color="blue" label={isLoading ? 'Sending...' : 'Send Message'} className="w-full" disabled={isLoading} />
           </motion.div>
 
           <p className="text-xs text-muted-foreground text-center">

@@ -7,12 +7,11 @@ import {
   CardDescription,
   CardTitle,
   Badge,
-  Button,
 } from "@/components/ui";
+import SquircleButton from '@/components/SquircleButton';
 import Link from "next/link";
 import { MdArrowForward } from "react-icons/md";
 import TechGrid from "../../components/TechGrid";
-import DotsStructure from "../../components/DotsStructure";
 
 export function AboutClient() {
   const containerVariants = {
@@ -153,7 +152,7 @@ export function AboutClient() {
           >
             {values.map((value, idx) => (
               <motion.div key={idx} variants={itemVariants}>
-                <Card variant="elevated" className="h-full hover:shadow-lg transition-shadow">
+                <Card variant="elevated" className="h-full hover:shadow-lg transition-shadow three-d-box-white">
                   <CardContent className="pt-6">
                     <CardTitle className="mb-3 text-xl">{value.title}</CardTitle>
                     <CardDescription className="text-base leading-relaxed">
@@ -192,7 +191,7 @@ export function AboutClient() {
           >
             {team.map((member, idx) => (
               <motion.div key={idx} variants={itemVariants}>
-                <Card variant="elevated" className="text-center hover:-translate-y-2 transition-transform duration-300">
+                <Card variant="elevated" className="text-center hover:-translate-y-2 transition-transform duration-300 three-d-box-white w-full">
                   <CardContent className="pt-8 pb-8">
                     <div className="w-24 h-24 bg-primary/10 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden border-2 border-primary/20">
                       <img 
@@ -260,10 +259,7 @@ export function AboutClient() {
               Whether you need a simple portfolio or a complex travel website, we are ready to build it.
             </p>
             <Link href="/contact">
-              <Button size="lg" variant="default" className="group px-8 py-6 text-lg">
-                Start Your Project
-                <MdArrowForward className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              <SquircleButton color="blue" label="Start Your Project"/>
             </Link>
           </motion.div>
         </div>

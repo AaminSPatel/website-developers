@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Card, CardContent, CardDescription, CardTitle, Badge, Button } from '@/components/ui'
-import { MdArrowForward } from 'react-icons/md'
+import { Card, CardContent, CardDescription, CardTitle, Badge } from '@/components/ui'
+import SquircleButton from '@/components/SquircleButton'
 import { projectDetails } from '../../app/data/Projects'
 
 export function ProjectsSection() {
@@ -59,7 +59,7 @@ export function ProjectsSection() {
              transition={{ duration: 0.6 }}
              key={project.slug} variants={itemVariants}>
               <Link href={`/projects/${project.slug}`}>
-                <Card variant="elevated" className="h-full flex flex-col overflow-hidden hover:shadow-2xl transition-shadow group cursor-pointer">
+                <Card variant="elevated" className="h-full flex flex-col overflow-hidden hover:shadow-2xl transition-shadow three-d-box-white group cursor-pointer">
                   <div className="relative h-48 overflow-hidden">
                     <Image
                       src={project.images[0]}
@@ -104,10 +104,7 @@ export function ProjectsSection() {
             Want to see how we can transform your business ideas into reality?
           </p>
           <Link href="/projects">
-            <Button size="lg" variant="primary" className="group">
-              View All Case Studies
-              <MdArrowForward className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <SquircleButton color="blue" label="View All Case Studies"/>
           </Link>
         </motion.div>
       </div>

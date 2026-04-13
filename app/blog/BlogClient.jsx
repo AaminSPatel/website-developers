@@ -10,11 +10,8 @@ import {
   Badge,
   Button,
 } from "@/components/ui";
+import SquircleButton from "@/components/SquircleButton";
 import { MdArrowForward, MdCalendarToday, MdTimer, MdTrendingUp, MdPerson, MdBusiness } from "react-icons/md";
-import { useSiteContext } from "../context/SiteContext";
-import { useEffect, useState } from "react";
-import TechGrid from "../../components/TechGrid";
-import DotsStructure from "../../components/DotsStructure";
 import Image from "next/image";
 import { blogPosts } from "../data/BlogPosts";
 
@@ -77,9 +74,7 @@ export function BlogClient() {
             Your go-to resource for digital success. Whether you are a <strong>Startup Founder</strong>, <strong>Freelancer</strong>, or run a <strong>Travel Agency</strong>, discover actionable strategies to build high-ranking websites and grow your brand online.
           </p>
         </motion.div>
-        <section className="absolute z-0 opacity-60 top-0 left-0 h-[70vh] w-full">
-          <TechGrid />
-        </section>
+      
       </section>
 
       {/* NEW SECTION: Audience Targeting (SEO Boost) */}
@@ -188,10 +183,12 @@ export function BlogClient() {
                       </div>
                     </div>
                     <Link href={`/blog/${blogPosts[0].slug}`}>
-                      <Button variant="default" size="lg" className="group">
+                    {/*   <Button variant="default" size="lg" className="group">
                         Read Full Article
                         <MdArrowForward className="ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                      </Button> */}
+                                     <SquircleButton color="blue"  label="Read Full Article"/>
+
                     </Link>
                   </div>
                 </div>
@@ -288,9 +285,9 @@ export function BlogClient() {
                 placeholder="Enter your email address"
                 className="flex-1 px-5 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
               />
-              <Button variant="primary" className='py-3 px-8 shadow-md hover:shadow-lg transition-all'>
-                Subscribe Free
-              </Button>
+             
+               <SquircleButton color="white" label="Subscribe Free" className='w-full'/>
+          
             </div>
             <p className="text-xs text-muted-foreground mt-4">
                 No spam. Unsubscribe anytime.
