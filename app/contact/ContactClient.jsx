@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero"
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactInfo } from "@/components/contact/ContactInfo";
 import TechGrid from "../../components/TechGrid";
@@ -9,26 +10,12 @@ import { MdBusinessCenter, MdFlightTakeoff, MdLaptopMac } from "react-icons/md";
 export function ContactClient() {
   return (
     <div>
-      {/* Hero Section - Optimized H1 & Description */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-background via-background to-primary/5">
-        <motion.div
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Contact Expert <span className="text-primary">Web Developers</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to scale your business? Whether you are a <strong>Travel Agency in Delhi</strong> or a <strong>Startup in Bangalore</strong>, let's build a website that drives real growth.
-          </p>
-        </motion.div>
-
-        <section className="absolute z-0 opacity-60 top-0 left-0 h-[70vh] w-full">
-          <TechGrid />
-        </section>
-      </section>
+      <PageHero
+        effect="zoom"
+        images={['/hero1.png']}
+        title="Contact Expert Web Developers"
+        subtitle="Ready to scale your business? Whether you are a Travel Agency in Delhi or a Startup in Bangalore, let's build a website that drives real growth."
+      />
 
       {/* Main Content Form & Info */}
       <section className="py-12 md:py-20 lg:py-24" id="contact-form">

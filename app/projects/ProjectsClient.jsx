@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { PageHero } from "@/components/PageHero"
 import {
   Card,
   CardContent,
@@ -37,24 +38,16 @@ export function ProjectsClient() {
 
   return (
     <main>
-      {/* Hero Section - Optimized for Main Keyword */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-background via-background to-primary/5">
-        <motion.div
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Web Development <span className="text-primary">Case Studies</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Explore our portfolio of high-performance websites. From <strong>Travel Agency Portals</strong> in Delhi to <strong>E-commerce Stores</strong> in Mumbai, see how we deliver measurable business results across India.
-          </p>
-        </motion.div>
-        
-     
-      </section>
+      <PageHero
+        effect="zoom"
+        images={['/hero1.png']}
+        title="Web Development Case Studies"
+        subtitle="Explore our portfolio of high-performance websites. From Travel Agency Portals in Delhi to E-commerce Stores in Mumbai, see how we deliver measurable business results across India."
+        ctaPrimary={{
+          text: "Get a Free Quote",
+          href: "/contact"
+        }}
+      />
 
       {/* NEW SEO SECTION: Methodology & Industry Focus (Word Count Booster) */}
       <section className="py-16 bg-muted/20 border-y border-border">
@@ -195,7 +188,9 @@ export function ProjectsClient() {
                     </div>
 
                     <Link href={`/projects/${project.slug}`} className="w-full mt-auto">
-                      <SquircleButton color="white" label="Read Full Case Study"/>
+                      <SquircleButton color="white">
+                        Read Full Case Study
+                      </SquircleButton>
                     </Link>
                   </CardContent>
                 </Card>
@@ -221,7 +216,9 @@ export function ProjectsClient() {
               Whether you need a <strong>Personal Portfolio</strong> or a complex <strong>Travel Booking Website</strong>, we have the expertise to build it.
             </p>
             <Link href="/contact">
-              <SquircleButton color="blue" label="Get a Free Quote"/>
+              <SquircleButton color="blue">
+                Get a Free Quote
+              </SquircleButton>
             </Link>
           </motion.div>
         </div>

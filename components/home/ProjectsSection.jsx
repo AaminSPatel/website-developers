@@ -104,7 +104,9 @@ export function ProjectsSection() {
             Want to see how we can transform your business ideas into reality?
           </p>
           <Link href="/projects">
-            <SquircleButton color="blue" label="View All Case Studies"/>
+            <SquircleButton color="blue">
+              View All Case Studies
+            </SquircleButton>
           </Link>
         </motion.div>
       </div>

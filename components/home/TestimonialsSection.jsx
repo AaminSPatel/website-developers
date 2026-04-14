@@ -115,19 +115,16 @@ export function TestimonialsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <SquircleButton color='green' label='⭐ 5-Star Rated Service'/>
-          <SquircleButton color='green' label='🏆 Expert Development Team' />
-          <SquircleButton color='green' label='✅ 100% Client Satisfaction' />
-
-         {/*  <Badge variant="secondary" className="text-sm py-2 px-4">
+     
+          <Badge variant="secondary" className="text-sm three-d-box-blue py-2 px-4">
             ⭐ 5-Star Rated Service
-          </Badge> */}
-          {/* <Badge variant="secondary" className="text-sm py-2 px-4">
+          </Badge>
+          <Badge variant="secondary" className="text-sm three-d-box-blue  py-2 px-4">
             🏆 Expert Development Team
           </Badge>
-          <Badge variant="secondary" className="text-sm py-2 px-4">
+          <Badge variant="secondary" className="text-sm three-d-box-blue  py-2 px-4">
             ✅ 100% Client Satisfaction
-          </Badge> */}
+          </Badge>
         </motion.div>
       </div>
     </section>

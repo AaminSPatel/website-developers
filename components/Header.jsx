@@ -50,7 +50,7 @@ export function Header() {
               title="Trusted Business Partner"
             >
 
-              <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-sm shadow-md border border-primary/10 group-hover:shadow-lg transition-all duration-300">
+              <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-sm group-hover:shadow-lg transition-all duration-300">
                 <Image 
                     src={'/apple-icon.jpeg'} 
                     alt='Business Sathi Logo' 
@@ -149,13 +149,27 @@ export function Header() {
                 <span>{contact.phone}</span>
             </a>
             <Link href="/contact">
-              <SquircleButton color="blue" label="Get Started"/>
+              <SquircleButton color="blue">
+                Get Started
+              </SquircleButton>
             </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
           <div className="flex lg:hidden items-center">
-            <SquircleButton color="blue" square icon={isMenuOpen ? "close" : "menu"} onClick={() => setIsMenuOpen(!isMenuOpen)} />
+            <div className="flex lg:hidden items-center">
+              <button 
+                className="w-12 h-12 flex items-center justify-center rounded-lg  text-black shadow-md hover:shadow-lg transition-all" 
+                style={{borderRadius:'12px'}}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              </button>
+  {/*              <SquircleButton color='blue'  onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                            {isMenuOpen ? <X className="h-6 w-4" /> : <Menu className="h-6 w-4" />}
+          
+                            </SquircleButton> */}
+            </div>
           </div>
         </div>
       </div>
@@ -240,7 +254,9 @@ export function Header() {
 
               <div className="pt-4 mt-4 border-t border-border">
                 <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                  <SquircleButton color="orange" label="Start Your Project" className='w-full'/>
+                  <SquircleButton color="orange" className='w-full'>
+                    Start Your Project
+                  </SquircleButton>
                 </Link>
                 <div className="mt-4 text-center">
                     <a href={`tel:${contact.phone}`} className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-2 py-2">

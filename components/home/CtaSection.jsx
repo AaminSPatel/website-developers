@@ -20,7 +20,9 @@ export function CtaSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="tel:+919302088025">
-                        <SquircleButton color='orange' label='Call Local Support' icon='phone'/>
+                        <SquircleButton color='orange'>
+                          <MdCall className="mr-2 h-4 w-4" />Call Local Support
+                        </SquircleButton>
 
              {/*  <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
                 Call Local Support <MdCall className="ml-2" />
@@ -28,7 +30,9 @@ export function CtaSection() {
             </Link>
 
             <Link href="/contact">
-            <SquircleButton color='white' label='Request a Quote' icon='email' className='px-8'/>
+            <SquircleButton color='white' className='px-8'>
+              <MdEmail className="mr-2 h-4 w-4" />Request a Quote
+            </SquircleButton>
             
              {/*  <Button size="lg" variant="outline" className="border-2 px-8">
                 Request a Quote <MdEmail className="ml-2" />

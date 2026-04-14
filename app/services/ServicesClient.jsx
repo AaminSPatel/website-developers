@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero"
 import {
   Card,
   CardContent,
@@ -53,24 +54,20 @@ export function ServicesClient() {
 
   return (
     <div>
-      {/* Hero Section - Keyword Rich */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-background via-background to-primary/5">
-        <motion.div
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Professional <span className="text-primary">Web Development Services</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We build more than just websites. We create digital assets for <strong>Small Businesses, Travel Agencies, and Freelancers</strong> across India that drive real growth and revenue.
-          </p>
-        </motion.div>
-
-        
-      </section>
+      <PageHero
+        effect="zoom"
+        images={['/hero2.png']}
+        title="Professional Web Development Services"
+        subtitle="We build more than just websites. We create digital assets for Small Businesses, Travel Agencies, and Freelancers across India that drive real growth and revenue."
+        ctaPrimary={{
+          text: "Get a Free Quote",
+          href: "/contact"
+        }}
+        ctaSecondary={{
+          text: "View Our Work", 
+          href: "/projects"
+        }}
+      />
 
       {/* NEW SECTION: The "Why Custom" Argument (SEO Text) */}
       <section className="py-16 bg-background border-b border-border">
@@ -232,10 +229,14 @@ export function ServicesClient() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/contact">
-                <SquircleButton color="blue" label="Get a Free Quote"/>
+                <SquircleButton color="blue">
+                  <Icons.MdEmail className="mr-2 h-4 w-4" />Get a Free Quote
+                </SquircleButton>
                 </Link>
                 <Link href="/projects">
-                <SquircleButton color="white" label="View Our Work"/>
+                <SquircleButton color="white">
+                  <Icons.MdArrowForward className="mr-2 h-4 w-4" />View Our Work
+                </SquircleButton>
                 </Link>
             </div>
           </motion.div>

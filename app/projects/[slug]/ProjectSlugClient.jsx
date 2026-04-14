@@ -111,11 +111,9 @@ export function ProjectSlugClient({ slug }) {
                   {/*  <Button size="lg" variant="primary" className="shadow-lg hover:shadow-primary/25">
                      Visit Live Website <MdLaunch className="ml-2" />
                    </Button> */}
-                  <SquircleButton
-                    color="white"
-                    label="Visit Live Website"
-                    icon="link"
-                  />
+                  <SquircleButton color="white">
+                    <MdLaunch className="mr-2 h-4 w-4" />Visit Live Website
+                  </SquircleButton>
                 </a>
               )}
 
@@ -127,11 +125,9 @@ export function ProjectSlugClient({ slug }) {
                 {/* <Button size="lg" variant="outline" className="border-green-500 text-green-600 hover:bg-green-50 hover:text-green-700">
                   Discuss on WhatsApp <FaWhatsapp className="ml-2 text-lg" />
                 </Button> */}
-                <SquircleButton
-                  color="green"
-                  label="Discuss on WhatsApp"
-                  icon="sms"
-                />
+                <SquircleButton color="green">
+                  <FaWhatsapp className="mr-2 h-4 w-4" />Discuss on WhatsApp
+                </SquircleButton>
               </a>
             </div>
           </div>
@@ -339,11 +335,9 @@ export function ProjectSlugClient({ slug }) {
             {/*  <Button size="lg" variant="primary" className="px-8 shadow-xl">
                 Start Your Project <FaPhone className="ml-2" />
               </Button> */}
-            <SquircleButton
-              color="white"
-              label="Subscribe Free"
-              className="w-full"
-            />
+            <SquircleButton color="white" className="w-full">
+              Start Your Project
+            </SquircleButton>
           </a>
         </div>
       </section>

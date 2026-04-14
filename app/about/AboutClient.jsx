@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 import {
   Card,
   CardContent,
   CardDescription,
   CardTitle,
   Badge,
+
 } from "@/components/ui";
 import SquircleButton from '@/components/SquircleButton';
 import Link from "next/link";
-import { MdArrowForward } from "react-icons/md";
-import TechGrid from "../../components/TechGrid";
 
 export function AboutClient() {
   const containerVariants = {
@@ -79,27 +79,12 @@ export function AboutClient() {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-background via-background to-primary/5">
-        <motion.div
-          className="max-w-4xl z-30 mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* H1 Optimized for broad search */}
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Expert Web Development Team in <span className="text-primary">India</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Bridging the gap between affordable freelance rates and premium agency quality for businesses worldwide.
-          </p>
-        </motion.div>
-        <section className="absolute opacity-60 top-0 left-0 h-[70vh] w-full">
-          <TechGrid />
-        </section>
-     
-      </section>
+      <PageHero 
+        effect="zoom"
+        images={['/hero.png']}
+        title="Expert Web Development Team in India"
+        subtitle="Bridging the gap between affordable freelance rates and premium agency quality for businesses worldwide."
+      />
 
       {/* Our Story - Mixing Local Roots with National Reach */}
       <section className="py-20 md:py-32">
@@ -259,7 +244,9 @@ export function AboutClient() {
               Whether you need a simple portfolio or a complex travel website, we are ready to build it.
             </p>
             <Link href="/contact">
-              <SquircleButton color="blue" label="Start Your Project"/>
+              <SquircleButton color="blue">
+                Start Your Project
+              </SquircleButton>
             </Link>
           </motion.div>
         </div>

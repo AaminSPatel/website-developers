@@ -30,7 +30,15 @@ export function FaqSection() {
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-left">{faq.question}</h3>
                  {/*  <SquircleButton color='white' label={faq.question} className='w-full'/> */}
-                  <SquircleButton color='blue' height={44} square icon={openId === faq.id ? 'remove' : 'add' }/>
+                  <button 
+                    className="min-w-11 h-11  flex items-center justify-center rounded-lg  text-black shadow-md hover:shadow-lg transition-all" 
+                    onClick={(e) => {e.stopPropagation(); setOpenId(openId === faq.id ? null : faq.id); }}
+                  >
+                    {openId === faq.id ? <MdRemove className="h-5 w-5" /> : <MdAdd className="h-5 w-5" />}
+                  </button>
+                    {/* <SquircleButton color='blue'>
+                              {openId === faq.id ? <MdRemove className="h-8 w-4 text-xl" /> : <MdAdd className="h-8 w-4 text-xl" />}
+                            </SquircleButton> */}
                  {/*  <div className="text-primary">{openId === faq.id ? <MdRemove size={24} /> : <MdAdd size={24} />}</div>
                */}  </div>
                 {openId === faq.id && <p className="text-muted-foreground mt-4 leading-relaxed text-left">{faq.answer}</p>}

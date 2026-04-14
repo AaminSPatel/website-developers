@@ -210,7 +210,9 @@ export function ContactForm() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <SquircleButton color="blue" label={isLoading ? 'Sending...' : 'Send Message'} className="w-full" disabled={isLoading} />
+            <SquircleButton color="blue" className="w-full" disabled={isLoading}>
+              {isLoading ? 'Sending...' : 'Send Message'}
+            </SquircleButton>
           </motion.div>
 
           <p className="text-xs text-muted-foreground text-center">

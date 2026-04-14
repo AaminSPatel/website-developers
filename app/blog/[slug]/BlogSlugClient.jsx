@@ -28,6 +28,7 @@ import {
 import { RelatedBlogs } from '../RelatedBlogs'
 import { blogPosts } from '../../data/BlogPosts'
 import { contact } from '../../data/Contact' // Assuming you have this for global URLs
+import SquircleButton from '../../../components/SquircleButton'
 
 // --- 1. SMART INTERNAL LINKING STRATEGY ---
 // This map defines keywords to automatically link within your blog content
@@ -403,9 +404,9 @@ export function BlogSlugClient({ slug }) {
                         We build high-performance websites for businesses like yours.
                     </p>
                     <Link href="/contact" className="w-full">
-                        <Button className="w-full text-sm" variant="primary">
-                            Get a Quote <MdArrowForward className="ml-1"/>
-                        </Button>
+                        <SquircleButton color="blue" className="w-full">
+                          Get a Quote <MdArrowForward className="ml-1 h-4 w-4" />
+                        </SquircleButton>
                     </Link>
                 </div>
               </div>
@@ -450,7 +451,9 @@ export function BlogSlugClient({ slug }) {
                   <h3 className="font-bold text-lg mb-2">Grow Your Business Online</h3>
                   <p className="text-muted-foreground mb-4">Expert web development services tailored for you.</p>
                   <Link href="/services">
-                      <Button>Explore Services</Button>
+                      <SquircleButton color="blue" className="w-full">
+                        Explore Services
+                      </SquircleButton>
                   </Link>
               </div>
             </article>

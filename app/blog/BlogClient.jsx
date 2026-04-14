@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero"
 import {
   Card,
   CardContent,
@@ -59,23 +60,12 @@ export function BlogClient() {
 
   return (
     <div>
-      {/* Hero Section - Keyword Enriched */}
-      <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-background via-background to-primary/5">
-        <motion.div
-          className="max-w-4xl z-20 mx-auto px-4 sm:px-6 lg:px-8 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Web Development & Growth <span className="text-primary">Insights</span>
-          </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-            Your go-to resource for digital success. Whether you are a <strong>Startup Founder</strong>, <strong>Freelancer</strong>, or run a <strong>Travel Agency</strong>, discover actionable strategies to build high-ranking websites and grow your brand online.
-          </p>
-        </motion.div>
-      
-      </section>
+      <PageHero
+        effect="zoom"
+        images={['/hero2.png']}
+        title="Web Development & Growth Insights"
+        subtitle="Your go-to resource for digital success. Whether you are a Startup Founder, Freelancer, or run a Travel Agency, discover actionable strategies to build high-ranking websites and grow your brand online."
+      />
 
       {/* NEW SECTION: Audience Targeting (SEO Boost) */}
       <section className="py-12 bg-muted/30 border-y border-border">
@@ -187,7 +177,9 @@ export function BlogClient() {
                         Read Full Article
                         <MdArrowForward className="ml-2 group-hover:translate-x-1 transition-transform" />
                       </Button> */}
-                                     <SquircleButton color="blue"  label="Read Full Article"/>
+                                     <SquircleButton color="blue">
+                                       <MdArrowForward className="mr-2 h-4 w-4" />Read Full Article
+                                     </SquircleButton>
 
                     </Link>
                   </div>
@@ -286,7 +278,9 @@ export function BlogClient() {
                 className="flex-1 px-5 py-3 bg-background border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
               />
              
-               <SquircleButton color="white" label="Subscribe Free" className='w-full'/>
+               <SquircleButton color="white" className='w-full'>
+                 Subscribe Free
+               </SquircleButton>
           
             </div>
             <p className="text-xs text-muted-foreground mt-4">

@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, Badge, Button } from '@/components/ui'
 import { MdCalendarToday, MdTimer, MdArrowForward } from 'react-icons/md'
 import { useSiteContext } from '../context/SiteContext'
+import SquircleButton from '../../components/SquircleButton'
 
 export function RelatedBlogs({ currentSlug, currentCategory, currentTags, limit = 3 }) {
   const [relatedPosts, setRelatedPosts] = useState([])
@@ -83,10 +84,10 @@ export function RelatedBlogs({ currentSlug, currentCategory, currentTags, limit 
           <div className="text-center py-8">
             <p className="text-gray-600 mb-4">No related articles found.</p>
             <Link href="/blog">
-              <Button variant="outline" className="gap-2">
+<SquircleButton color="blue" className="gap-2">
                 Browse All Articles
-                <MdArrowForward />
-              </Button>
+                <MdArrowForward className="ml-1" />
+              </SquircleButton>
             </Link>
           </div>
         </div>
@@ -103,10 +104,10 @@ export function RelatedBlogs({ currentSlug, currentCategory, currentTags, limit 
             <p className="text-gray-600 mt-2">More insights you might find valuable</p>
           </div>
           <Link href="/blog" className="mt-4 md:mt-0">
-            <Button variant="ghost" className="gap-2">
+<SquircleButton color="white" className="gap-2">
               View All
-              <MdArrowForward />
-            </Button>
+              <MdArrowForward className="ml-1 h-4 w-4" />
+            </SquircleButton>
           </Link>
         </div>
         
@@ -197,10 +198,10 @@ export function RelatedBlogs({ currentSlug, currentCategory, currentTags, limit 
         {/* View All CTA */}
         <div className="mt-12 text-center">
           <Link href="/blog">
-            <Button variant="primary" className="gap-2 px-8">
+<SquircleButton color="blue" className="gap-2 px-8">
               Explore All Articles
-              <MdArrowForward />
-            </Button>
+              <MdArrowForward className="ml-1" />
+            </SquircleButton>
           </Link>
         </div>
       </div>
