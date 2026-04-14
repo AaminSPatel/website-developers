@@ -75,12 +75,18 @@ export function WhyChooseSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {reasons.map((reason, index) => {
+          {reasons.map((reason, i) => {
             const IconComponent = reason.icon;
             return (
 
               
-              <motion.div key={index} variants={itemVariants}>
+              <motion.div
+          
+          initial={i/2===0?{x:-70, opacity:0.7, scale:0.7}:{x:70, opacity:0.7, scale:0.7}}
+          whileInView={{x:0, opacity:1, scale:1}}
+          viewport={{ once: false }}
+          transition={{duration:0.4, delay:i*0.04}}
+          >
                 <Card className="h-full  shadow-none transition-shadow rounded-3xl three-d-box-blue">
                   <CardContent className="p-8">
                     <div className="flex items-start gap-4">

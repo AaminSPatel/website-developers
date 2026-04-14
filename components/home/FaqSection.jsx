@@ -24,8 +24,14 @@ export function FaqSection() {
           <p className="text-lg text-muted-foreground">Everything you need to know about our local development services</p>
         </motion.div>
         <div className="space-y-8">
-          {faqs.map((faq) => (
-            <Card key={faq.id} className="three-d-box-white w-full cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setOpenId(openId === faq.id ? null : faq.id)}>
+          {faqs.map((faq,i) => (
+               <motion.div
+          
+          initial={i%2===0?{x:-70, opacity:0.7, scale:0.7}:{x:70, opacity:0.7, scale:0.7}}
+          whileInView={{x:0, opacity:1, scale:1}}
+          viewport={{ once: false }}
+          transition={{duration:0.4, delay:i*0.04}}
+           key={faq.id} className="three-d-box-white w-full cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setOpenId(openId === faq.id ? null : faq.id)}>
               <div className="p-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-left">{faq.question}</h3>
@@ -43,7 +49,7 @@ export function FaqSection() {
                */}  </div>
                 {openId === faq.id && <p className="text-muted-foreground mt-4 leading-relaxed text-left">{faq.answer}</p>}
               </div>
-            </Card>
+            </motion.div>
           ))}
         </div>
       </div>
