@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 // Lucide icons popular aur clean hain
 import { Code2, Smartphone, Megaphone } from "lucide-react";
+import { motion } from 'framer-motion'
 
 export function ServicesSection() {
   const [services, setServices] = useState([]);
@@ -31,6 +32,15 @@ export function ServicesSection() {
     setServices(sampleServices);
   }, []);
 
+  
+  const containerVariants = {
+    hidden: { opacity: 0.5, y:40},
+    visible: { 
+      opacity: 1, 
+      y:0,x:0,
+      transition: { staggerChildren: 0.6, delayChildren: 0.3 } 
+    }
+  }
   return (
     <section className="py-12 md:py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -43,8 +53,13 @@ export function ServicesSection() {
 
         {/* Grid for 3 items in one row on mobile */}
         <div className="grid grid-cols-3 gap-2 md:gap-8">
-          {services.slice(0, 3).map((service) => (
-            <div key={service.id} className="three-d-box-white min-h-26 overflow-hidden">
+          {services.slice(0, 3).map((service,i) => (
+            <motion.div
+            variants={containerVariants}
+          initial={i===0?{x:-30, opacity:0.8}:i===1?{y:30, opacity:0.7}:{x:30, opacity:0.7}}
+          whileInView="visible"
+          viewport={{ once: false }}
+            key={service.id} className="three-d-box-white min-h-26 overflow-hidden">
               <div className="h-full flex flex-col p-3 md:p-8 text-center md:text-left items-center md:items-start">
                 <div className="mb-2 md:mb-6">
                   <div className="inline-flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl transition-colors">
@@ -61,12 +76,16 @@ export function ServicesSection() {
                   {service.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Niche wala bada section */}
-        <div className="three-d-box-orange mt-10 md:mt-16 bg-background rounded-2xl p-6 md:p-10 border border-border/50">
+         <motion.div
+            transition={{duration:0.3}}
+          initial={{y:30, opacity:0.6,scale:0.7}}
+          whileInView={{y:0,opacity:1, scale:1}}
+          viewport={{ once: false }} className="three-d-box-orange mt-10 md:mt-16 bg-background rounded-2xl p-6 md:p-10 border border-border/50">
           <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">Specialized Expertise</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-2">
@@ -83,8 +102,8 @@ export function ServicesSection() {
               </p>
             </div>
           </div>
+      </motion.div>
         </div>
-      </div>
     </section>
   );
 }

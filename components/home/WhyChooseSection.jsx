@@ -8,7 +8,6 @@ import {
   MdPhone,
   MdCheckCircle,
 } from "react-icons/md";
-import Squircle3D from "../Squircle3D";
 
 export function WhyChooseSection() {
   const containerVariants = {

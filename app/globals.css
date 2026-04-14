@@ -121,6 +121,38 @@
   }
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* For sticky header */
+  }
+  
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  
+  /* Scroll progress bar */
+  #scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transform-origin: left;
+    z-index: 9999;
+  }
+  
+  /* Parallax layers */
+  .parallax-bg {
+    will-change: transform;
+  }
+  
+  /* Hero shrink classes */
+  .hero-pin {
+    will-change: height, transform;
+  }
+  
+  /* Section stagger */
+  .stagger-item {
+    will-change: transform, opacity;
   }
 }
 
