@@ -56,7 +56,7 @@ export default function Home() {
           href: "/projects"
         }}
       />
-      <StatsSection />
+     {/*  <StatsSection /> */}
       <ServicesSection />
       <WhyChooseSection />
       <ProjectsSection />

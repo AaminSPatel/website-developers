@@ -271,7 +271,7 @@ export function ProjectSlugClient({ slug }) {
                 </div>
                 <CardContent className="p-8 md:p-12 text-center">
                   <blockquote className="text-xl md:text-2xl font-medium leading-relaxed mb-8 relative z-10">
-                    "{project.testimonial.content}"
+                    "{project.testimonial.quote}"
                   </blockquote>
 
                   <div className="flex items-center justify-center gap-4">

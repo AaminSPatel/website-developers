@@ -32,8 +32,8 @@ export const projectDetails = [
       "WhatsApp API"
     ],
     testimonial: {
-      quote: "This website transformed how we do business. We're now getting 3x more inquiries and closing deals faster than ever.",
-      name: "Rajesh Kumar",
+      quote: "I am very happy with your service you developed a exact website as i want and specially in my budget you designed very good and user friendly interface and backend also very easy to handle Thankyou for your service and in future if i required any technical support i will looking forward to you.  Thanyou ! 🙏",
+      name: "Gautam Rathore",
       role: "Owner, Avantika Travels",
     avatar: "/link:'#', images/clients/rahul.jpg" // Optional (agar photo na ho to hum initial use kar lenge)
   

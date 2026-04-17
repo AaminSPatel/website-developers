@@ -5,6 +5,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { Analytics } from '@vercel/analytics/next'
 import SquircleButton from '@/components/SquircleButton'
+import CounterDev from './components/CounterDev'
 import { useSiteContext } from './context/SiteContext'
 import { useEffect, useState } from 'react'
 import { FaWhatsapp } from 'react-icons/fa'
@@ -54,6 +55,7 @@ export function AppClient({ children }) {
       <Footer />
       <Analytics />
       <WhatsAppButton />
+      <CounterDev />
     </SiteProvider>
   )
 }
