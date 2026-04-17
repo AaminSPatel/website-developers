@@ -27,7 +27,7 @@ export function FaqSection() {
           {faqs.map((faq,i) => (
                <motion.div
           
-          initial={i%2===0?{x:-70, opacity:0.7, scale:0.7}:{x:70, opacity:0.7, scale:0.7}}
+          initial={i%2===0?{x:-210, opacity:0.7, scale:0.9}:{x:210, opacity:0.7, scale:0.9}}
           whileInView={{x:0, opacity:1, scale:1}}
           viewport={{ once: false }}
           transition={{duration:0.4, delay:i*0.04}}

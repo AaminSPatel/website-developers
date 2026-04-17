@@ -1,109 +1,210 @@
-"use client";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-// Lucide icons popular aur clean hain
-import { Code2, Smartphone, Megaphone } from "lucide-react";
+'use client'
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
+import {
+  MdTravelExplore,
+  MdTrendingUp,
+  MdShoppingCart,
+  MdSearch,
+  MdCode,
+  MdPhotoCamera,
+} from 'react-icons/md'
 
-export function ServicesSection() {
-  const [services, setServices] = useState([]);
-  
-  useEffect(() => {
-    const sampleServices = [
-      { 
-        id: 1, 
-        title: 'Web Dev', 
-        description: 'Custom web solutions', 
-        icon: <Code2 className="w-5 h-5 md:w-6 md:h-6" /> 
-      },
-      { 
-        id: 2, 
-        title: 'App Dev', 
-        description: 'Cross-platform apps', 
-        icon: <Smartphone className="w-5 h-5 md:w-6 md:h-6" /> 
-      },
-      { 
-        id: 3, 
-        title: 'Marketing', 
-        description: 'Grow online presence', 
-        icon: <Megaphone className="w-5 h-5 md:w-6 md:h-6" /> 
-      }
-    ];
-    setServices(sampleServices);
-  }, []);
+// ─── Service data ──────────────────────────────────────────────────────────────
+const services = [
+  {
+    icon: MdTravelExplore,
+    category: 'Travel Industry',
+    title: 'Travel Portal Development',
+    description:
+      'Automated booking systems and high-performance travel portals built for agents in Indore & Ujjain. Convert more pilgrims and tourists with seamless online booking.',
+    href: '/services',
+    highlight: 'Specialized Expertise',
+  },
+  {
+    icon: MdTrendingUp,
+    category: 'Business Growth',
+    title: 'Lead Generation Websites',
+    description:
+      'SEO-optimized websites designed to convert local Indore traffic into loyal customers. Every element is crafted to grow your revenue and brand.',
+    href: '/services',
+    highlight: 'High ROI',
+  },
+  {
+    icon: MdShoppingCart,
+    category: 'E-Commerce',
+    title: 'Online Store Development',
+    description:
+      'Full-featured e-commerce stores with payment integration, inventory management, and mobile-first design. Start selling online within days.',
+    href: '/services',
+    highlight: 'Quick Launch',
+  },
+  {
+    icon: MdSearch,
+    category: 'SEO Services',
+    title: 'Local SEO & Google Ranking',
+    description:
+      'Rank higher on Google for Indore and Ujjain keywords. We optimize your site for Core Web Vitals and local search to bring you real, paying customers.',
+    href: '/services',
+    highlight: 'Proven Results',
+  },
+  {
+    icon: MdCode,
+    category: 'Next.js Migration',
+    title: 'Website Speed Optimization',
+    description:
+      'Migrate your slow WordPress or static site to blazing-fast Next.js. Achieve perfect Lighthouse scores and dramatically better user experience.',
+    href: '/services',
+    highlight: 'Performance First',
+  },
+  {
+    icon: MdPhotoCamera,
+    category: 'Portfolio',
+    title: 'Personal Portfolio Websites',
+    description:
+      'Stunning personal portfolios using Next.js for freelancers and professionals who want to stand out in the global gig economy.',
+    href: '/services',
+    highlight: 'Stand Out',
+  },
+]
 
-  
-  const containerVariants = {
-    hidden: { opacity: 0.5, y:40},
-    visible: { 
-      opacity: 1, 
-      y:0,x:0,
-      transition: { staggerChildren: 0.6, delayChildren: 0.3 } 
+// ─── 3D Tilt Card ─────────────────────────────────────────────────────────────
+function TiltCard({ service, index }) {
+  const cardRef = useRef(null)
+
+  function handleMouseMove(e) {
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    // Max tilt: 12 degrees
+    const rotateX = ((y - centerY) / centerY) * -12
+    const rotateY = ((x - centerX) / centerX) * 12
+
+    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`
+    // Move the shine
+    const shine = card.querySelector('.card-shine')
+    if (shine) {
+      const shineX = (x / rect.width) * 100
+      const shineY = (y / rect.height) * 100
+      shine.style.background = `radial-gradient(circle at ${shineX}% ${shineY}%, hsl(var(--primary) / 0.13) 0%, transparent 60%)`
     }
   }
-  return (
-    <section className="py-12 md:py-20 bg-muted/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 md:mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 tracking-tight">Our Services</h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Professional solutions for <span className="text-primary font-medium">Modern Businesses</span>.
-          </p>
-        </div>
 
-        {/* Grid for 3 items in one row on mobile */}
-        <div className="grid grid-cols-3 gap-2 md:gap-8">
-          {services.slice(0, 3).map((service,i) => (
-            <motion.div
-            variants={containerVariants}
-          initial={i===0?{x:-30, opacity:0.8}:i===1?{y:30, opacity:0.7}:{x:30, opacity:0.7}}
-          whileInView="visible"
-          viewport={{ once: false }}
-            key={service.id} className="three-d-box-white min-h-26 overflow-hidden">
-              <div className="h-full flex flex-col p-3 md:p-8 text-center md:text-left items-center md:items-start">
-                <div className="mb-2 md:mb-6">
-                  <div className="inline-flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-primary/10 text-primary rounded-xl transition-colors">
-                    {service.icon}
-                  </div>
-                </div>
-                
-                <h3 className="text-[14px] md:text-xl font-bold text-foreground leading-tight">
-                  {service.title}
-                </h3>
-                
-                {/* Description sirf desktop par dikhegi taaki mobile par layout kharab na ho */}
-                <p className="hidden md:block mt-3 text-muted-foreground text-sm leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </motion.div>
+  function handleMouseLeave() {
+    const card = cardRef.current
+    if (!card) return
+    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)'
+    const shine = card.querySelector('.card-shine')
+    if (shine) shine.style.background = 'transparent'
+  }
+
+  const Icon = service.icon
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+    >
+      <div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="relative group rounded-2xl border border-border bg-card p-6 h-full cursor-default overflow-hidden"
+        style={{
+          transition: 'transform 0.18s ease, box-shadow 0.18s ease',
+          willChange: 'transform',
+          transformStyle: 'preserve-3d',
+          boxShadow: '0 2px 16px 0 hsl(var(--primary) / 0.04)',
+        }}
+        onMouseEnter={(e) => {
+          const card = cardRef.current
+          if (card) card.style.boxShadow = '0 16px 48px 0 hsl(var(--primary) / 0.18)'
+        }}
+      >
+        {/* Shine overlay — moves with mouse */}
+        <div className="card-shine absolute inset-0 rounded-2xl pointer-events-none transition-all duration-100" />
+
+        {/* Top accent line */}
+        <div className="absolute top-0 left-6 right-6 h-[2px] rounded-b-full bg-primary/0 group-hover:bg-primary/60 transition-all duration-300" />
+
+        {/* Content — translateZ gives depth */}
+        <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }}>
+          {/* Icon */}
+          <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+            <Icon size={22} />
+          </div>
+
+          {/* Highlight badge */}
+          <span className="inline-block text-[10px] font-semibold uppercase tracking-widest text-primary bg-primary/10 rounded-full px-2.5 py-0.5 mb-3">
+            {service.highlight}
+          </span>
+
+          {/* Category */}
+          <p className="text-xs text-muted-foreground mb-1">{service.category}</p>
+
+          {/* Title */}
+          <h3 className="text-lg font-bold text-foreground mb-3 leading-snug">
+            {service.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+            {service.description}
+          </p>
+
+          {/* Link */}
+          <Link
+            href={service.href}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:gap-3 transition-all duration-200"
+          >
+            Learn more
+            <span className="text-base">→</span>
+          </Link>
+        </div>
+      </div>
+    </motion.div>
+  )
+}
+
+// ─── Main Section ──────────────────────────────────────────────────────────────
+export function ServicesSection() {
+  return (
+    <section className="py-20 md:py-32 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary bg-primary/10 rounded-full px-3 py-1 mb-4">
+            Our Services
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Professional Solutions for Modern Businesses
+          </h2>
+          <p className="text-muted-foreground max-w-xl mx-auto text-base leading-relaxed">
+            From travel portals to e-commerce — everything your business needs to grow online, delivered in 7–10 days.
+          </p>
+        </motion.div>
+
+        {/* 3D Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, i) => (
+            <TiltCard key={service.title} service={service} index={i} />
           ))}
         </div>
-
-        {/* Niche wala bada section */}
-         <motion.div
-            transition={{duration:0.3}}
-          initial={{y:30, opacity:0.6,scale:0.7}}
-          whileInView={{y:0,opacity:1, scale:1}}
-          viewport={{ once: false }} className="three-d-box-orange mt-10 md:mt-16 bg-background rounded-2xl p-6 md:p-10 border border-border/50">
-          <h3 className="text-xl md:text-2xl font-bold mb-6 text-center">Specialized Expertise</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-2">
-              <h4 className="font-bold text-primary text-lg">Travel Industry</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Automated booking systems and high-performance travel portals. Check our 
-                <Link href="/projects" className="ml-1 text-primary hover:underline">case studies</Link>.
-              </p>
-            </div>
-            <div className="space-y-2 border-t md:border-t-0 md:border-l border-border pt-6 md:pt-0 md:pl-8">
-              <h4 className="font-bold text-primary text-lg">Business Growth</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                SEO-optimized websites designed to convert local traffic into loyal customers.
-              </p>
-            </div>
-          </div>
-      </motion.div>
-        </div>
+      </div>
     </section>
-  );
+  )
 }

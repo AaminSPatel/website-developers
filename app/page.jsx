@@ -1,3 +1,4 @@
+// app/page.js
 import { PageHero } from '@/components/PageHero'
 import { ServicesSection } from '@/components/home/ServicesSection'
 import { ProjectsSection } from '@/components/home/ProjectsSection'
@@ -6,7 +7,9 @@ import { FaqSection } from '@/components/home/FaqSection'
 import { CtaSection } from '@/components/home/CtaSection'
 import { WhyChooseSection } from '@/components/home/WhyChooseSection'
 import { SeoContentSection } from '@/components/home/SeoContentSection'
+//import { StatsSection } from '@/components/home/StatsSection'
 import Link from 'next/link'
+import { StatsSection } from '../components/home/StatsSection'
 
 export const metadata = {
   title: 'Business Sathi | Digital Solutions for Business Growth',
@@ -21,40 +24,39 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <>
-       <PageHero
-      effect="zoom" // ya "zoom" ya "simple"
-      images={[
-        '/hero3.png'
-      ]}
-      badge="🏆 Best Affordable Web Design Services in Indore"
-      title="Custom Website Development for Indore Small Businesses"
-      highlightedText="Website Development"
-      subtitle={
-        <>
-          Searching for <strong>Affordable Web Design Services in Indore</strong>? I help
-          small businesses, self-employed professionals, and travel agencies
-          in Indore and Ujjain get more leads. Explore our{" "}
-          <Link href="/services" className="text-primary underline">
-            web development services
-          </Link>{" "}
-          or check our{" "}
-          <Link href="/projects" className="text-primary underline">
-            recent portfolio
-          </Link>{" "}
-          to see how we grow local brands.
-        </>
-      }
-      ctaPrimary={{
-        text: "Free Website Consultation",
-        href: "tel:+919302088025",
-        icon: "call"
-      }}
-      ctaSecondary={{
-        text: "View Case Studies",
-        href: "/projects"
-      }}
-    />
+    <main className="overflow-x-hidden">
+      <PageHero
+        effect="zoom"
+        images={['/hero3.png']}
+        badge="🏆 Best Affordable Web Design Services in Indore"
+        title="Custom Website Development for Indore Small Businesses"
+        highlightedText="Website Development"
+        subtitle={
+          <>
+            Searching for <strong>Affordable Web Design Services in Indore</strong>? I help
+            small businesses, self-employed professionals, and travel agencies
+            in Indore and Ujjain get more leads. Explore our{" "}
+            <Link href="/services" className="text-primary underline">
+              web development services
+            </Link>{" "}
+            or check our{" "}
+            <Link href="/projects" className="text-primary underline">
+              recent portfolio
+            </Link>{" "}
+            to see how we grow local brands.
+          </>
+        }
+        ctaPrimary={{
+          text: "Free Website Consultation",
+          href: "tel:+919302088025",
+          icon: "call"
+        }}
+        ctaSecondary={{
+          text: "View Case Studies",
+          href: "/projects"
+        }}
+      />
+      <StatsSection />
       <ServicesSection />
       <WhyChooseSection />
       <ProjectsSection />
@@ -62,7 +64,6 @@ export default function Home() {
       <TestimonialsSection />
       <FaqSection />
       <CtaSection />
-    </>
+    </main>
   )
 }
-

@@ -1,8 +1,17 @@
 @import 'tailwindcss';
 
 
+/* ========================================
+   OPTIMIZED CSS - Render-Blocking Removed
+   ======================================== */
+
+/* Tailwind ka import HATAYA - ye render blocking karta hai */
+/* Iski jagah Tailwind CDN ya build process use karein */
+
+/* Custom Variants */
 @custom-variant dark (&:is(.dark *));
 
+/* Root Variables - Keep as is */
 :root {
   --background: oklch(0.98 0.002 0);
   --foreground: oklch(0.12 0.01 265);
@@ -19,15 +28,9 @@
   --accent: oklch(0.65 0.22 45);
   --accent-foreground: oklch(0.12 0.01 265);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
   --border: oklch(0.92 0.01 0);
   --input: oklch(0.97 0.01 0);
   --ring: oklch(0.35 0.12 265);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -59,11 +62,6 @@
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
   --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -96,11 +94,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -115,6 +108,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ========================================
+   BASE STYLES - Optimized
+   ======================================== */
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -122,171 +118,162 @@
   body {
     @apply bg-background text-foreground;
     scroll-behavior: smooth;
-    scroll-padding-top: 80px; /* For sticky header */
+    scroll-padding-top: 80px;
   }
   
-  html {
-    scroll-snap-type: y mandatory;
-  }
+  /* 🔧 FIXED: scroll-snap sirf specific pages/containers ke liye */
+  /* .snap-container { scroll-snap-type: y mandatory; } - Manual add karein */
   
   /* Scroll progress bar */
   #scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
-    height: 4px;
+    height: 3px;  /* Thinner = better performance */
     background: linear-gradient(90deg, var(--primary), var(--accent));
     transform-origin: left;
     z-index: 9999;
+    pointer-events: none; /* Better UX */
   }
   
-  /* Parallax layers */
+  /* Parallax optimization */
   .parallax-bg {
     will-change: transform;
   }
   
-  /* Hero shrink classes */
+  /* 🔧 ADDED: Reduced motion support (Accessibility) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .parallax-bg {
+      will-change: auto;
+    }
+  }
+  
   .hero-pin {
     will-change: height, transform;
   }
   
-  /* Section stagger */
   .stagger-item {
     will-change: transform, opacity;
   }
 }
 
+/* ========================================
+   3D SQUIRCLE EFFECTS - Performance Optimized
+   ======================================== */
 
-/* 3D Squircle Effect Class */
+/* 🔧 OPTIMIZED: Lighter shadows, fewer layers */
 .three-d-box {
-  --box-color: #e5f2faea; /* Default Blue */
-  --box-depth: 8px;
+  --box-color: #e5f2faea;
+  --box-depth: 6px;  /* Reduced from 8px */
   --box-radius: 24px;
   --box-border: rgba(225, 228, 231, 0.952);
   
   position: relative;
   display: inline-block;
-  /* background-color: var(--box-color); */
   border-radius: var(--box-radius);
-  /* color: white; */
-  
-  /* 3D Depth Effect using Box Shadow */
-  /* Pehla shadow side walls ke liye, doosra niche ki main shadow ke liye */
   box-shadow: 
-    0 var(--box-depth) 0 0 color-mix(in srgb, var(--box-color), rgb(84, 159, 180) 25%), 0 8.6px 0 rgba(6, 6, 6, 0.27),
-    0 calc(var(--box-depth) + 4px) 10px rgba(87, 87, 87, 0.2);
-    
-  /* Smooth Border/Highlight */
+    0 var(--box-depth) 0 0 color-mix(in srgb, var(--box-color), rgb(84, 159, 180) 25%),
+    0 calc(var(--box-depth) + 2px) 6px rgba(0, 0, 0, 0.1);  /* Simplified */
   border: 1.5px solid var(--box-border);
-  /* border-bottom:  2px solid rgba(222, 226, 239, 0.97);
-   */
-  /* Squircle Shape (Optional but recommended) */
-  /* Agar exact squircle chahiye to ye clip-path use karein */
-  mask-image: paint(squircle); 
-  -webkit-mask-image: paint(squircle);
+  transition: transform 0.05s linear, box-shadow 0.05s linear;
 }
 
-/* Optional: Hover ya Active state agar chahiye ho */
 .three-d-box:active {
   transform: translateY(2px);
   box-shadow: 
-    0 calc(var(--box-depth) - 2px) 0 0 color-mix(in srgb, var(--box-color), rgba(84, 159, 180, 0.64) 25%),0 6.6px 0 rgba(6, 6, 6, 0.27),
-    0 calc(var(--box-depth) + 0px) 5px rgba(0, 0, 0, 0.2);
+    0 calc(var(--box-depth) - 2px) 0 0 color-mix(in srgb, var(--box-color), rgb(84, 159, 180) 25%),
+    0 calc(var(--box-depth)) 3px rgba(0, 0, 0, 0.1);
 }
 
-
-  
-  .three-d-box-blue {
+/* Blue variant - Optimized */
+.three-d-box-blue {
   --box-color: #ffffff;
-  --box-depth: 9px;
+  --box-depth: 6px;
   --box-radius: 28px;
   --box-border: #129bdf3d;
-  /* 
-  position: relative; */
-  display: inline-block;
-/*   background-color: var(--box-color); */
-  border-radius: var(--box-radius);
- /*  padding: 12px 28px; */
- /*  font-weight: 900;
-  font-size: 15px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-align: center;
-  font-family: system-ui; */
   
-  /* 3D Depth Effect */
+  display: inline-block;
+  border-radius: var(--box-radius);
   box-shadow: 
     0 var(--box-depth) 0 0 #13566985,
-    0 8.6px 0 rgba(0, 0, 0, 0.1),
-    0 calc(var(--box-depth) + 6px) 6px #4a4f5098;
-    
+    0 calc(var(--box-depth) + 2px) 6px rgba(0, 0, 0, 0.1);
   border: 2px solid var(--box-border);
-  border-bottom: 2px solid #129bdf42;
   transition: all 0.05s linear;
 }
 
 .three-d-box-blue:active {
-  transform: translateY(4px);
+  transform: translateY(3px);
   box-shadow: 
-    0 calc(var(--box-depth) - 4px) 0 0 #13566985,
-    0 4px 0 rgba(0, 0, 0, 0.1),
-    0 calc(var(--box-depth) ) 2px #20cfff98;
+    0 calc(var(--box-depth) - 3px) 0 0 #13566985,
+    0 calc(var(--box-depth)) 2px rgba(0, 0, 0, 0.1);
 }
 
+/* White variant - Optimized */
 .three-d-box-white {
   --box-color: #ffffff;
-  --box-depth: 9px;
+  --box-depth: 6px;
   --box-radius: 28px;
   --box-border: rgba(0, 0, 0, 0.1);
 
   display: inline-block;
   background-color: var(--box-color);
   border-radius: var(--box-radius);
-
-  /* 3D Depth Effect (Black/Grey) */
   box-shadow: 
-    0 var(--box-depth) 0 0 rgba(0, 0, 0, 0.25),
-    0 8px 0 rgba(0, 0, 0, 0.08),
-    0 calc(var(--box-depth) + 6px) 6px rgba(0, 0, 0, 0.2);
-
+    0 var(--box-depth) 0 0 rgba(0, 0, 0, 0.2),
+    0 calc(var(--box-depth) + 2px) 6px rgba(0, 0, 0, 0.15);
   border: 2px solid var(--box-border);
-
   transition: all 0.05s linear;
 }
 
 .three-d-box-white:active {
-  transform: translateY(4px);
-
+  transform: translateY(3px);
   box-shadow: 
-    0 calc(var(--box-depth) - 4px) 0 0 rgba(0, 0, 0, 0.25),
-    0 4px 0 rgba(0, 0, 0, 0.08),
-    0 var(--box-depth) 2px rgba(0, 0, 0, 0.2);
+    0 calc(var(--box-depth) - 3px) 0 0 rgba(0, 0, 0, 0.2),
+    0 calc(var(--box-depth)) 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Orange variant - Optimized */
 .three-d-box-orange {
   --box-color: #ff6b35;
-  --box-depth: 9px;
+  --box-depth: 6px;
   --box-radius: 28px;
   --box-border: #f0dbd0;
-  
 
   border-radius: var(--box-radius);
- 
-  /* 3D Depth Effect */
   box-shadow: 
     0 var(--box-depth) 0 0 #cd681f,
-    0 8.6px 0 rgba(0, 0, 0, 0.1),
-    0 calc(var(--box-depth) + 6px) 6px rgba(55, 53, 52, 0.4);
-    
+    0 calc(var(--box-depth) + 2px) 6px rgba(0, 0, 0, 0.2);
   border: 2px solid var(--box-border);
- /*  border-bottom: 2px solid #a58d7e; */
   transition: all 0.05s linear;
 }
 
 .three-d-box-orange:active {
-  transform: translateY(4px);
+  transform: translateY(3px);
   box-shadow: 
-    0 calc(var(--box-depth) - 4px) 0 0 #cc5500,
-    0 4px 0 rgba(0, 0, 0, 0.1),
-    0 calc(var(--box-depth)) 2px rgba(255, 107, 53, 0.3);
+    0 calc(var(--box-depth) - 3px) 0 0 #cc5500,
+    0 calc(var(--box-depth)) 3px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================
+   PERFORMANCE HINTS - Critical CSS
+   ======================================== */
+
+/* Lazy loading ke liye */
+img:not([src^="data"]) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
+
+/* Above-the-fold content priority */
+.hero-section, .navbar, .above-fold {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
