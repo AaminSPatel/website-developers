@@ -1,257 +1,161 @@
-'use client'
+"use client"
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Card, CardContent, Badge, Button } from '@/components/ui'
 import { MdCalendarToday, MdTimer, MdArrowForward } from 'react-icons/md'
+import { FaWhatsapp } from 'react-icons/fa'
 import { useSiteContext } from '../context/SiteContext'
-import SquircleButton from '../../components/SquircleButton'
 
-export function RelatedBlogs({ currentSlug, currentCategory, currentTags, limit = 3 }) {
+export function RelatedBlogs({
+  currentSlug,
+  currentCategory,
+  currentTags,
+  limit = 3
+}) {
   const [relatedPosts, setRelatedPosts] = useState([])
   const siteData = useSiteContext()
-  
+
   useEffect(() => {
     if (!siteData.blogPosts || !currentSlug) return
-    
-    // Filter out current post
-    const allPosts = siteData.blogPosts.filter(post => post.slug !== currentSlug)
-    
-    // Calculate similarity score for each post
-    const postsWithScore = allPosts.map(post => {
+    const allPosts = siteData.blogPosts.filter((p) => p.slug !== currentSlug)
+
+    const scored = allPosts.map((post) => {
       let score = 0
-      
-      // Category match (highest weight)
-      if (post.category === currentCategory) {
-        score += 3
-      }
-      
-      // Tag matches (medium weight)
+      if (post.category === currentCategory) score += 3
       if (post.tags && currentTags) {
-        const commonTags = post.tags.filter(tag => 
-          currentTags.includes(tag)
-        ).length
-        score += commonTags * 2
+        const common = post.tags.filter((t) => currentTags.includes(t)).length
+        score += common * 2
       }
-      
-      // Content similarity (basic keyword matching)
-      if (post.title && typeof post.title === 'string') {
-        const titleWords = post.title.toLowerCase().split(/\s+/)
-        const currentWords = currentTags || []
-        const titleMatches = titleWords.filter(word => 
-          currentWords.some(tag => tag.toLowerCase().includes(word) || word.includes(tag.toLowerCase()))
-        ).length
-        score += titleMatches * 0.5
-      }
-      
-      return { ...post, relevanceScore: score }
+      return { ...post, _score: score }
     })
-    
-    // Sort by relevance score (descending) and take top posts
-    const sortedPosts = postsWithScore
-      .sort((a, b) => b.relevanceScore - a.relevanceScore)
-      .slice(0, limit)
-    
-    // If we don't have enough related posts by score, fill with latest posts
-    if (sortedPosts.length < limit) {
-      const latestPosts = allPosts
-        .filter(post => !sortedPosts.some(p => p.slug === post.slug))
-        .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-        .slice(0, limit - sortedPosts.length)
-      
-      setRelatedPosts([...sortedPosts, ...latestPosts])
+
+    const sorted = scored.sort((a, b) => b._score - a._score).slice(0, limit)
+
+    if (sorted.length < limit) {
+      const extra = allPosts
+        .filter((p) => !sorted.some((s) => s.slug === p.slug))
+        .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime())
+        .slice(0, limit - sorted.length)
+      setRelatedPosts([...sorted, ...extra])
     } else {
-      setRelatedPosts(sortedPosts)
+      setRelatedPosts(sorted)
     }
   }, [siteData.blogPosts, currentSlug, currentCategory, currentTags, limit])
 
-  const formatDate = (dateStr) => {
-    return new Date(dateStr).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    })
-  }
+  const formatDate = (d) =>
+    new Date(d).toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' })
 
-  // Fallback if no related posts found
-  if (relatedPosts.length === 0) {
-    return (
-      <section className="py-12 bg-gradient-to-r from-gray-50 to-gray-100">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold mb-8 text-gray-900">Explore More Articles</h2>
-          <div className="text-center py-8">
-            <p className="text-gray-600 mb-4">No related articles found.</p>
-            <Link href="/blog">
-<SquircleButton color="blue" className="gap-2">
-                Browse All Articles
-                <MdArrowForward className="ml-1" />
-              </SquircleButton>
-            </Link>
-          </div>
-        </div>
-      </section>
-    )
-  }
+  if (relatedPosts.length === 0) return null
 
   return (
-    <section className="py-12 bg-gradient-to-r from-gray-50 to-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8">
+    <section className="py-16 bg-slate-50 border-t border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-10 gap-4">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Related Articles</h2>
-            <p className="text-gray-600 mt-2">More insights you might find valuable</p>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900">
+              Continue Reading
+            </h2>
+            <p className="text-gray-500 text-sm mt-1">More guides you might find useful</p>
           </div>
-          <Link href="/blog" className="mt-4 md:mt-0">
-<SquircleButton color="white" className="gap-2">
-              View All
-              <MdArrowForward className="ml-1 h-4 w-4" />
-            </SquircleButton>
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+          >
+            View All Articles <MdArrowForward size={16} />
           </Link>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {relatedPosts.map((post, index) => (
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {relatedPosts.map((post, i) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
             >
               <Link href={`/blog/${post.slug}`}>
-                <Card className="h-full overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-blue-300">
-                  <CardContent className="p-0 h-full flex flex-col">
-                    {/* Featured Image */}
-                    {post.image && (
-                      <div className="relative h-48 w-full overflow-hidden">
-                        <Image
-                          src={post.image}
-                          alt={post.title}
-                          fill
-                          className="object-cover transition-transform duration-500 hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        <div className="absolute top-3 left-3 text-accent rounded-md">
-                          <Badge variant="primary" className="text-xs bg-white/30 ">
-                            {post.category}
-                          </Badge>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Content */}
-                    <div className="p-5 flex-1 flex flex-col">
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm line-clamp-3 mb-4">
-                          {post.excerpt || 'Read this insightful article...'}
-                        </p>
-                      </div>
-                      
-                      {/* Meta Info */}
-                      <div className="pt-4 border-t border-gray-100">
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <div className="flex items-center gap-3">
-                            <span className="flex items-center gap-1">
-                              <MdCalendarToday size={12} />
-                              {formatDate(post.publishedAt)}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <MdTimer size={12} />
-                              {post.readingTime}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        {/* Tags */}
-                        {post.tags && post.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1 mt-3">
-                            {post.tags.slice(0, 3).map((tag, idx) => (
-                              <span
-                                key={idx}
-                                className="inline-block px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded"
-                              >
-                                #{tag}
-                              </span>
-                            ))}
-                            {post.tags.length > 3 && (
-                              <span className="inline-block px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded">
-                                +{post.tags.length - 3}
-                              </span>
-                            )}
-                          </div>
-                        )}
+                <article className="group h-full flex flex-col bg-white border border-slate-100 rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-blue-200 transition-all duration-300">
+                  {post.image && (
+                    <div className="relative h-48 w-full overflow-hidden">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="bg-white/90 backdrop-blur-sm text-blue-700 text-xs font-bold px-2.5 py-1 rounded-full">
+                          {post.category}
+                        </span>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  )}
+                  <div className="flex flex-col flex-1 p-5">
+                    <h3 className="font-bold text-gray-900 text-base mb-2 line-clamp-2 group-hover:text-blue-700 transition-colors leading-snug">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm line-clamp-2 flex-1 leading-relaxed">
+                      {post.excerpt}
+                    </p>
+                    {post.tags?.length > 0 && (
+                      <div className="flex flex-wrap gap-1 mt-3">
+                        {post.tags.slice(0, 3).map((tag, j) => (
+                          <span key={j} className="text-xs bg-blue-50 text-blue-600 px-2 py-0.5 rounded">
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <div className="flex items-center justify-between text-xs text-gray-400 mt-4 pt-3 border-t border-gray-100">
+                      <span className="flex items-center gap-1">
+                        <MdCalendarToday size={12} /> {formatDate(post.publishedAt)}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MdTimer size={12} /> {post.readingTime} min
+                      </span>
+                    </div>
+                  </div>
+                </article>
               </Link>
             </motion.div>
           ))}
         </div>
-        
-        {/* View All CTA */}
-        <div className="mt-12 text-center">
-          <Link href="/blog">
-<SquircleButton color="blue" className="gap-2 px-8">
-              Explore All Articles
-              <MdArrowForward className="ml-1" />
-            </SquircleButton>
-          </Link>
+
+        {/* Bottom CTA */}
+        <div className="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 text-center text-white">
+          <h3 className="font-extrabold text-xl md:text-2xl mb-2">
+            Want a Website for Your Business?
+          </h3>
+          <p className="text-blue-100 mb-6 max-w-lg mx-auto text-sm">
+            We build SEO-optimized websites for businesses in Indore, Ujjain & across Madhya Pradesh.
+            Free consultation, no commitment.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-white text-blue-700 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors"
+            >
+              Get Free Quote <MdArrowForward size={16} />
+            </Link>
+            <a
+              href="https://wa.me/919302088025?text=Hi! I want a website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold px-6 py-3 rounded-xl transition-colors"
+            >
+              <FaWhatsapp size={18} />
+              WhatsApp Now
+            </a>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-// Alternative: Simple Related Blogs Component (if you don't have categories/tags)
-export function SimpleRelatedBlogs({ currentSlug, limit = 3 }) {
-  const [relatedPosts, setRelatedPosts] = useState([])
-  const siteData = useSiteContext()
-  
-  useEffect(() => {
-    if (!siteData.blogPosts || !currentSlug) return
-    
-    // Filter out current post and get latest posts
-    const latestPosts = siteData.blogPosts
-      .filter(post => post.slug !== currentSlug)
-      .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-      .slice(0, limit)
-    
-    setRelatedPosts(latestPosts)
-  }, [siteData.blogPosts, currentSlug, limit])
-
-  if (relatedPosts.length === 0) return null
-
-  return (
-    <section className="py-8 border-t">
-      <h3 className="text-xl font-bold mb-6 text-gray-900">You Might Also Like</h3>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {relatedPosts.map((post, index) => (
-          <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            className="group block p-4 rounded-lg hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200"
-          >
-            <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
-              {post.title}
-            </h4>
-            <p className="text-sm text-gray-600 mt-1 line-clamp-2">
-              {post.description || ''}
-            </p>
-            <div className="flex items-center gap-2 mt-2 text-xs text-gray-500">
-              <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
-              <span>•</span>
-              <span>{post.readingTime}</span>
-            </div>
-          </Link>
-        ))}
-      </div>
-    </section>
-  )
-}

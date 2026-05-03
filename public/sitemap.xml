@@ -1,149 +1,259 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- MAIN PAGES — highest priority                               -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
   <url>
-    <loc>https://website-developers.vercel.app/</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/og-home.png</image:loc>
+      <image:title>Business Sathi — Website Development Company Indore Ujjain</image:title>
+    </image:image>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/about</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/about</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/services</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/projects</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/services</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/contact</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog</loc>
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/contact</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/privacy</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/privacy</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.2</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/terms</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/terms</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.2</priority>
   </url>
-  <!-- Blog Posts -->
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- BLOG POSTS — SEO content pages                             -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
   <url>
-    <loc>https://website-developers.vercel.app/blog/future-web-development-2026</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/blog/future-web-development-2026</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/future-web.png</image:loc>
+      <image:title>Future of Web Development 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/mobile-optimization-guide</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/mobile-optimization.png</image:loc>
+      <image:title>Mobile Optimization Guide — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/seo-best-practices-2026</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/seo-2026.png</image:loc>
+      <image:title>SEO Best Practices 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/high-performance-websites</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/performance.png</image:loc>
+      <image:title>High Performance Websites Guide — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/ecommerce-seo-guide-2026</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/ecommerce-seo.png</image:loc>
+      <image:title>Ecommerce SEO Guide 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/local-seo-strategies-2026</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/local-seo.png</image:loc>
+      <image:title>Local SEO Strategies 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/saas-content-marketing-strategy</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/saas-content.png</image:loc>
+      <image:title>SaaS Content Marketing Strategy — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/medical-website-guide-2026</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/medical-website-2026.png</image:loc>
+      <image:title>Medical Website Guide 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/coaching-center-website-2026</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/coaching-website-2026.png</image:loc>
+      <image:title>Coaching Center Website Guide 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://business-sathi.vercel.app/blog/travel-agency-website-2026</loc>
+    <lastmod>2026-03-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/blog/travel-website-2026.png</image:loc>
+      <image:title>Travel Agency Website Guide 2026 — Business Sathi</image:title>
+    </image:image>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!-- PROJECT / CASE STUDY PAGES                                  -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://business-sathi.vercel.app/projects/avantika-travels-travel-agency-website</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/assets/avantika1.png</image:loc>
+      <image:title>Avantika Travels Website — Business Sathi Portfolio</image:title>
+    </image:image>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/blog/mobile-optimization-guide</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/safar-sathi-multi-service-booking-platform</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/assets/safar1.png</image:loc>
+      <image:title>Safar Sathi Booking Platform — Business Sathi Portfolio</image:title>
+    </image:image>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/blog/seo-best-practices-2026</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/a2zdm-digital-marketing-agency-website</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://business-sathi.vercel.app/assets/a2zdm1.png</image:loc>
+      <image:title>A2ZDM Digital Marketing Website — Business Sathi Portfolio</image:title>
+    </image:image>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/blog/high-performance-websites</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog/ecommerce-seo-guide-2026</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog/local-seo-strategies-2026</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog/saas-content-marketing-strategy</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog/medical-website-guide-2026</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog/coaching-center-website-2026</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://website-developers.vercel.app/blog/travel-agency-website-2026</loc>
-    <lastmod>2024-10-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <!-- Projects -->
-  <url>
-    <loc>https://website-developers.vercel.app/projects/avantika-travels-booking-increase</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/music-player-pro</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/projects/safar-sathi-multi-service-growth</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/dealify-e-commerce-platform</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/projects/a2zdm-agency-growth</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/flower-elegance-wedding-decorations</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/projects/music-streaming-platform-user-growth</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/mindful-moments-psychology-blogs</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/projects/dealify-ecommerce-sales-boost</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/complete-e-commerce-solution</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
   <url>
-    <loc>https://website-developers.vercel.app/projects/flower-elegance-wedding-inquiry-boost</loc>
-    <lastmod>2024-10-18</lastmod>
+    <loc>https://business-sathi.vercel.app/projects/triply-travel-agency-website</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+
 </urlset>
