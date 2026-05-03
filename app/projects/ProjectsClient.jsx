@@ -143,12 +143,13 @@ export function ProjectsClient() {
                     <div className="flex items-center justify-center h-full">
                        <div className="relative h-full w-full">
                           <Image
-                            src={project.images[0]}
-                            alt={`Web Development Case Study: ${project.headline}`}
+                            src={typeof project.images[0] === 'object' ? project.images[0].src : project.images[0]}
+                            alt={typeof project.images[0] === 'object' ? project.images[0].alt : `Web Development Case Study: ${project.headline} by Business Sathi Indore - Website development portfolio`}
                             width={600}
                             height={400}
                             className="w-full h-full object-contain hover:scale-105 transition duration-700 ease-in-out"
                             style={{ aspectRatio: '16/9' }}
+                            title={typeof project.images[0] === 'object' ? project.images[0].title : 'Business Sathi project screenshot'}
                           />
                         </div>
                     </div>

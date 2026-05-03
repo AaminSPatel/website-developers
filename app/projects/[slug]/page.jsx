@@ -2,60 +2,43 @@ import { ProjectSlugClient } from './ProjectSlugClient'
 import { projectDetails } from '../../data/Projects'
 
 // Generate Dynamic Metadata
+export async function generateStaticParams() {
+  return projectDetails.map((project) => ({ slug: project.slug }))
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  const project = projectDetails?.find(p => p.slug === slug)
+  const project = projectDetails.find(p => p.slug === slug)
 
-  // Fallback if project not found
   if (!project) {
     return {
-      title: 'Project Not Found | Website Developers India',
-      description: 'The requested case study could not be found.',
+      title: 'Project Not Found | Business Sathi Portfolio',
+      description: 'Case study not found.',
       robots: { index: false }
     }
   }
 
-  // 1. Title Strategy: Project Name + Industry + "Case Study"
-  const title = `${project.headline} - Web Design Case Study | ${project.industry} Website India`
-
-  // 2. Description Strategy: Problem -> Solution -> Tech -> Outcome (Natural Flow)
-  const description = `Read how we built a ${project.industry.toLowerCase()} website for ${project.headline}. Challenges: ${project.problem?.substring(0, 50)}... Solution: A fast Next.js & React app. Result: ${project.results?.[0] || 'Increased engagement'}. Freelance web development project based in India.`
-
-  // 3. Keywords Strategy: Specific + Niche + Location (No spamming)
-  const baseKeywords = [
-    `${project.industry} website design`,
-    `Next.js case study ${project.industry}`,
-    'freelance web developer India',
-    'web development portfolio',
-    'React.js project example',
-    ...(project.techStack || [])
-  ]
-
   return {
-    title,
-    description,
-    keywords: baseKeywords.join(', '), // Keeps it clean
+    title: `${project.headline} Case Study | Business Sathi Portfolio Indore Ujjain`,
+    description: `${project.clientName} ${project.industry} website development case study. ${project.results?.[0] || ''}. Built by Business Sathi Indore web developers.`,
+    keywords: [
+      `${project.clientName} website case study`,
+      `${project.industry} website Indore`,
+      'Next.js case study MP',
+      'web development portfolio Ujjain',
+      ...project.techStack.map(t => `${t} project example`)
+    ].join(', '),
+    alternates: { canonical: `/projects/${slug}` },
     openGraph: {
-      title,
-      description,
-      url: `https://yourwebsite.com/projects/${slug}`, // Apna domain lagana
-      siteName: 'Website Developers India',
-      images: [
-        {
-          url: project.images[0] || '/og-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: `${project.headline} Website Preview`,
-        },
-      ],
+      title: `${project.headline} | Business Sathi Case Study`,
+      description: project.solution?.substring(0, 150) + '...',
       type: 'article',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [project.images[0] || '/og-image.jpg'],
-    },
+      publishedTime: new Date('2024-01-01').toISOString(),
+      images: project.images?.map(img => ({
+        url: img.src || img,
+        alt: img.alt || `${project.clientName} project screenshot`
+      })) || [{ url: '/og-projects.png' }]
+    }
   }
 }
 

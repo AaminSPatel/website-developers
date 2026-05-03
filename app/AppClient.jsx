@@ -32,9 +32,17 @@ function WhatsAppButton() {
 
   return (
     <div className="fixed  bottom-6 left-6  md:bottom-8 md:left-8 lg:hidden  !z-50">
+    <a
+        href="https://wa.me/919302088025?text=Hi! I need a website for my business"
+        target="_blank"
+        rel="noopener noreferrer"
+        
+        aria-label="Contact on WhatsApp"
+      >
+       
       <button 
         className="w-15 h-15 bg-white text-teal-500 three-d-box-blue p-0 rounded-full shadow-2xl !min-w-0 group"
-        onClick={handleWhatsAppClick}
+     /*    onClick={handleWhatsAppClick} */
         style={{
           display:'flex',
           justifyContent:'center',
@@ -43,6 +51,7 @@ function WhatsAppButton() {
       >
         <FaWhatsapp className="w-8 h-8 group-hover:scale-110 transition-transform duration-200" />
       </button>
+      </a> 
     </div>
   )
 }

@@ -139,8 +139,10 @@ function ProjectSlide({ project, isActive }) {
         >
           <Image
             src={project.image}
-            alt={project.title}
+            alt={project.title + ' - Portfolio project screenshot by Business Sathi website development company Indore Ujjain MP'}
+            title={project.client + ' project by Business Sathi - Leading web developer Indore'}
             fill
+            priority={true}
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />

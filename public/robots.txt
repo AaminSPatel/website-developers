@@ -1,13 +1,12 @@
-# robots.txt for Website Developers
-# Allow search engines to crawl all public pages
-
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /api
-Disallow: /private
-
-
-# Sitemap
-Sitemap: https://website-developers.vercel.app/sitemap.xml
-
+// app/robots.txt
+export default function robots() {
+  return {
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: ['/api/', '/admin/', '/private/'],
+    },
+    sitemap: 'https://business-sathi.vercel.app/sitemap.xml',
+    host: 'https://business-sathi.vercel.app',
+  }
+}

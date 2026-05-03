@@ -5,18 +5,22 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
- theme: {
-  extend: {
-    keyframes: {
-      marquee: {
-        from: { transform: 'translateX(0)' },
-        to: { transform: 'translateX(-50%)' },
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+        mono: ['var(--font-mono)'],
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 22s linear infinite',
       },
     },
-    animation: {
-      marquee: 'marquee 22s linear infinite',
-    },
   },
-},
   plugins: [],
 }

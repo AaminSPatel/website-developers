@@ -1,19 +1,14 @@
 import { TermsClient } from './TermsClient'
 
 export const metadata = {
-  // Professional and standard title
-  title: 'Terms & Conditions | Web Development Services Agreement',
-  
-  // Clear explanation of what this page contains
-  description: 'Review the terms of service for our web development projects. Transparent policies on payments, timelines, and deliverables for our Indian and global clients.',
-  
-  // Minimal keywords needed here
-  keywords: 'web development terms and conditions, service agreement India, freelance developer contract terms, website design policy',
-  
+  title: 'Terms & Conditions | Business Sathi Website Development Services Indore MP',
+  description: 'Terms of service for Business Sathi website development projects. Payment terms, timelines, deliverables for Indore Ujjain MP clients.',
+  keywords: 'Business Sathi terms conditions, web development agreement Indore, website service terms Ujjain, project terms MP',
+  robots: { index: true, follow: false },
+  alternates: { canonical: '/terms' },
   openGraph: {
-    title: 'Terms and Conditions - Website Developers India',
-    description: 'Our commitment to transparent and fair business practices.',
-    type: 'website'
+    title: 'Terms & Conditions | Business Sathi Web Developers',
+    description: 'Business Sathi terms of service for website projects.'
   }
 }
 

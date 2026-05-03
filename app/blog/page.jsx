@@ -19,14 +19,14 @@ export const metadata = {
   ],
 
   alternates: {
-    canonical: 'https://businesssathi.vercel.app/blog',
+    canonical: 'https://business-sathi.vercel.app/blog',
   },
 
   openGraph: {
     title: 'Business Sathi Blog — SEO & Web Dev Tips for Indian Businesses',
     description:
       'Practical articles on Local SEO, website development, and digital growth for small businesses and travel agencies in Indore, Ujjain & across India.',
-    url: 'https://businesssathi.vercel.app/blog',
+    url: 'https://business-sathi.vercel.app/blog',
     siteName: 'Business Sathi',
     type: 'website',
     locale: 'en_IN',
@@ -49,12 +49,12 @@ const jsonLd = {
   '@type': 'Blog',
   name: 'Business Sathi Blog',
   description: 'Web development, SEO, and digital marketing guides for businesses in Indore, Ujjain & Madhya Pradesh',
-  url: 'https://businesssathi.vercel.app/blog',
+  url: 'https://business-sathi.vercel.app/blog',
   publisher: {
     '@type': 'Organization',
     name: 'Business Sathi',
-    url: 'https://businesssathi.vercel.app',
-    logo: { '@type': 'ImageObject', url: 'https://businesssathi.vercel.app/apple-icon.jpeg' },
+    url: 'https://business-sathi.vercel.app',
+    logo: { '@type': 'ImageObject', url: 'https://business-sathi.vercel.app/apple-icon.jpeg' },
   },
   inLanguage: 'en-IN',
 }

@@ -4,7 +4,8 @@ import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Badge } from '@/components/ui'
+import { useParams, useRouter } from 'next/navigation'
+
 import {
   MdArrowBack,
   MdCalendarToday,
@@ -15,6 +16,9 @@ import {
   MdEmail,
   MdArrowForward,
   MdPhone,
+  MdAccessTime,
+  MdPerson,
+  MdLabel,
 } from 'react-icons/md'
 import {
   FaTwitter,
@@ -25,8 +29,6 @@ import {
   FaReddit,
   FaCopy,
 } from 'react-icons/fa'
-import { RelatedBlogs } from '../RelatedBlogs'
-import { blogPosts } from '../../data/BlogPosts'
 
 // ── Internal linking map ───────────────────────────────────────────────────────
 const internalLinks = {
@@ -38,6 +40,8 @@ const internalLinks = {
   'case studies': '/projects',
   'Next.js': '/services',
   'SEO optimization': '/services',
+  'website design Indore': '/services',
+  'SEO services Ujjain': '/services',
 }
 
 function escapeRegExp(s) {
@@ -50,6 +54,7 @@ function processInlineFormatting(text) {
   r = r.replace(/\*([^*]+)\*/g, '<em class="italic">$1</em>')
   r = r.replace(/\|\|([^|]+)\|\|/g, '<mark class="bg-yellow-100 px-1 rounded text-gray-900">$1</mark>')
   r = r.replace(/\[([^\]]+)\]/g, '<span class="text-blue-600 font-medium">$1</span>')
+  
   Object.keys(internalLinks).forEach((kw) => {
     const url = internalLinks[kw]
     const regex = new RegExp(`\\b(${escapeRegExp(kw)})\\b(?!([^<]+)?>)`, 'gi')
@@ -73,7 +78,7 @@ function parseBlogContent(content) {
 
   for (const rawLine of lines) {
     const line = rawLine.trim()
-    if (!line) continue
+    if (!line || line.startsWith('META_') || line === '---METADATA_END---') continue
 
     if (line.startsWith('* ') && line.endsWith(' *')) {
       if (inList) { html += `</${listType}>\n`; inList = false }
@@ -128,7 +133,8 @@ function parseBlogContent(content) {
 
 function extractMetadata(content) {
   const meta = {}
-  for (const line of content.split('\n')) {
+  const lines = content.split('\n')
+  for (const line of lines) {
     if (line.startsWith('META_TITLE: ')) meta.title = line.replace('META_TITLE: ', '')
     if (line.startsWith('META_DESCRIPTION: ')) meta.description = line.replace('META_DESCRIPTION: ', '')
     if (line.startsWith('KEYWORDS: ')) meta.keywords = line.replace('KEYWORDS: ', '').split(',').map((k) => k.trim())
@@ -150,21 +156,23 @@ function getContentWithoutMetadata(content) {
 // ── Share Modal ────────────────────────────────────────────────────────────────
 function ShareModal({ isOpen, onClose, postTitle, postUrl }) {
   const [copied, setCopied] = useState(false)
+  
   useEffect(() => {
     if (!isOpen) return
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = 'unset' }
   }, [isOpen])
+  
   if (!isOpen) return null
 
   const shareOptions = [
-    { name: 'WhatsApp', icon: <FaWhatsapp className="text-green-500" size={22} />, color: 'hover:bg-green-50', action: () => window.open(`https://wa.me/?text=${encodeURIComponent(`${postTitle}\n${postUrl}`)}`, '_blank') },
+    { name: 'WhatsApp', icon: <FaWhatsapp className="text-green-500" size={22} />, color: 'hover:bg-green-50', action: () => window.open(`https://wa.me/?text=${encodeURIComponent(`${postTitle}\n\nRead more: ${postUrl}`)}`, '_blank') },
     { name: 'Facebook', icon: <FaFacebookF className="text-blue-600" size={22} />, color: 'hover:bg-blue-50', action: () => window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`, '_blank') },
-    { name: 'Twitter', icon: <FaTwitter className="text-sky-400" size={22} />, color: 'hover:bg-sky-50', action: () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(postTitle)}&url=${encodeURIComponent(postUrl)}`, '_blank') },
+    { name: 'Twitter', icon: <FaTwitter className="text-sky-400" size={22} />, color: 'hover:bg-sky-50', action: () => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(postTitle)}&url=${encodeURIComponent(postUrl)}&via=businesssathi`, '_blank') },
     { name: 'LinkedIn', icon: <FaLinkedin className="text-blue-700" size={22} />, color: 'hover:bg-blue-50', action: () => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`, '_blank') },
     { name: 'Telegram', icon: <FaTelegram className="text-blue-400" size={22} />, color: 'hover:bg-blue-50', action: () => window.open(`https://t.me/share/url?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`, '_blank') },
     { name: 'Reddit', icon: <FaReddit className="text-orange-500" size={22} />, color: 'hover:bg-orange-50', action: () => window.open(`https://reddit.com/submit?url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(postTitle)}`, '_blank') },
-    { name: 'Email', icon: <MdEmail className="text-gray-500" size={22} />, color: 'hover:bg-gray-50', action: () => window.open(`mailto:?subject=${encodeURIComponent(postTitle)}&body=${encodeURIComponent(postUrl)}`) },
+    { name: 'Email', icon: <MdEmail className="text-gray-500" size={22} />, color: 'hover:bg-gray-50', action: () => window.open(`mailto:?subject=${encodeURIComponent(postTitle)}&body=${encodeURIComponent(`I thought you might find this interesting:\n\n${postTitle}\n${postUrl}`)}`) },
     { name: copied ? 'Copied!' : 'Copy Link', icon: copied ? <MdCheck className="text-green-500" size={22} /> : <FaCopy className="text-gray-500" size={22} />, color: copied ? 'bg-green-50' : 'hover:bg-gray-50', action: async () => { await navigator.clipboard.writeText(postUrl); setCopied(true); setTimeout(() => setCopied(false), 2000) } },
   ]
 
@@ -204,7 +212,7 @@ function LeadCTA({ category }) {
   const isTravel = category?.toLowerCase().includes('travel')
   return (
     <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white">
-      <div className="text-2xl mb-3">🚀</div>
+      <div className="text-2xl mb-3">{isTravel ? '✈️' : '🚀'}</div>
       <h3 className="font-bold text-lg mb-2">
         {isTravel ? 'Need a Travel Website?' : 'Need a Business Website?'}
       </h3>
@@ -255,12 +263,69 @@ function ReadingProgress() {
   )
 }
 
-// ── Main ──────────────────────────────────────────────────────────────────────
-export function BlogSlugClient({ slug }) {
-  const [post, setPost] = useState(null)
+// ── Breadcrumbs for SEO ────────────────────────────────────────────────────────
+function Breadcrumbs({ title, category }) {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Home',
+              item: 'https://business-sathi.vercel.app/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Blog',
+              item: 'https://business-sathi.vercel.app/blog',
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: category,
+              item: `https://business-sathi.vercel.app/blog?category=${encodeURIComponent(category)}`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 4,
+              name: title,
+              item: `https://business-sathi.vercel.app/blog/${title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+            },
+          ],
+        }),
+      }}
+    />
+  )
+}
+
+// ── Main Component ──────────────────────────────────────────────────────────
+export function BlogSlugClient({ post }) {
   const [parsedContent, setParsedContent] = useState('')
   const [additionalMetadata, setAdditionalMetadata] = useState({})
   const [showShareModal, setShowShareModal] = useState(false)
+  const [estimatedReadTime, setEstimatedReadTime] = useState(post?.readingTime || 0)
+
+  useEffect(() => {
+    if (post?.content) {
+      const meta = extractMetadata(post.content)
+      setAdditionalMetadata(meta)
+      const cleanContent = getContentWithoutMetadata(post.content)
+      setParsedContent(parseBlogContent(cleanContent))
+      
+      // Calculate actual read time if not provided
+      if (!post.readingTime) {
+        const wordCount = cleanContent.split(/\s+/).length
+        const readTime = Math.ceil(wordCount / 200) // 200 words per minute
+        setEstimatedReadTime(readTime)
+      }
+    }
+  }, [post])
 
   const tableOfContents = useMemo(() => {
     const toc = []
@@ -275,16 +340,6 @@ export function BlogSlugClient({ slug }) {
     return toc
   }, [parsedContent])
 
-  useEffect(() => {
-    const found = blogPosts.find((p) => p.slug === slug)
-    if (found) {
-      setPost(found)
-      const meta = extractMetadata(found.content)
-      setAdditionalMetadata(meta)
-      setParsedContent(parseBlogContent(getContentWithoutMetadata(found.content)))
-    }
-  }, [slug])
-
   if (!post) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -296,29 +351,56 @@ export function BlogSlugClient({ slug }) {
   const displayTitle = additionalMetadata.title || post.title
   const displayAuthor = additionalMetadata.author || post.author
   const keywords = additionalMetadata.keywords || post.tags || []
-  const postUrl = typeof window !== 'undefined' ? window.location.href : `https://businesssathi.vercel.app/blog/${slug}`
+  const postUrl = typeof window !== 'undefined' ? window.location.href : `https://business-sathi.vercel.app/blog/${post.slug}`
+  const readTime = post.readingTime || estimatedReadTime
 
+  // Enhanced JSON-LD for better SEO
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: displayTitle,
-    image: post.image ? [post.image] : [],
+    image: post.image ? [`https://business-sathi.vercel.app${post.image}`] : [],
     datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
-    author: [{
+    dateModified: post.updatedAt || post.publishedAt,
+    author: {
       '@type': 'Person',
       name: displayAuthor,
-      url: 'https://businesssathi.vercel.app/about',
-    }],
+      url: 'https://business-sathi.vercel.app/about',
+      jobTitle: 'Web Development Expert',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Business Sathi',
+      },
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Business Sathi',
-      logo: { '@type': 'ImageObject', url: 'https://businesssathi.vercel.app/apple-icon.jpeg' },
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://business-sathi.vercel.app/apple-icon.jpeg',
+      },
+      url: 'https://business-sathi.vercel.app',
+      sameAs: [
+        'https://facebook.com/businesssathi',
+        'https://twitter.com/businesssathi',
+        'https://linkedin.com/company/businesssathi',
+      ],
     },
-    description: additionalMetadata.description || post.excerpt,
+    description: additionalMetadata.description || post.excerpt || `Complete guide on ${displayTitle} for businesses in Indore, Ujjain & Madhya Pradesh.`,
     keywords: keywords.join(', '),
-    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
     articleBody: parsedContent.replace(/<[^>]*>?/gm, ''),
+    articleSection: post.category,
+    inLanguage: 'en-IN',
+    isAccessibleForFree: true,
+    copyrightYear: new Date(post.publishedAt).getFullYear(),
+    copyrightHolder: {
+      '@type': 'Organization',
+      name: 'Business Sathi',
+    },
   }
 
   const formatDate = (d) =>
@@ -326,6 +408,7 @@ export function BlogSlugClient({ slug }) {
 
   return (
     <>
+      <Breadcrumbs title={displayTitle} category={post.category} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -334,7 +417,7 @@ export function BlogSlugClient({ slug }) {
       <ReadingProgress />
 
       <div className="min-h-screen bg-white">
-        {/* ── Article Header ── */}
+        {/* Article Header */}
         <header className="bg-gradient-to-b from-slate-50 to-white pt-20 pb-10 border-b border-gray-100">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
@@ -346,12 +429,15 @@ export function BlogSlugClient({ slug }) {
             </Link>
 
             <div className="flex flex-wrap items-center gap-3 mb-5">
-              <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                {post.category}
-              </span>
+              <Link href={`/blog?category=${encodeURIComponent(post.category)}`}>
+                <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide hover:bg-blue-200 transition-colors cursor-pointer">
+                  {post.category}
+                </span>
+              </Link>
               <button
                 onClick={() => setShowShareModal(true)}
                 className="flex items-center gap-1.5 text-sm text-gray-400 hover:text-blue-600 transition-colors ml-auto"
+                aria-label="Share this article"
               >
                 <MdShare size={16} />
                 Share
@@ -368,28 +454,32 @@ export function BlogSlugClient({ slug }) {
                 <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
               </span>
               <span className="flex items-center gap-2">
-                <MdTimer className="text-blue-500" />
-                {post.readingTime} min read
+                <MdAccessTime className="text-blue-500" />
+                {readTime} min read
               </span>
-              <span className="font-medium text-gray-700">By {displayAuthor}</span>
+              <span className="flex items-center gap-2">
+                <MdPerson className="text-blue-500" />
+                By {displayAuthor}
+              </span>
             </div>
           </div>
         </header>
 
-        {/* ── Main Content ── */}
+        {/* Main Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-
-            {/* ── Sidebar ── */}
+            {/* Sidebar */}
             <aside className="hidden lg:block lg:col-span-3 lg:order-2">
               <div className="sticky top-20 space-y-6">
-
-                {/* TOC */}
+                {/* Table of Contents */}
                 {tableOfContents.length > 0 && (
                   <div className="bg-slate-50 border border-slate-100 rounded-2xl p-5">
-                    <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide mb-4">
-                      On This Page
-                    </h3>
+                    <div className="flex items-center gap-2 mb-4">
+                      <MdLabel className="text-blue-500" size={18} />
+                      <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wide">
+                        On This Page
+                      </h3>
+                    </div>
                     <nav className="space-y-1">
                       {tableOfContents.map((item, i) => (
                         <a
@@ -421,7 +511,7 @@ export function BlogSlugClient({ slug }) {
               </div>
             </aside>
 
-            {/* ── Article ── */}
+            {/* Article Content */}
             <article className="lg:col-span-9 lg:order-1">
               {/* Hero image */}
               {post.image && (
@@ -432,31 +522,34 @@ export function BlogSlugClient({ slug }) {
                     fill
                     className="object-cover"
                     priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 900px"
                   />
                 </div>
               )}
 
               {/* Content */}
               <div
-                className="prose prose-lg max-w-none text-gray-700 prose-headings:text-gray-900 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline"
+                className="prose prose-lg max-w-none text-gray-700 prose-headings:text-gray-900 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-img:rounded-xl"
                 dangerouslySetInnerHTML={{ __html: parsedContent }}
               />
 
               {/* Tags */}
-              <div className="mt-12 pt-8 border-t border-gray-100">
-                <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
-                  Related Topics
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {keywords.map((tag, i) => (
-                    <Link href="/blog" key={i}>
-                      <span className="inline-block border border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm px-3 py-1 rounded-full transition-all cursor-pointer">
-                        #{tag}
-                      </span>
-                    </Link>
-                  ))}
+              {keywords.length > 0 && (
+                <div className="mt-12 pt-8 border-t border-gray-100">
+                  <h4 className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3">
+                    Related Topics
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {keywords.map((tag, i) => (
+                      <Link href={`/blog?tag=${encodeURIComponent(tag)}`} key={i}>
+                        <span className="inline-block border border-gray-200 hover:border-blue-300 hover:bg-blue-50 text-gray-600 hover:text-blue-700 text-sm px-3 py-1 rounded-full transition-all cursor-pointer">
+                          #{tag}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Mobile CTA */}
               <div className="lg:hidden mt-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white text-center">
@@ -484,46 +577,12 @@ export function BlogSlugClient({ slug }) {
                     Helping businesses across Indore, Ujjain & Madhya Pradesh build powerful digital
                     presence with SEO-optimized websites and growth strategies.
                   </p>
+                  <Link href="/about" className="text-sm text-blue-600 hover:underline mt-2 inline-block">
+                    Learn more about the author →
+                  </Link>
                 </div>
               </div>
             </article>
-          </div>
-        </div>
-
-        {/* ── Related Posts ── */}
-        <RelatedBlogs
-          currentSlug={slug}
-          currentCategory={post.category}
-          currentTags={keywords}
-          limit={3}
-        />
-
-        {/* ── Bottom Lead Bar ── */}
-        <div className="bg-slate-900 py-10">
-          <div className="max-w-4xl mx-auto px-4 text-center">
-            <p className="text-white font-bold text-xl mb-2">
-              Ready to grow your business online?
-            </p>
-            <p className="text-slate-400 text-sm mb-6">
-              Get a free website consultation — serving Indore, Ujjain, Dewas & all of MP
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors"
-              >
-                Get Free Quote <MdArrowForward size={18} />
-              </Link>
-              <a
-                href="https://wa.me/919302088025?text=Hi! I want a website for my business"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-500 text-white font-semibold px-7 py-3.5 rounded-xl transition-colors"
-              >
-                <FaWhatsapp size={18} />
-                WhatsApp Us
-              </a>
-            </div>
           </div>
         </div>
 

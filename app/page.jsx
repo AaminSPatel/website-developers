@@ -37,7 +37,7 @@ export const metadata = {
 
   // ── Canonical ──
   alternates: {
-    canonical: 'https://businesssathi.vercel.app/',
+    canonical: 'https://business-sathi.vercel.app/',
   },
 
   // ── Open Graph (Facebook / WhatsApp Share) ──
@@ -45,7 +45,7 @@ export const metadata = {
     title: 'Business Sathi — Website Development in Indore & Ujjain, MP',
     description:
       'We build fast, SEO-ready websites for local businesses and travel agencies across Madhya Pradesh. 50+ websites delivered. 95+ SEO scores. Free consultation.',
-    url: 'https://businesssathi.vercel.app/',
+    url: 'https://business-sathi.vercel.app/',
     siteName: 'Business Sathi',
     type: 'website',
     locale: 'en_IN',
@@ -94,19 +94,19 @@ const jsonLd = {
     // LocalBusiness schema — critical for local SEO
     {
       '@type': 'LocalBusiness',
-      '@id': 'https://businesssathi.vercel.app/#organization',
+      '@id': 'https://business-sathi.vercel.app/#organization',
       name: 'Business Sathi',
       description:
         'Professional website development company in Indore & Ujjain, Madhya Pradesh. Specializing in SEO-optimized websites for travel agencies, local businesses, and service providers.',
-      url: 'https://businesssathi.vercel.app',
+      url: 'https://business-sathi.vercel.app',
       telephone: '+919302088025',
       email: 'aameenpatel122436@gmail.com',
       foundingDate: '2023',
       priceRange: '₹₹',
-      image: 'https://businesssathi.vercel.app/apple-icon.jpeg',
+      image: 'https://business-sathi.vercel.app/apple-icon.jpeg',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://businesssathi.vercel.app/apple-icon.jpeg',
+        url: 'https://business-sathi.vercel.app/apple-icon.jpeg',
       },
       address: {
         '@type': 'PostalAddress',
@@ -146,14 +146,14 @@ const jsonLd = {
     // WebSite schema for Sitelinks search box
     {
       '@type': 'WebSite',
-      '@id': 'https://businesssathi.vercel.app/#website',
-      url: 'https://businesssathi.vercel.app',
+      '@id': 'https://business-sathi.vercel.app/#website',
+      url: 'https://business-sathi.vercel.app',
       name: 'Business Sathi',
       description: 'Website Development Company in Indore & Ujjain, Madhya Pradesh',
       inLanguage: 'en-IN',
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://businesssathi.vercel.app/blog?q={search_term_string}',
+        target: 'https://business-sathi.vercel.app/blog?q={search_term_string}',
         'query-input': 'required name=search_term_string',
       },
     },

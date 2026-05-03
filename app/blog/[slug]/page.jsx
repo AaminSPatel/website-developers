@@ -1,14 +1,19 @@
+// app/blog/[slug]/page.jsx
 import { BlogSlugClient } from './BlogSlugClient'
 import { blogPosts } from '../../data/BlogPosts'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
 
 // ── Dynamic metadata for each blog post ──────────────────────────────────────
 export async function generateMetadata({ params }) {
-  const post = blogPosts.find((p) => p.slug === params.slug)
+  const resolvedParams = await params
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug)
 
   if (!post) {
     return {
       title: 'Article Not Found | Business Sathi Blog',
-      description: 'This article could not be found.',
+      description: 'The article you are looking for could not be found on Business Sathi.',
+      robots: { index: false },
     }
   }
 
@@ -24,32 +29,35 @@ export async function generateMetadata({ params }) {
     if (line === '---METADATA_END---') break
   }
 
-  const title = metaTitle || `${post.title} | Business Sathi Blog`
-  const description = metaDesc || post.excerpt || 'Read this expert guide on Business Sathi Blog.'
+  const title = metaTitle || `${post.title} | Business Sathi - Web Development & SEO Blog`
+  const description = metaDesc || post.excerpt || `Read "${post.title}" - Expert guide on ${post.category} for businesses in Indore, Ujjain & Madhya Pradesh.`
   const keywords = metaKeywords.length ? metaKeywords : post.tags || []
 
   return {
     title,
     description,
-    keywords: [
+    keywords: [...new Set([
       ...keywords,
-      // Always append local keywords for local SEO signal
-      'website development Indore',
-      'web developer Ujjain',
-      'Business Sathi',
-    ],
+      post.category.toLowerCase(),
+      `website development ${post.category.toLowerCase()}`,
+      'web development Indore',
+      'SEO expert Ujjain',
+      'Business Sathi blog',
+      'Madhya Pradesh digital marketing',
+    ])],
     alternates: {
-      canonical: `https://businesssathi.vercel.app/blog/${params.slug}`,
+      canonical: `https://business-sathi.vercel.app/blog/${resolvedParams.slug}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://businesssathi.vercel.app/blog/${params.slug}`,
+      url: `https://business-sathi.vercel.app/blog/${resolvedParams.slug}`,
       siteName: 'Business Sathi',
       type: 'article',
       locale: 'en_IN',
       publishedTime: post.publishedAt,
-      authors: [post.author || 'Business Sathi'],
+      modifiedTime: post.updatedAt || post.publishedAt,
+      authors: [post.author || 'Business Sathi Team'],
       tags: keywords,
       images: [
         {
@@ -57,6 +65,7 @@ export async function generateMetadata({ params }) {
           width: 1200,
           height: 630,
           alt: title,
+          type: 'image/webp',
         },
       ],
     },
@@ -65,16 +74,43 @@ export async function generateMetadata({ params }) {
       title,
       description,
       images: [post.image || '/og-blog.png'],
+      creator: '@businesssathi',
+      site: '@businesssathi',
     },
-    robots: { index: true, follow: true },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    verification: {
+      google: 'your-google-verification-code', // Add your Google Search Console code
+    },
   }
 }
 
-// ── Static paths ──────────────────────────────────────────────────────────────
-export function generateStaticParams() {
+// ── Static paths for all blogs ──────────────────────────────────────────────
+export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }))
 }
 
-export default function BlogPostPage({ params }) {
-  return <BlogSlugClient slug={params.slug} />
+export default async function BlogPostPage({ params }) {
+  const resolvedParams = await params
+  const post = blogPosts.find((p) => p.slug === resolvedParams.slug)
+  
+  if (!post) {
+    notFound()
+  }
+
+  // Add console log for debugging (remove in production)
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[BlogPostPage] Rendering: ${post.slug} - ${post.title}`)
+  }
+
+  return <BlogSlugClient post={post} />
 }

@@ -85,25 +85,31 @@ const STATS = [
 
 const TESTIMONIALS = [
   {
-    name: "Priya Sharma",
+    name: "Gautam Rathore",
     role: "Owner, Avantika Travels, Ujjain",
-    text: "Business Sathi ne humari travel agency ka poora digital transformation kiya. Online bookings 3x ho gayi sirf 4 mahine mein!",
+    text: "I am very happy with your service you developed a exact website as i want and specially in my budget you designed very good and user friendly interface and backend also very easy to handle Thankyou for your service and in future if i required any technical support i will looking forward to you.  Thanyou ! 🙏",
     rating: 5,
     city: "Ujjain",
   },
   {
-    name: "Rajesh Patel",
+    name: "Zeeshan Ahmad",
     role: "Director, A2ZDM Digital Marketing",
-    text: "Website ka SEO score 98/100 aaya. Ab hum Indore mein digital marketing ke top results mein aate hain. Bahut professional team!",
+    text: "Website ka UI kafi achha he or Mobile Friendly he. Ab hum Indore mein digital marketing ke top results mein aate hain. Bahut professional team!",
     rating: 5,
     city: "Indore",
   },
   {
-    name: "Meera Joshi",
+    name: "Faruk Patel",
     role: "Founder, Safar Sathi, Ujjain",
     text: "Multi-service booking platform ekdam smooth hai. 100+ bookings successfully process ho gayi. Highly recommend!",
     rating: 5,
     city: "Ujjain",
+  }, {
+    name: "Salman Khan",
+    role: "Owner, MyMechanic24, Indore",
+    text: "Website ki help se hamari digital presence kafi majboot hui he or client ka trust bhi bda he. Digital leads bhi aa rhi he.Thank you Business Sathi",
+    rating: 5,
+    city: "Indore",
   },
 ];
 
@@ -661,7 +667,7 @@ const heroRef = useRef(null);
       </section>
 
       {/* ── FLOATING WHATSAPP ────────────────────────────────────────────────── */}
-      <a
+   {/*    <a
         href="https://wa.me/919302088025?text=Hi! I need a website for my business"
         target="_blank"
         rel="noopener noreferrer"
@@ -669,7 +675,7 @@ const heroRef = useRef(null);
         aria-label="Contact on WhatsApp"
       >
         <FaWhatsapp size={28} />
-      </a>
+      </a> */}
     </main>
   );
 }

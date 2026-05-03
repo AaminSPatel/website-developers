@@ -1,22 +1,67 @@
 import { ContactClient } from './ContactClient'
 
 export const metadata = {
-  // Clear Call to Action + Main Keyword + Trust Signal (WhatsApp)
-  title: 'Hire Freelance Website Developer India | Get Free Quote | WhatsApp Support',
-  
-  // Description starts with action, mentions target audience, and ends with contact info
-  description: 'Ready to scale your business? Contact our expert web development team in India. Get a free consultation for Travel, Startup, or Small Business websites. Call or WhatsApp: +91 93020 88025.',
-  
-  // Specific, intent-based keywords
-  keywords: 'hire freelance web developer India, web development quote, contact website builder, small business website cost, Next.js developer contact, WhatsApp web developer, Indore web design agency contact',
-  
+  title: {
+    absolute: 'Contact Business Sathi | Website Development Quote Indore Ujjain MP | WhatsApp +91 9302088025'
+  },
+  description: 'Contact Business Sathi for professional website development in Indore & Ujjain. Get free quote for business websites, travel portals, e-commerce. Call/WhatsApp +91 93020 88025. Serving MP businesses.',
+  keywords: [
+    'contact web developer Indore',
+    'website quote Ujjain',
+    'hire Next.js developer MP',
+    'travel agency website contact',
+    'business website developer phone',
+    'WhatsApp web development Indore',
+    'small business website quote',
+    'Business Sathi contact'
+  ].join(', '),
+  alternates: { canonical: '/contact' },
   openGraph: {
-    title: 'Start Your Project | Get a Free Web Development Quote',
-    description: 'Discuss your project with India\'s trusted freelance developers. Affordable rates for Startups & Small Businesses.',
-    type: 'website'
+    title: 'Contact Business Sathi | Free Website Quote Indore Ujjain',
+    description: 'Get your custom website quote today. WhatsApp support for Indore Ujjain MP businesses.',
+    type: 'contactpage',
+    url: 'https://business-sathi.vercel.app/contact',
+    images: [{ url: '/og-contact.png', width: 1200, height: 630, alt: 'Contact Business Sathi web developers Indore' }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Business Sathi | Web Developer Indore',
+    description: 'Free website quotes. WhatsApp ready.',
+    images: ['/og-contact.png']
+  },
+  robots: { index: true, follow: true }
+}
+
+// ContactPage schema
+const contactSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Contact Business Sathi - Website Development Indore',
+  description: 'Contact form and information for Business Sathi website development services',
+  url: 'https://business-sathi.vercel.app/contact',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Business Sathi',
+    url: 'https://business-sathi.vercel.app',
+    telephone: '+919302088025',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+919302088025',
+      contactType: 'customer service',
+      availableLanguage: 'Hindi, English'
+    }
   }
 }
 
 export default function ContactPage() {
-  return <ContactClient />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+        key="contact-schema"
+      />
+      <ContactClient />
+    </>
+  )
 }

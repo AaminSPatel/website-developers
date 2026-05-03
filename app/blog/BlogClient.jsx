@@ -28,8 +28,7 @@ const fadeUp = {
 };
 
 // ── Category filter list ───────────────────────────────────────────────────────
-const ALL_CATEGORIES = ["All", "Web Development", "SEO", "Local SEO", "Ecommerce", "Travel & Tourism", "Healthcare", "Education", "Performance", "Content Marketing"];
-
+const ALL_CATEGORIES = ["All", "Web Development", "Web Design", "SEO", "Local SEO", "Ecommerce", "Travel & Tourism", "Healthcare", "Education", "Performance", "Content Marketing"];
 // ── Audience targeting cards ───────────────────────────────────────────────────
 const AUDIENCES = [
   {

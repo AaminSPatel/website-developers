@@ -1,32 +1,66 @@
 import { ProjectsClient } from './ProjectsClient'
 
 export const metadata = {
-  // Title Format: Main Keyword | Niche/Industry Focus | USP/Location
-  title: 'Web Development Portfolio India | Travel Agency & Small Business Case Studies',
-  
-  // Description: Hook + Specific Niches + Tech Stack + Outcome + Call to Action
-  description: 'Explore our Web Development Portfolio showcasing high-performance websites for Travel Agencies, Small Businesses, and Freelancers in India. See real case studies of Next.js & React projects that increased leads and sales for clients in Mumbai, Delhi, Bangalore, and Indore. From booking engines to portfolio sites, discover affordable, SEO-optimized solutions.',
-  
-  // Keywords: Focused on "Examples", "Case Studies", and specific niches rather than generic terms
-  keywords: 'web development portfolio India, travel agency website design examples, small business website case studies, freelance web developer projects, Next.js portfolio, e-commerce website development India, real estate website design, personal portfolio examples, responsive web design case studies, Indore web developer portfolio, affordable website projects India',
-  
-  // Open Graph for better sharing on WhatsApp/LinkedIn
-  openGraph: {
-    title: 'Real Results: Web Development Portfolio & Case Studies',
-    description: 'See how we transform businesses with custom websites. Check out our latest projects for Travel Agencies, Startups, and Local Businesses.',
-    url: 'https://yourwebsite.com/projects', // Apna actual domain yahan add karein
-    siteName: 'Your Brand Name',
-    locale: 'en_IN',
-    type: 'website',
+  title: {
+    absolute: 'Web Development Portfolio Indore | Business Sathi Case Studies Ujjain MP'
   },
-  
-  // Robots tag ensures Google reads this page
-  robots: {
-    index: true,
-    follow: true,
-  }
+  description: 'Business Sathi portfolio showcasing successful website development projects for Indore Ujjain MP businesses. Travel agency websites, e-commerce stores, small business sites. See real results & case studies.',
+  keywords: [
+    'website development portfolio Indore',
+    'web developer case studies Ujjain',
+    'Next.js projects Madhya Pradesh',
+    'travel agency website examples MP',
+    'business website case studies Indore',
+    'e-commerce development portfolio',
+    'SEO website projects Ratlam Dewas',
+    'Business Sathi portfolio'
+  ].join(', '),
+  alternates: { canonical: '/projects' },
+  openGraph: {
+    title: 'Business Sathi Portfolio | Web Development Case Studies Indore Ujjain',
+    description: 'Real client results from our website development projects. Travel portals, business sites, portfolios serving MP.',
+    type: 'website',
+    url: 'https://business-sathi.vercel.app/projects',
+    images: [{ url: '/og-projects.png', width: 1200, height: 630, alt: 'Business Sathi web development portfolio Indore' }]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business Sathi Portfolio | Indore Web Developer',
+    description: 'Case studies from successful web projects in MP.',
+    images: ['/og-projects.png']
+  },
+  robots: { index: true, follow: true }
+}
+
+// Projects ItemList schema
+const projectsSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Web Development Portfolio Projects',
+  description: 'Business Sathi completed website development projects',
+  numberOfItems: 6,
+  itemListElement: projectDetails.slice(0,10).map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'CreativeWork',
+      name: project.headline,
+      description: project.clientName,
+      image: project.images?.[0]?.src || '',
+      url: `/projects/${project.slug}`
+    }
+  }))
 }
 
 export default function ProjectsPage() {
-  return <ProjectsClient />
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsSchema) }}
+        key="projects-schema"
+      />
+      <ProjectsClient />
+    </>
+  )
 }

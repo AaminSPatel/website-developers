@@ -202,8 +202,9 @@ export function ProjectSlugClient({ slug }) {
                 className="relative aspect-video rounded-xl overflow-hidden shadow-lg border border-border"
               >
                 <Image
-                  src={img}
-                  alt={`${project.headline} Screenshot ${idx + 1}`}
+                  src={typeof img === 'object' ? img.src : img}
+                  alt={typeof img === 'object' ? img.alt : `${project.headline} screenshot ${idx + 1} - Business Sathi portfolio project Indore Ujjain web development`}
+                  title={typeof img === 'object' ? img.title : `${project.clientName || 'Client'} project gallery image ${idx + 1} by Business Sathi`}
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />

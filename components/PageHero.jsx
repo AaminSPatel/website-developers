@@ -77,16 +77,17 @@ export function PageHero({
       {/* ── Background image ── */}
       {images && images[0] && (
         <div className="absolute inset-0 z-0">
-          <Image
-            src={images[0]}
-            alt="Hero background"
-            fill
-            priority
-            className={[
-              'object-cover object-center opacity-20',
-              effect === 'zoom' ? 'scale-105 animate-[heroZoom_8s_ease-out_forwards]' : '',
-            ].join(' ')}
-          />
+                        <Image
+                          src={images[0]}
+                          alt="Business Sathi hero background - Professional website development Indore Ujjain MP"
+                          title="Hero background image - Business Sathi web developers"
+                          fill
+                          priority
+                          className={[
+                            'object-cover object-center opacity-20',
+                            effect === 'zoom' ? 'scale-105 animate-[heroZoom_8s_ease-out_forwards]' : '',
+                          ].join(' ')}
+                        />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/90" />
         </div>

@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { FaLinkedin, FaTwitter, FaGithub, FaInstagram, FaWhatsapp, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa'
 import { contact } from '@/app/data/Contact'
 import Image from 'next/image'
-import SquircleButton from '@/components/SquircleButton'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()

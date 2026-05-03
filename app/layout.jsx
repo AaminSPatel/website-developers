@@ -15,22 +15,76 @@ const geistMono = Geist_Mono({
 
 // Metadata (SEO + Verification)
 export const metadata = {
-  title: 'Business Sathi | Digital Solutions for Business Growth',
-  description:
-    'Business Sathi offers expert digital solutions including websites, growth strategies, and online success for small businesses and startups.',
-  keywords:
-    'business partner India, digital solutions, website development, small business growth, startup partner, affordable business websites, digital success partner',
-
+  title: {
+    default: 'Business Sathi | Website Development Company Indore Ujjain | Web Developer MP',
+    template: '%s | Business Sathi - Top Website Developer Indore Ujjain MP'
+  },
+  description: 'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies, small businesses & startups in Madhya Pradesh. 50+ projects delivered, 95+ SEO scores.',
+  keywords: [
+    'website development company Indore',
+    'web developer Ujjain',
+    'website design MP',
+    'travel agency website Indore',
+    'business website Ujjain',
+    'Next.js developer India',
+    'SEO website company Madhya Pradesh',
+    'affordable web development Indore'
+  ].join(', '),
+  authors: [{ name: 'Business Sathi', url: 'https://business-sathi.vercel.app' }],
+  creator: 'Business Sathi',
+  publisher: 'Business Sathi',
+  formatDetection: { email: false, address: false, telephone: true },
+  metadataBase: new URL('https://business-sathi.vercel.app'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-IN': '/en-IN',
+    },
+  },
   verification: {
     google: 'Gw0kKrcBORBSuCsj5fpyVGYEYahY47h7CpJufGEWshY',
+    yandex: 'YOUR_YANDEX_CODE',
   },
-
+  viewport: 'width=device-width,initial-scale=1,viewport-fit=cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#3b82f6' },
+    { media: '(prefers-color-scheme: dark)', color: '#1e40af' },
+  ],
   openGraph: {
-    title: 'Business Sathi | Partner for Digital Business Growth',
-    description:
-      'Your trusted partner for websites, digital strategies, and business success.',
+    title: 'Business Sathi | #1 Website Development Company Indore Ujjain Madhya Pradesh',
+    description: 'Expert Next.js web development for travel agencies, local businesses & startups. SEO-first, mobile-optimized websites that rank on Google. Serving Indore, Ujjain, Dewas, Ratlam & MP.',
     type: 'website',
-    url: 'https://businesssathi.vercel.app',
+    siteName: 'Business Sathi',
+    locale: 'en_IN',
+    url: 'https://business-sathi.vercel.app',
+    images: [
+      {
+        url: '/og-home.png',
+        width: 1200,
+        height: 630,
+        alt: 'Business Sathi - Best Website Development Company Indore Ujjain',
+        type: 'image/png',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business Sathi | Website Developer Indore Ujjain MP',
+    description: 'Top-rated website development serving Indore Ujjain MP. Travel portals, business sites, e-commerce. SEO optimized, mobile-first.',
+    images: ['/og-home.png'],
+    creator: '@businesssathi', // Update with actual handle
+    site: '@businesssathi',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
@@ -86,14 +140,7 @@ const schemaData = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&amp;display=swap" 
-          rel="stylesheet" 
-        />
-      </head>
+      <head />
       <body
         className={`${poppins.className} ${geistMono.className} antialiased bg-background text-foreground`}
       >
@@ -105,12 +152,37 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
         />
 
-        {/* Schema.org JSON-LD */}
+        {/* Enhanced Schema.org JSON-LD with LocalBusiness */}
         <Script
           id="schema-org"
           type="application/ld+json"
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              ...schemaData,
+              '@type': ['Organization', 'LocalBusiness'],
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Ujjain',
+                addressRegion: 'Madhya Pradesh',
+                postalCode: '456010',
+                addressCountry: 'IN',
+              },
+              geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 23.1765,
+                longitude: 75.7885,
+              },
+              areaServed: [
+                { '@type': 'City', name: 'Indore' },
+                { '@type': 'City', name: 'Ujjain' },
+                { '@type': 'AdministrativeArea', name: 'Madhya Pradesh' },
+              ],
+              openingHours: 'Mo-Su 09:00-22:00',
+              priceRange: '₹₹',
+              hasPos: false,
+            }),
+          }}
         />
 
         <AppClient>{children}</AppClient>

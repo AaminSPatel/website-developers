@@ -89,11 +89,12 @@ export function PageHero({
                       <div className="relative w-full h-full">
                         <Image
                           src={img}
-                          alt={`Hero background ${idx + 1}`}
+                          alt={`Business Sathi hero background image ${idx + 1} - Website development company Indore Ujjain Madhya Pradesh`}
+                          title={`Hero background ${idx + 1} - Business Sathi portfolio`}
                           fill
+                          priority={idx === 0}
                           className="object-cover"
                           sizes="100vw"
-                          priority={idx === 0}
                         />
                       </div>
                     </CarouselItem>
