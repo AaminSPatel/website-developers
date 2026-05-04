@@ -50,18 +50,18 @@ export function Header() {
               title="Trusted Business Partner"
             >
 
-              <div className="relative w-12 h-12 md:w-14 md:h-14 overflow-hidden rounded-sm group-hover:shadow-lg transition-all duration-300">
+              <div className="relative w-44 h-14 md:w-54 md:h-18 overflow-hidden rounded-sm group-hover:shadow-lg transition-all duration-300">
                 <Image 
-                    src={'/apple-icon.jpeg'} 
+                    src={'/logo-white1.png'} 
                     alt='Business Sathi Logo' 
                     fill
                     className='object-cover'
-                    sizes="(max-width: 768px) 40px, 48px"
+                    sizes="(max-width: 768px) 47px, 48px"
                     priority
                 />
               </div>
               <span className="hidden sm:block text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
-                BS<span className="text-primary">.</span>
+                Business <span className="text-secondary">Sathi</span>
               </span>
             </Link>
           </div>

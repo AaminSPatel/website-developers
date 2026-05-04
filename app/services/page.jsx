@@ -21,7 +21,7 @@ export const metadata = {
     description: 'Custom websites for local businesses & travel agencies. Next.js, SEO-optimized, mobile-responsive. Serving Indore, Ujjain, Dewas, Ratlam.',
     type: 'website',
     url: 'https://business-sathi.vercel.app/services',
-    images: [{ url: '/og-services.png', width: 1200, height: 630, alt: 'Website development services Indore Ujjain' }]
+    images: [{ url: '/og-services.svg', width: 1200, height: 630, alt: 'Website development services Indore Ujjain' }]
   },
   twitter: {
     card: 'summary_large_image',

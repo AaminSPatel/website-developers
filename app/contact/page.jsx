@@ -19,15 +19,15 @@ export const metadata = {
   openGraph: {
     title: 'Contact Business Sathi | Free Website Quote Indore Ujjain',
     description: 'Get your custom website quote today. WhatsApp support for Indore Ujjain MP businesses.',
-    type: 'contactpage',
+    type: 'website',
     url: 'https://business-sathi.vercel.app/contact',
-    images: [{ url: '/og-contact.png', width: 1200, height: 630, alt: 'Contact Business Sathi web developers Indore' }]
+    images: [{ url: '/og-home.svg', width: 1200, height: 630, alt: 'Contact Business Sathi web developers Indore' }]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Business Sathi | Web Developer Indore',
     description: 'Free website quotes. WhatsApp ready.',
-    images: ['/og-contact.png']
+    images: ['/og-home.svg']
   },
   robots: { index: true, follow: true }
 }

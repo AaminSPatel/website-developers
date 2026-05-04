@@ -77,8 +77,8 @@ const SERVICES = [
 ];
 
 const STATS = [
-  { value: "50+", label: "Websites Delivered" },
-  { value: "95+", label: "Avg SEO Score" },
+  { value: "5+", label: "Websites Delivered" },
+  { value: "85+", label: "Avg SEO Score" },
   { value: "1.5s", label: "Avg Load Time" },
   { value: "100%", label: "Client Satisfaction" },
 ];
@@ -168,7 +168,7 @@ const heroRef = useRef(null);
               className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-300 text-sm font-medium px-4 py-2 rounded-full mb-6"
             >
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              Trusted by 50+ Businesses in MP
+              Trusted by 5+ Businesses in MP
             </motion.div>
 
             <motion.h1
@@ -282,7 +282,7 @@ const heroRef = useRef(null);
       </section>
 
       {/* ── SOCIAL PROOF BAR ─────────────────────────────────────────────────── */}
-      <section className="bg-blue-600 py-4">
+      <section className=" bg-primary py-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap items-center justify-center gap-8 text-white/90 text-sm font-medium">
             {STATS.map((s) => (
@@ -436,10 +436,10 @@ const heroRef = useRef(null);
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { city: "Indore", desc: "IT Hub & Business Capital of MP", clients: "20+ clients" },
-                { city: "Ujjain", desc: "Religious Tourism & Local Trade", clients: "15+ clients" },
-                { city: "Dewas", desc: "Industrial & Pharmaceutical Hub", clients: "8+ clients" },
-                { city: "Ratlam", desc: "Growing Business Community", clients: "7+ clients" },
+                { city: "Indore", desc: "IT Hub & Business Capital of MP", clients: "2+ clients" },
+                { city: "Ujjain", desc: "Religious Tourism & Local Trade", clients: "2+ clients" },
+                { city: "Dewas", desc: "Industrial & Pharmaceutical Hub", clients: "1+ clients" },
+                { city: "Ratlam", desc: "Growing Business Community", clients: "1+ clients" },
               ].map((item, i) => (
                 <div
                   key={item.city}
@@ -615,7 +615,7 @@ const heroRef = useRef(null);
 
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section
-        className="py-24 bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 relative overflow-hidden"
+        className="py-24  bg-primary to-indigo-700 relative overflow-hidden"
         aria-labelledby="cta-heading"
       >
         <div className="absolute inset-0 opacity-10"

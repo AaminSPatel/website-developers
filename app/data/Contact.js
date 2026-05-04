@@ -1,12 +1,12 @@
  export const contact = {
-      email: 'locomail112@gmail.com',
+      email: 'aameenpatel122436@gmail.com',
       phone: '+91 93020 88025',
       address: 'Nearby Ujjain',
-      url:'https://businesssathi.vercel.app/',
+      url:'https://business-sathi.vercel.app/',
       socialLinks: {
-        linkedin: 'https://linkedin.com',
+     /*    linkedin: 'https://linkedin.com',
         twitter: 'https://twitter.com',
         github: 'https://github.com',
-        instagram: 'https://instagram.com'
+       */  instagram: 'https://instagram.com/busines.sathi'
       }
     }

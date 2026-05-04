@@ -59,6 +59,12 @@ export const metadata = {
     url: 'https://business-sathi.vercel.app',
     images: [
       {
+        url: '/og-home.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Business Sathi - Best Website Development Company Indore Ujjain',
+      },
+      {
         url: '/og-home.png',
         width: 1200,
         height: 630,
@@ -71,7 +77,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Business Sathi | Website Developer Indore Ujjain MP',
     description: 'Top-rated website development serving Indore Ujjain MP. Travel portals, business sites, e-commerce. SEO optimized, mobile-first.',
-    images: ['/og-home.png'],
+    images: ['/og-home.svg', '/og-home.png'],
     creator: '@businesssathi', // Update with actual handle
     site: '@businesssathi',
   },
@@ -146,10 +152,11 @@ export default function RootLayout({ children }) {
       >
         {/* Counter.dev */}
         <Script
+        id="counter-dev-script"
           src="https://cdn.counter.dev/script.js"
           data-id="95795ebe-d6a8-4887-abef-7dbb03a06eb2"
           data-utcoffset="6"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
 
         {/* Enhanced Schema.org JSON-LD with LocalBusiness */}

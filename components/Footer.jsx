@@ -47,12 +47,19 @@ export function Footer() {
           {/* Column 1: Brand & SEO Description (Word Count Booster) */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-white/10 backdrop-blur-sm">
-                 <Image src={'/apple-icon.jpeg'} alt='Business Sathi Logo' width={40} height={40} className='h-10 w-10 rounded-lg'/>
-              </div>
-              <h2 className="text-2xl font-bold tracking-tight">
+                <div className="relative w-44 h-14 md:w-54 md:h-18 overflow-hidden rounded-sm group-hover:shadow-lg transition-all duration-300">
+                             <Image 
+                                 src={'/logo1.png'} 
+                                 alt='Business Sathi Logo' 
+                                 fill
+                                 className='object-cover'
+                                 sizes="(max-width: 768px) 47px, 48px"
+                                 priority
+                             />
+                           </div>
+              {/* <h2 className="text-2xl font-bold tracking-tight">
                 BS<span className="text-primary">.</span>
-              </h2>
+              </h2> */}
             </div>
             <p className="opacity-70 text-sm leading-7 mb-6 pr-4">
               We are Business Sathi, your trusted partner helping Startups, Small Businesses, and Professionals grow digitally. 

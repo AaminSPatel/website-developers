@@ -1,4 +1,5 @@
 import { ProjectsClient } from './ProjectsClient'
+import { projectDetails } from '../data/Projects';
 
 export const metadata = {
   title: {
@@ -21,7 +22,7 @@ export const metadata = {
     description: 'Real client results from our website development projects. Travel portals, business sites, portfolios serving MP.',
     type: 'website',
     url: 'https://business-sathi.vercel.app/projects',
-    images: [{ url: '/og-projects.png', width: 1200, height: 630, alt: 'Business Sathi web development portfolio Indore' }]
+    images: [{ url: '/og-projects.svg', width: 1200, height: 630, alt: 'Business Sathi web development portfolio Indore' }]
   },
   twitter: {
     card: 'summary_large_image',

@@ -21,7 +21,7 @@ export const metadata = {
     description: 'Learn about our Indore-based team creating SEO-optimized Next.js websites for MP businesses. 3+ years experience, 50+ successful projects.',
     type: 'profile',
     url: 'https://business-sathi.vercel.app/about',
-    images: [{ url: '/og-about.png', width: 1200, height: 630, alt: 'Business Sathi team - Web developers Indore' }],
+    images: [{ url: '/og-about.svg', width: 1200, height: 630, alt: 'Business Sathi team - Web developers Indore' }],
   },
   twitter: {
     card: 'summary_large_image',

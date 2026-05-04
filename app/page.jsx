@@ -51,7 +51,7 @@ export const metadata = {
     locale: 'en_IN',
     images: [
       {
-        url: '/og-home.png', // Create a 1200x630 OG image
+        url: '/og-home.svg',
         width: 1200,
         height: 630,
         alt: 'Business Sathi - Website Development Company in Indore & Ujjain',
