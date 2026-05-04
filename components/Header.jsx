@@ -60,9 +60,9 @@ export function Header() {
                     priority
                 />
               </div>
-              <span className="hidden sm:block text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
+            {/*   <span className="hidden sm:block text-xl md:text-2xl font-bold text-foreground group-hover:text-primary transition-colors">
                 Business <span className="text-secondary">Sathi</span>
-              </span>
+              </span> */}
             </Link>
           </div>
 
