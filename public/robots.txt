@@ -11,19 +11,5 @@ export default function robots() {
   }
 }
 
-// Additional static content for crawlers
-const staticRobots = `
-User-agent: Googlebot
-Allow: /
 
-Sitemap: https://business-sathi.vercel.app/sitemap.xml
-
-# Sitelinks Searchbox preferences
-User-agent: *
-Prefer: /blog?q=
-
-User-agent: Googlebot-Image
-Allow: /og-*.svg
-Allow: /assets/
-`
 
