@@ -63,8 +63,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${poppins.variable} ${geistMono.variable}`}>
       <head>
         {/* Verification meta tag ko head mein manually bhi daal sakte hain agar metadata object se kaam na bane */}
-        <meta name="google-site-verification" content="Gw0kKrcBORBSuCsj5fpyVGYEYahY47h7CpJufGEWshY" />
-      </head>
+<meta name="google-site-verification" content="SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5J705R4KZFM" />      </head>
       <body className={`${poppins.className} ${geistMono.className} antialiased`}>
         
         {/* Counter.dev */}
