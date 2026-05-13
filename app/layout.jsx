@@ -3,14 +3,17 @@ import './globals.css'
 import { AppClient } from './AppClient'
 import Script from 'next/script'
 
+// Fonts configuration with CSS variables
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
   display: 'swap',
 })
 
 const geistMono = Geist_Mono({
   subsets: ['latin'],
+  variable: '--font-geist-mono',
   display: 'swap',
 })
 
@@ -22,7 +25,7 @@ export const metadata = {
   },
   description: 'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies and startups.',
   verification: {
-    google: 'Gw0kKrcBORBSuCsj5fpyVGYEYahY47h7CpJufGEWshY',
+    google: 'SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5J705R4KZFM',
   },
   alternates: {
     canonical: '/',
@@ -57,7 +60,7 @@ const schemaData = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${poppins.variable} ${geistMono.variable}`}>
       <head>
         {/* Verification meta tag ko head mein manually bhi daal sakte hain agar metadata object se kaam na bane */}
         <meta name="google-site-verification" content="Gw0kKrcBORBSuCsj5fpyVGYEYahY47h7CpJufGEWshY" />
