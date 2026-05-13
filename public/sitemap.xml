@@ -2,10 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- MAIN PAGES — highest priority                               -->
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <url>
+ <url>
     <loc>https://business-sathi.vercel.app/</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -64,11 +61,7 @@
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
-
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- BLOG POSTS — SEO content pages                             -->
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <url>
+<url>
     <loc>https://business-sathi.vercel.app/blog/future-web-development-2026</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -178,10 +171,7 @@
     </image:image>
   </url>
 
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <!-- PROJECT / CASE STUDY PAGES                                  -->
-  <!-- ═══════════════════════════════════════════════════════════ -->
-  <url>
+<url>
     <loc>https://business-sathi.vercel.app/projects/avantika-travels-travel-agency-website</loc>
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>

@@ -1,15 +1,8 @@
-// app/robots.txt
-export default function robots() {
-  return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-      disallow: ['/api/', '/admin/', '/private/'],
-    },
-    sitemap: 'https://business-sathi.vercel.app/sitemap.xml',
-    host: 'https://business-sathi.vercel.app',
-  }
-}
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
-
-
+Sitemap: https://business-sathi.vercel.app/sitemap.xml
+Host: https://business-sathi.vercel.app
