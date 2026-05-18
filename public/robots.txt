@@ -4,5 +4,5 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://business-sathi.vercel.app/sitemap.xml
+Sitemap: https://business-sathi.vercel.app/sitemap_index.xml
 Host: https://business-sathi.vercel.app
