@@ -27,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'About Business Sathi | Indore Web Developers',
     description: 'Website development team serving Indore, Ujjain & MP. Next.js experts.',
-    images: ['/og-about.png']
+    images: ['/og-about.avif']
   },
   robots: { index: true, follow: true }
 }
@@ -42,8 +42,8 @@ const aboutSchema = {
       name: 'Business Sathi',
       description: 'Website development company specializing in SEO-optimized Next.js sites for Indore, Ujjain and Madhya Pradesh businesses.',
       url: 'https://business-sathi.vercel.app/about',
-      logo: 'https://business-sathi.vercel.app/logo.png',
-      image: 'https://business-sathi.vercel.app/og-about.png',
+      logo: 'https://business-sathi.vercel.app/logo.avif',
+      image: 'https://business-sathi.vercel.app/og-about.avif',
       telephone: '+919302088025',
       email: 'hello@business-sathi.com',
       address: {
@@ -64,7 +64,7 @@ const aboutSchema = {
         jobTitle: 'Founder & Lead Developer',
         worksFor: { '@id': 'https://business-sathi.vercel.app/#organization' },
         url: 'https://business-sathi.vercel.app/about',
-        image: { '@type': 'ImageObject', url: '/profile.png' },
+        image: { '@type': 'ImageObject', url: '/profile.avif' },
         knowsAbout: ['Next.js', 'React', 'Web Development', 'SEO']
       },
       knowsAbout: ['Website Development', 'Next.js', 'SEO', 'Travel Portals'],

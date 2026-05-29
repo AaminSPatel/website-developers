@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
       images: project.images?.map(img => ({
         url: img.src || img,
         alt: img.alt || `${project.clientName} project screenshot`
-      })) || [{ url: '/og-projects.png' }]
+      })) || [{ url: '/og-projects.avif' }]
     }
   }
 }

@@ -56,7 +56,7 @@ The future of **web development in 2026** hinges on creating intelligent, fast, 
         publishedAt: '2026-01-15',
         readingTime: 8,
         category: 'Web Development',
-        image: '/blog/future-web.png',
+        image: '/blog/future-web.avif',
         tags: ['web development', '2026 trends', 'technology']
       },
       {
@@ -150,7 +150,7 @@ Need help implementing these **mobile optimization strategies**? Our team specia
         publishedAt: '2026-01-10',
         readingTime: 6,
         category: 'Web Design',
-        image: '/blog/mobile-optimization.png',
+        image: '/blog/mobile-optimization.avif',
         tags: ['mobile', 'optimization', 'ux']
       },
       {
@@ -293,7 +293,7 @@ Need help preparing your website for the future of search? Our **2026 SEO readin
         publishedAt: '2026-01-05',
         readingTime: 10,
         category: 'SEO',
-        image: '/blog/seo-2026.png',
+        image: '/blog/seo-2026.avif',
         tags: ['seo', 'search engine', 'ranking']
       },
       
@@ -521,7 +521,7 @@ Struggling with slow website performance? Our **performance optimization audit**
         publishedAt: '2025-12-28',
         readingTime: 7,
         category: 'Performance',
-        image: '/blog/performance.png',
+        image: '/blog/performance.avif',
         tags: ['performance', 'optimization', 'speed']
       },
   {
@@ -567,7 +567,7 @@ Your **product pages** are your most valuable SEO real estate. Optimize them for
 - Add specifications, dimensions, and care instructions
 
 **Image Optimization for Ecommerce**
-- Use descriptive file names: ||"organic-cotton-tshirt-blue-front.jpg"||
+- Use descriptive file names: ||"organic-cotton-tshirt-blue-front.avif"||
 - Add alt text for every image (including product variations)
 - Implement schema markup for product images
 - Use high-quality images with zoom functionality
@@ -758,7 +758,7 @@ Struggling with your online store's visibility? Our **Ecommerce SEO Audit** iden
     publishedAt: '2026-03-15',
     readingTime: 8,
     category: 'Ecommerce',
-    image: '/blog/ecommerce-seo.png',
+    image: '/blog/ecommerce-seo.avif',
     tags: ['ecommerce', 'seo', 'product-optimization', 'conversion']
   },
   {
@@ -1057,7 +1057,7 @@ Our **Local SEO Audit** identifies exactly what's holding back your local visibi
     publishedAt: '2026-02-22',
     readingTime: 9,
     category: 'Local SEO',
-    image: '/blog/local-seo.png',
+    image: '/blog/local-seo.avif',
     tags: ['local-seo', 'google-business', 'small-business', 'local-search']
   },
   {
@@ -1378,7 +1378,7 @@ Our **SaaS Content Audit** evaluates your current content performance and provid
     publishedAt: '2026-01-18',
     readingTime: 10,
     category: 'Content Marketing',
-    image: '/blog/saas-content.png',
+    image: '/blog/saas-content.avif',
     tags: ['saas', 'content-marketing', 'b2b', 'lead-generation']
   },
   {
@@ -1548,7 +1548,7 @@ Our team specializes in 2026-ready medical websites with all compliance features
     publishedAt: '2026-01-20',
     readingTime: 8,
     category: 'Healthcare',
-    image: '/blog/medical-website-2026.png',
+    image: '/blog/medical-website-2026.avif',
     tags: ['medical-website', 'doctor-website', 'hospital-seo', 'healthcare-marketing', 'patient-acquisition']
   },
   {
@@ -1708,7 +1708,7 @@ Our team specializes in 2026 educational websites with proven admission growth s
     publishedAt: '2026-02-05',
     readingTime: 7,
     category: 'Education',
-    image: '/blog/coaching-website-2026.png',
+    image: '/blog/coaching-website-2026.avif',
     tags: ['coaching-center', 'education-website', 'student-admissions', 'online-learning', 'institute-marketing']
   },
   {
@@ -1870,7 +1870,7 @@ Our team specializes in 2026 travel websites with proven booking growth strategi
     publishedAt: '2026-03-10',
     readingTime: 8,
     category: 'Travel & Tourism',
-    image: '/blog/travel-website-2026.png',
+    image: '/blog/travel-website-2026.avif',
     tags: ['travel-agency', 'tour-operator', 'travel-website', 'booking-engine', 'tourism-marketing']
   }
     ]

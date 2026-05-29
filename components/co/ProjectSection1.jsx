@@ -5,9 +5,9 @@ import Image from 'next/image'
 
 export function ProjectsSection() {
   const projects = [
-    { id: 1, title: 'Travel Portal', image: '/project1.jpg', category: 'Web App' },
-    { id: 2, title: 'E-Commerce Store', image: '/project2.jpg', category: 'E-Commerce' },
-    { id: 3, title: 'Portfolio Site', image: '/project3.jpg', category: 'Portfolio' },
+    { id: 1, title: 'Travel Portal', image: '/project1.avif', category: 'Web App' },
+    { id: 2, title: 'E-Commerce Store', image: '/project2.avif', category: 'E-Commerce' },
+    { id: 3, title: 'Portfolio Site', image: '/project3.avif', category: 'Portfolio' },
     // Add more projects
   ]
 

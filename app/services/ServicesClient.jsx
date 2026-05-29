@@ -56,7 +56,7 @@ export function ServicesClient() {
     <div>
       <PageHero
         effect="zoom"
-        images={['/hero2.png']}
+        images={['/hero2.avif']}
         title="Professional Web Development Services"
         subtitle="We build more than just websites. We create digital assets for Small Businesses, Travel Agencies, and Freelancers across India that drive real growth and revenue."
         ctaPrimary={{

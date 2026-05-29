@@ -27,7 +27,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Web Development Services Indore Ujjain',
     description: 'Next.js websites for MP businesses. Travel portals, e-commerce, portfolios.',
-    images: ['/og-services.png']
+    images: ['/og-services.avif']
   },
   robots: { index: true, follow: true }
 }

@@ -59,19 +59,19 @@ export function AboutClient() {
   const team = [
     {
       name: "Aamin",
-      profilePic: '/profile.png',
+      profilePic: '/profile.avif',
       role: "Lead Developer",
       expertise: "Full-Stack & Next.js",
     },
     { 
       name: "Shubham",
-      profilePic: '/shubh.jpeg', 
+      profilePic: '/shubh.avif', 
       role: "Design Lead", 
       expertise: "UI/UX & Branding" 
     },
     {
       name: "Kuldeep",
-      profilePic: '/kuldeep.png',
+      profilePic: '/kuldeep.avif',
       role: "SEO Strategist",
       expertise: "Local SEO & Marketing",
     },
@@ -81,7 +81,7 @@ export function AboutClient() {
     <div>
       <PageHero 
         effect="zoom"
-        images={['/hero.png']}
+        images={['/hero.avif']}
         title="Expert Web Development Team in India"
         subtitle="Bridging the gap between affordable freelance rates and premium agency quality for businesses worldwide."
       />

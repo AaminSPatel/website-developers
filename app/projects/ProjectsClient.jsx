@@ -40,7 +40,7 @@ export function ProjectsClient() {
     <main>
       <PageHero
         effect="zoom"
-        images={['/hero1.png']}
+        images={['/hero1.avif']}
         title="Web Development Case Studies"
         subtitle="Explore our portfolio of high-performance websites. From Travel Agency Portals in Delhi to E-commerce Stores in Mumbai, see how we deliver measurable business results across India."
         ctaPrimary={{

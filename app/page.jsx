@@ -66,7 +66,7 @@ export const metadata = {
     title: 'Business Sathi — Website Development Indore & Ujjain',
     description:
       'Professional website development for local businesses & travel agencies in MP. SEO-optimized, mobile-first, affordable.',
-    images: ['/og-home.png'],
+    images: ['/og-home.avif'],
   },
 
   // ── Robots ──
@@ -104,10 +104,10 @@ const jsonLd = {
       email: 'aameenpatel122436@gmail.com',
       foundingDate: '2025',
       priceRange: '₹₹',
-      image: 'https://business-sathi.vercel.app/apple-icon.jpeg',
+      image: 'https://business-sathi.vercel.app/apple-icon.avif',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://business-sathi.vercel.app/apple-icon.jpeg',
+        url: 'https://business-sathi.vercel.app/apple-icon.avif',
       },
       address: {
         '@type': 'PostalAddress',

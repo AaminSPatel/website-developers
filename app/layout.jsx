@@ -21,17 +21,19 @@ export const metadata = {
   metadataBase: new URL('https://business-sathi.vercel.app'),
   title: {
     default: 'Business Sathi — Best Web Developer in Ujjain and Indore',
-    template: '%s | Business Sathi'
+    template: '%s | Business Sathi',
   },
-  description: 'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies and startups.Business Sathi — Best Web Developer in Ujjain and Indore',
+  description:
+    'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies and startups.Business Sathi — Best Web Developer in Ujjain and Indore',
   verification: {
-    google: 'SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5J705R4KZFM',
+    google: 'SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5R4KZFM',
   },
   alternates: {
     canonical: '/',
   },
   // Baaki metadata ko concise rakha hai taaki verification tag jaldi detect ho
-  keywords: 'Business Sathi — Best Web Developer in Ujjain and Indore,website development company Indore, web developer Ujjain, web design MP',
+  keywords:
+    'Business Sathi — Best Web Developer in Ujjain and Indore,website development company Indore, web developer Ujjain, web design MP',
   authors: [{ name: 'Business Sathi' }],
   robots: 'index, follow',
 }
@@ -41,7 +43,7 @@ const schemaData = {
   '@type': ['Organization', 'LocalBusiness'],
   name: 'Business Sathi',
   url: 'https://business-sathi.vercel.app',
-  logo: 'https://business-sathi.vercel.app/logo.png',
+  logo: 'https://business-sathi.vercel.app/logo.avif',
   telephone: '+919302088025',
   priceRange: '₹₹',
   address: {
@@ -55,17 +57,32 @@ const schemaData = {
     '@type': 'GeoCoordinates',
     latitude: 23.1765,
     longitude: 75.7885,
-  }
+  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${poppins.variable} ${geistMono.variable}`}>
       <head>
-        {/* Verification meta tag ko head mein manually bhi daal sakte hain agar metadata object se kaam na bane */}
-<meta name="google-site-verification" content="SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5J705R4KZFM" />      </head>
+        {/* Verification meta tag */}
+        <meta
+          name="google-site-verification"
+          content="SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5R4KZFM"
+        />
+
+        {/* Resource Hints: preconnect/dns-prefetch for third-parties */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://cdn.counter.dev" />
+        <link rel="dns-prefetch" href="https://wa.me" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.counter.dev" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://wa.me" />
+      </head>
+
       <body className={`${poppins.className} ${geistMono.className} antialiased`}>
-        
         {/* Counter.dev */}
         <Script
           id="counter-dev-script"
@@ -88,3 +105,4 @@ export default function RootLayout({ children }) {
     </html>
   )
 }
+

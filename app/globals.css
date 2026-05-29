@@ -1,4 +1,6 @@
-@import 'tailwindcss';
+/* Tailwind is processed by PostCSS at build time (do not import runtime CSS). */
+
+
 
 
 /* ========================================

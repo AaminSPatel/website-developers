@@ -61,7 +61,7 @@ export async function generateMetadata({ params }) {
       tags: keywords,
       images: [
         {
-          url: post.image || '/og-blog.png',
+          url: post.image || '/og-blog.avif',
           width: 1200,
           height: 630,
           alt: title,
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }) {
       card: 'summary_large_image',
       title,
       description,
-      images: [post.image || '/og-blog.png'],
+      images: [post.image || '/og-blog.avif'],
       creator: '@businesssathi',
       site: '@businesssathi',
     },

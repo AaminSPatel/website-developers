@@ -8,7 +8,7 @@ import { MdArrowForward, MdArrowBack, MdOpenInNew } from 'react-icons/md'
 // ─── Projects data — apne hisaab se update karo ───────────────────────────────
 const projects = [
   {
-    image: '/avantika.png',
+    image: '/avantika.avif',
     title: 'Travel Website That Increased Booking Inquiries by 70%',
     client: 'Avantika Travels',
     category: 'Travel Portal',
@@ -24,7 +24,7 @@ const projects = [
     href: '/projects',
   },
   {
-    image: '/safarsathi.png',
+    image: '/safarsathi.avif',
     title: 'Multi-Service Booking Platform That Generated 100+ Bookings in 6 Months',
     client: 'Safar Sathi',
     category: 'Booking Platform',
@@ -40,7 +40,7 @@ const projects = [
     href: '/projects',
   },
   {
-    image: '/a2zdm.png',
+    image: '/a2zdm.avif',
     title: 'Digital Marketing Agency Website That Generated 150+ Client Inquiries in 6 Months',
     client: 'A2Z Digital Marketing',
     category: 'Agency Website',
@@ -56,7 +56,7 @@ const projects = [
     href: '/projects',
   },
   {
-    image: '/spotify.png',
+    image: '/spotify.avif',
     title: 'Music Streaming Platform That Achieved 500+ Active Users in 3 Months',
     client: 'Indie Beats',
     category: 'Web App',
@@ -72,7 +72,7 @@ const projects = [
     href: '/projects',
   },
   {
-    image: '/dealify.png',
+    image: '/dealify.avif',
     title: 'E-Commerce Platform That Processed 500+ Orders with 3.8% Conversion Rate',
     client: 'Dealify',
     category: 'E-Commerce',
@@ -88,7 +88,7 @@ const projects = [
     href: '/projects',
   },
   {
-    image: '/flower.png',
+    image: '/flower.avif',
     title: 'Wedding Decoration Website That Generated 45+ Monthly Inquiries',
     client: 'Floral Dreams',
     category: 'Local Business',

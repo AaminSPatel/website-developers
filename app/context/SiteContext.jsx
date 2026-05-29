@@ -91,15 +91,15 @@ export function SiteProvider({ children }) {
       ],
       details: `The Music Player Web App is a full-stack, responsive music streaming platform built using ReactJS, TailwindCSS, Node.js, Express, and MongoDB. The app offers a modern and engaging user experience, allowing users to browse, stream, and create personalized playlists. It features secure user authentication using JWT tokens and bcrypt for password encryption, ensuring a safe and smooth login process. With a fully responsive design, the app adapts seamlessly to different devices, from desktops to mobile phones. Key functionalities include music playback controls (play, pause, skip), the ability to like and save favorite tracks, playlist creation, and theme customization with multiple color options. The back-end API, built with Node.js and Express, manages user data and music content efficiently. Overall, the web app provides an intuitive and secure music streaming experience for all users`,
       images: [
-        "/assets/p111.png",
-        "/assets/p112.png",
-        "/assets/p113.png",
-        "/assets/p114.png",
-        "/assets/p115.png",
-        "/assets/p116.png",
-        "/assets/p117.png",
-        "/assets/p118.png",
-        "/assets/p119.png",
+        "/assets/p111.avif",
+        "/assets/p112.avif",
+        "/assets/p113.avif",
+        "/assets/p114.avif",
+        "/assets/p115.avif",
+        "/assets/p116.avif",
+        "/assets/p117.avif",
+        "/assets/p118.avif",
+        "/assets/p119.avif",
       ],
     },
      {
@@ -139,18 +139,18 @@ Key Features:
 
 Customers can effortlessly browse products, add them to the cart, and place orders with a single click. The Admin Panel provides real-time analytics, order tracking, and full control over store management. Whether you're looking for fashion, electronics, home essentials, or more, this e-commerce platform has everything at affordable prices.`,
       images: [
-        "/assets/e1.png",
-        "/assets/e2.png",
-        "/assets/e3.png",
-        "/assets/e4.png",
-        "/assets/e5.png",
-        "/assets/e6.png",
-        "/assets/e7.png",
-        "/assets/e8.png",
-        "/assets/e9.png",
-        "/assets/e10.png",
-        "/assets/e11.png",
-        "/assets/e12.png",
+        "/assets/e1.avif",
+        "/assets/e2.avif",
+        "/assets/e3.avif",
+        "/assets/e4.avif",
+        "/assets/e5.avif",
+        "/assets/e6.avif",
+        "/assets/e7.avif",
+        "/assets/e8.avif",
+        "/assets/e9.avif",
+        "/assets/e10.avif",
+        "/assets/e11.avif",
+        "/assets/e12.avif",
       ],
     },
     {
@@ -183,12 +183,12 @@ The website allows users to browse and book decoration services, with a well-org
 
 With Cloudinary integration, images are efficiently stored and delivered, enhancing performance and load times. The platform is fully responsive, mobile-friendly, and designed to provide a smooth navigation experience. It serves as a complete digital solution for a flower and wedding decoration business, ensuring high engagement and customer satisfaction.`,
       images: [
-        "/assets/pl1.png",
-        "/assets/pl2.png",
-        "/assets/pl3.png",
-        "/assets/pl4.png",
-        "/assets/pl5.png",
-        "/assets/pl6.png",
+        "/assets/pl1.avif",
+        "/assets/pl2.avif",
+        "/assets/pl3.avif",
+        "/assets/pl4.avif",
+        "/assets/pl5.avif",
+        "/assets/pl6.avif",
        
       ],
     },
@@ -219,11 +219,11 @@ With Cloudinary integration, images are efficiently stored and delivered, enhanc
       details: `A psychology blog website built with Next.js and Tailwind CSS, ensuring fast performance, smooth navigation, and an SEO score of 84+ for better search visibility. Designed for readers interested in mental health, self-improvement, and psychological insights, the platform offers a clean and engaging user experience.
 With a vast collection of well-researched blogs covering various psychology topics, benefits, and practical applications, users can easily explore and read insightful content. The use of Next.js enhances SEO, ensuring better reach and ranking on search engines. The website is fully responsive, lightweight, and optimized for quick loading, making it an ideal resource for psychology enthusiasts and self-growth seekers.`,
       images: [
-        "/assets/pb1.png",
-        "/assets/pb2.png",
-        "/assets/pb3.png",
-        "/assets/pb4.png",
-        "/assets/pb5.png",        
+        "/assets/pb1.avif",
+        "/assets/pb2.avif",
+        "/assets/pb3.avif",
+        "/assets/pb4.avif",
+        "/assets/pb5.avif",        
       ],
     },
      
@@ -254,20 +254,20 @@ With a vast collection of well-researched blogs covering various psychology topi
       details:
         "Our e-commerce web application is a sophisticated platform built using cutting-edge technologies like ReactJS, JavaScript, Node.js, Express, MySQL, and Tailwind CSS. Designed to provide a seamless shopping experience, the app is fully responsive, ensuring that users have an optimal experience across all devices. The application includes robust user authentication features, allowing users to securely sign up, log in, and manage their accounts. Users can easily save their information, such as favorite items and cart details, making future shopping more convenient.The admin panel is equipped with comprehensive management tools to handle various aspects of the store efficiently. The shopping cart functionality is intuitive, allowing users to add, view, and modify items before placing an order. Orders are processed and saved in a MySQL database with six different tables, each dedicated to a specific function, ensuring organized and efficient data management.With a catalog of 50 products, users can effortlessly find what they need thanks to a powerful search bar and a well-organized tag list for filtering products. The application supports pagination, making it easy to navigate through the product listings. The user interface is designed to be visually appealing with a dynamic theme-changing effect, enhancing the overall user experience.The user dashboard is a comprehensive hub where users can access detailed information about their favorite items, cart contents, and recent orders. This feature-rich dashboard ensures that users have all the information they need at their fingertips, making it easy to track their shopping activities and manage their preferences. The combination of these features ensures a smooth, engaging, and user-friendly experience, positioning our application as a leading choice in the e-commerce landscape.",
       images: [
-        "/assets/p11.png",
-        "/assets/p12.png",
-        "/assets/p13.png",
-        "/assets/p14.png",
-        "/assets/p15.png",
-        "/assets/p16.png",
-        "/assets/p17.png",
-        "/assets/p18.png",
-        "/assets/p19.png",
-        "/assets/p110.png",
-        "/assets/p1-11.png",
-        "/assets/p1-12.png",
-        "/assets/p1-13.png",
-        "/assets/p1-14.png",
+        "/assets/p11.avif",
+        "/assets/p12.avif",
+        "/assets/p13.avif",
+        "/assets/p14.avif",
+        "/assets/p15.avif",
+        "/assets/p16.avif",
+        "/assets/p17.avif",
+        "/assets/p18.avif",
+        "/assets/p19.avif",
+        "/assets/p110.avif",
+        "/assets/p1-11.avif",
+        "/assets/p1-12.avif",
+        "/assets/p1-13.avif",
+        "/assets/p1-14.avif",
       ],
     },
     {
@@ -279,15 +279,15 @@ With a vast collection of well-researched blogs covering various psychology topi
       details:
         "A clean and modern web application interface showcasing a user-friendly dashboard. The design emphasizes simplicity and ease of navigation, with a focus on key metrics and quick access to essential features. The color scheme combines muted tones with vibrant accents, creating a visually appealing and functional workspace",
       images: [
-        "/assets/p61.png",
-        "/assets/p62.png",
-        "/assets/p63.png",
-        "/assets/p64.png",
-        "/assets/p65.png",
-        "/assets/p66.png",
-        "/assets/p67.png",
-        "/assets/p68.png",
-        "/assets/p69.png",
+        "/assets/p61.avif",
+        "/assets/p62.avif",
+        "/assets/p63.avif",
+        "/assets/p64.avif",
+        "/assets/p65.avif",
+        "/assets/p66.avif",
+        "/assets/p67.avif",
+        "/assets/p68.avif",
+        "/assets/p69.avif",
       ],
     }
     // Add more project details here
@@ -368,16 +368,16 @@ projectDetails: [
 
   images: [
     // Add your image paths here
-    "/assets/avantika2.png",
-    "/assets/avantika1.png",
-    "/assets/avantika3.png",
-    "/assets/avantika4.png",
-    "/assets/avantika5.png",
-    "/assets/avantika6.png",
-    "/assets/avantika7.png",
-    "/assets/avantika8.png",
-    "/assets/avantika9.png",
-    "/assets/avantika10.png",
+    "/assets/avantika2.avif",
+    "/assets/avantika1.avif",
+    "/assets/avantika3.avif",
+    "/assets/avantika4.avif",
+    "/assets/avantika5.avif",
+    "/assets/avantika6.avif",
+    "/assets/avantika7.avif",
+    "/assets/avantika8.avif",
+    "/assets/avantika9.avif",
+    "/assets/avantika10.avif",
   ]
 },
 {
@@ -442,14 +442,14 @@ The comprehensive admin dashboard provides complete oversight of the entire ecos
   ],
 
   images: [
-    "/assets/safar1.png",
-    "/assets/safar2.png",
-    "/assets/safar3.png",
-    "/assets/safar4.png",
-    "/assets/safar5.png",
-    "/assets/safar6.png",
-    "/assets/safar7.png",
-    "/assets/safar8.png",
+    "/assets/safar1.avif",
+    "/assets/safar2.avif",
+    "/assets/safar3.avif",
+    "/assets/safar4.avif",
+    "/assets/safar5.avif",
+    "/assets/safar6.avif",
+    "/assets/safar7.avif",
+    "/assets/safar8.avif",
   ]
 },
 {
@@ -524,14 +524,14 @@ Built entirely with modern frontend technologies including Next.js for server-si
   ],
 
   images: [
-    "/assets/a2zdm1.png",
-    "/assets/a2zdm2.png",
-    "/assets/a2zdm3.png",
-    "/assets/a2zdm4.png",
-    "/assets/a2zdm5.png",
-    "/assets/a2zdm6.png",
-    "/assets/a2zdm7.png",
-    "/assets/a2zdm8.png",
+    "/assets/a2zdm1.avif",
+    "/assets/a2zdm2.avif",
+    "/assets/a2zdm3.avif",
+    "/assets/a2zdm4.avif",
+    "/assets/a2zdm5.avif",
+    "/assets/a2zdm6.avif",
+    "/assets/a2zdm7.avif",
+    "/assets/a2zdm8.avif",
   ]
 },
   {
@@ -596,16 +596,16 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
     
     images: [
-      "/spotify.png",
-      "/assets/p111.png",
-      "/assets/p112.png",
-      "/assets/p113.png",
-      "/assets/p114.png",
-      "/assets/p115.png",
-      "/assets/p116.png",
-      "/assets/p117.png",
-      "/assets/p118.png",
-      "/assets/p119.png",
+      "/spotify.avif",
+      "/assets/p111.avif",
+      "/assets/p112.avif",
+      "/assets/p113.avif",
+      "/assets/p114.avif",
+      "/assets/p115.avif",
+      "/assets/p116.avif",
+      "/assets/p117.avif",
+      "/assets/p118.avif",
+      "/assets/p119.avif",
     ],
   },
   
@@ -671,18 +671,18 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
     
     images: [
-      "/assets/e1.png",
-      "/assets/e2.png",
-      "/assets/e3.png",
-      "/assets/e4.png",
-      "/assets/e5.png",
-      "/assets/e6.png",
-      "/assets/e7.png",
-      "/assets/e8.png",
-      "/assets/e9.png",
-      "/assets/e10.png",
-      "/assets/e11.png",
-      "/assets/e12.png",
+      "/assets/e1.avif",
+      "/assets/e2.avif",
+      "/assets/e3.avif",
+      "/assets/e4.avif",
+      "/assets/e5.avif",
+      "/assets/e6.avif",
+      "/assets/e7.avif",
+      "/assets/e8.avif",
+      "/assets/e9.avif",
+      "/assets/e10.avif",
+      "/assets/e11.avif",
+      "/assets/e12.avif",
     ],
   },
   
@@ -749,12 +749,12 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
     
     images: [
-      "/assets/pl1.png",
-      "/assets/pl2.png",
-      "/assets/pl3.png",
-      "/assets/pl4.png",
-      "/assets/pl5.png",
-      "/assets/pl6.png",
+      "/assets/pl1.avif",
+      "/assets/pl2.avif",
+      "/assets/pl3.avif",
+      "/assets/pl4.avif",
+      "/assets/pl5.avif",
+      "/assets/pl6.avif",
     ],
   },
   
@@ -821,11 +821,11 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
     
     images: [
-      "/assets/pb1.png",
-      "/assets/pb2.png",
-      "/assets/pb3.png",
-      "/assets/pb4.png",
-      "/assets/pb5.png",        
+      "/assets/pb1.avif",
+      "/assets/pb2.avif",
+      "/assets/pb3.avif",
+      "/assets/pb4.avif",
+      "/assets/pb5.avif",        
     ],
   },
   
@@ -891,20 +891,20 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
     
     images: [
-      "/assets/p11.png",
-      "/assets/p12.png",
-      "/assets/p13.png",
-      "/assets/p14.png",
-      "/assets/p15.png",
-      "/assets/p16.png",
-      "/assets/p17.png",
-      "/assets/p18.png",
-      "/assets/p19.png",
-      "/assets/p110.png",
-      "/assets/p1-11.png",
-      "/assets/p1-12.png",
-      "/assets/p1-13.png",
-      "/assets/p1-14.png",
+      "/assets/p11.avif",
+      "/assets/p12.avif",
+      "/assets/p13.avif",
+      "/assets/p14.avif",
+      "/assets/p15.avif",
+      "/assets/p16.avif",
+      "/assets/p17.avif",
+      "/assets/p18.avif",
+      "/assets/p19.avif",
+      "/assets/p110.avif",
+      "/assets/p1-11.avif",
+      "/assets/p1-12.avif",
+      "/assets/p1-13.avif",
+      "/assets/p1-14.avif",
     ],
   },
   
@@ -952,15 +952,15 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
     
     images: [
-      "/assets/p61.png",
-      "/assets/p62.png",
-      "/assets/p63.png",
-      "/assets/p64.png",
-      "/assets/p65.png",
-      "/assets/p66.png",
-      "/assets/p67.png",
-      "/assets/p68.png",
-      "/assets/p69.png",
+      "/assets/p61.avif",
+      "/assets/p62.avif",
+      "/assets/p63.avif",
+      "/assets/p64.avif",
+      "/assets/p65.avif",
+      "/assets/p66.avif",
+      "/assets/p67.avif",
+      "/assets/p68.avif",
+      "/assets/p69.avif",
     ],
   },
 
@@ -1034,14 +1034,14 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
 
     images: [
-      "/assets/avantika1.png",
-      "/assets/avantika2.png",
-      "/assets/avantika3.png",
-      "/assets/avantika4.png",
-      "/assets/avantika5.png",
-      "/assets/avantika6.png",
-      "/assets/avantika7.png",
-      "/assets/avantika8.png",
+      "/assets/avantika1.avif",
+      "/assets/avantika2.avif",
+      "/assets/avantika3.avif",
+      "/assets/avantika4.avif",
+      "/assets/avantika5.avif",
+      "/assets/avantika6.avif",
+      "/assets/avantika7.avif",
+      "/assets/avantika8.avif",
     ]
   },
 
@@ -1117,14 +1117,14 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
 
     images: [
-      "/assets/safar1.png",
-      "/assets/safar2.png",
-      "/assets/safar3.png",
-      "/assets/safar4.png",
-      "/assets/safar5.png",
-      "/assets/safar6.png",
-      "/assets/safar7.png",
-      "/assets/safar8.png",
+      "/assets/safar1.avif",
+      "/assets/safar2.avif",
+      "/assets/safar3.avif",
+      "/assets/safar4.avif",
+      "/assets/safar5.avif",
+      "/assets/safar6.avif",
+      "/assets/safar7.avif",
+      "/assets/safar8.avif",
     ]
   },
 
@@ -1197,14 +1197,14 @@ Built entirely with modern frontend technologies including Next.js for server-si
     ],
 
     images: [
-      "/assets/a2zdm1.png",
-      "/assets/a2zdm2.png",
-      "/assets/a2zdm3.png",
-      "/assets/a2zdm4.png",
-      "/assets/a2zdm5.png",
-      "/assets/a2zdm6.png",
-      "/assets/a2zdm7.png",
-      "/assets/a2zdm8.png",
+      "/assets/a2zdm1.avif",
+      "/assets/a2zdm2.avif",
+      "/assets/a2zdm3.avif",
+      "/assets/a2zdm4.avif",
+      "/assets/a2zdm5.avif",
+      "/assets/a2zdm6.avif",
+      "/assets/a2zdm7.avif",
+      "/assets/a2zdm8.avif",
     ]
   }
 
@@ -1224,7 +1224,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
           revenue: '$1M+ ARR',
           timeline: '3 months'
         },
-        image: '/case-studies/techflow.jpg',
+        image: '/case-studies/techflow.avif',
         testimonial: {
           quote: 'The team transformed our online presence and directly contributed to our growth.',
           author: 'Sarah Chen',
@@ -1244,7 +1244,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
           mobileTraffic: '+180%',
           revenue: '3x growth'
         },
-        image: '/case-studies/fashion.jpg',
+        image: '/case-studies/fashion.avif',
         testimonial: {
           quote: 'Our online sales tripled in the first year after the redesign.',
           author: 'Michael Rodriguez',
@@ -1264,7 +1264,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
           loadTime: '-70%',
           userEngagement: '+45%'
         },
-        image: '/case-studies/enterprise.jpg',
+        image: '/case-studies/enterprise.avif',
         testimonial: {
           quote: 'Best investment we made in our digital infrastructure.',
           author: 'James Mitchell',
@@ -1278,7 +1278,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
         id: 1,
         name: 'Sarah Chen',
         title: 'CEO, TechFlow Inc.',
-        image: '/testimonials/sarah.jpg',
+        image: '/testimonials/sarah.avif',
         text: 'The team transformed our online presence and directly contributed to our growth from zero to $1M ARR.',
         rating: 5
       },
@@ -1286,7 +1286,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
         id: 2,
         name: 'Michael Rodriguez',
         title: 'COO, Fashion & Co.',
-        image: '/testimonials/michael.jpg',
+        image: '/testimonials/michael.avif',
         text: 'Our online sales tripled in the first year. Professional, responsive, and results-driven.',
         rating: 5
       },
@@ -1294,7 +1294,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
         id: 3,
         name: 'Emma Watson',
         title: 'Founder, StartupHub',
-        image: '/testimonials/emma.jpg',
+        image: '/testimonials/emma.avif',
         text: 'They delivered on time, on budget, and exceeded our expectations on quality.',
         rating: 5
       },
@@ -1302,7 +1302,7 @@ Built entirely with modern frontend technologies including Next.js for server-si
         id: 4,
         name: 'John Smith',
         title: 'Marketing Manager, Digital Ventures',
-        image: '/testimonials/john.jpg',
+        image: '/testimonials/john.avif',
         text: 'Great attention to detail and excellent communication throughout the project.',
         rating: 5
       }
@@ -1366,7 +1366,7 @@ The future of **web development in 2026** hinges on creating intelligent, fast, 
         publishedAt: '2026-01-15',
         readingTime: 8,
         category: 'Web Development',
-        image: '/blog/future-web.png',
+        image: '/blog/future-web.avif',
         tags: ['web development', '2026 trends', 'technology']
       },
       {
@@ -1460,7 +1460,7 @@ Need help implementing these **mobile optimization strategies**? Our team specia
         publishedAt: '2026-01-10',
         readingTime: 6,
         category: 'Web Design',
-        image: '/blog/mobile-optimization.png',
+        image: '/blog/mobile-optimization.avif',
         tags: ['mobile', 'optimization', 'ux']
       },
       {
@@ -1603,7 +1603,7 @@ Need help preparing your website for the future of search? Our **2026 SEO readin
         publishedAt: '2026-01-05',
         readingTime: 10,
         category: 'SEO',
-        image: '/blog/seo-2026.png',
+        image: '/blog/seo-2026.avif',
         tags: ['seo', 'search engine', 'ranking']
       },
       
@@ -1831,7 +1831,7 @@ Struggling with slow website performance? Our **performance optimization audit**
         publishedAt: '2025-12-28',
         readingTime: 7,
         category: 'Performance',
-        image: '/blog/performance.png',
+        image: '/blog/performance.avif',
         tags: ['performance', 'optimization', 'speed']
       },
   {
@@ -1877,7 +1877,7 @@ Your **product pages** are your most valuable SEO real estate. Optimize them for
 - Add specifications, dimensions, and care instructions
 
 **Image Optimization for Ecommerce**
-- Use descriptive file names: ||"organic-cotton-tshirt-blue-front.jpg"||
+- Use descriptive file names: ||"organic-cotton-tshirt-blue-front.avif"||
 - Add alt text for every image (including product variations)
 - Implement schema markup for product images
 - Use high-quality images with zoom functionality
@@ -2068,7 +2068,7 @@ Struggling with your online store's visibility? Our **Ecommerce SEO Audit** iden
     publishedAt: '2026-03-15',
     readingTime: 8,
     category: 'Ecommerce',
-    image: '/blog/ecommerce-seo.png',
+    image: '/blog/ecommerce-seo.avif',
     tags: ['ecommerce', 'seo', 'product-optimization', 'conversion']
   },
   {
@@ -2367,7 +2367,7 @@ Our **Local SEO Audit** identifies exactly what's holding back your local visibi
     publishedAt: '2026-02-22',
     readingTime: 9,
     category: 'Local SEO',
-    image: '/blog/local-seo.png',
+    image: '/blog/local-seo.avif',
     tags: ['local-seo', 'google-business', 'small-business', 'local-search']
   },
   {
@@ -2688,7 +2688,7 @@ Our **SaaS Content Audit** evaluates your current content performance and provid
     publishedAt: '2026-01-18',
     readingTime: 10,
     category: 'Content Marketing',
-    image: '/blog/saas-content.png',
+    image: '/blog/saas-content.avif',
     tags: ['saas', 'content-marketing', 'b2b', 'lead-generation']
   },
   {
@@ -2858,7 +2858,7 @@ Our team specializes in 2026-ready medical websites with all compliance features
     publishedAt: '2026-01-20',
     readingTime: 8,
     category: 'Healthcare',
-    image: '/blog/medical-website-2026.png',
+    image: '/blog/medical-website-2026.avif',
     tags: ['medical-website', 'doctor-website', 'hospital-seo', 'healthcare-marketing', 'patient-acquisition']
   },
   {
@@ -3018,7 +3018,7 @@ Our team specializes in 2026 educational websites with proven admission growth s
     publishedAt: '2026-02-05',
     readingTime: 7,
     category: 'Education',
-    image: '/blog/coaching-website-2026.png',
+    image: '/blog/coaching-website-2026.avif',
     tags: ['coaching-center', 'education-website', 'student-admissions', 'online-learning', 'institute-marketing']
   },
   {
@@ -3180,7 +3180,7 @@ Our team specializes in 2026 travel websites with proven booking growth strategi
     publishedAt: '2026-03-10',
     readingTime: 8,
     category: 'Travel & Tourism',
-    image: '/blog/travel-website-2026.png',
+    image: '/blog/travel-website-2026.avif',
     tags: ['travel-agency', 'tour-operator', 'travel-website', 'booking-engine', 'tourism-marketing']
   }
     ],

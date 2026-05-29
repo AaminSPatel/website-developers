@@ -30,14 +30,14 @@ export const metadata = {
     siteName: 'Business Sathi',
     type: 'website',
     locale: 'en_IN',
-    images: [{ url: '/og-blog.png', width: 1200, height: 630, alt: 'Business Sathi Blog' }],
+    images: [{ url: '/og-blog.avif', width: 1200, height: 630, alt: 'Business Sathi Blog' }],
   },
 
   twitter: {
     card: 'summary_large_image',
     title: 'Business Sathi Blog — Web Dev & SEO Tips',
     description: 'Expert guides on Local SEO and website development for Indian businesses.',
-    images: ['/og-blog.png'],
+    images: ['/og-blog.avif'],
   },
 
   robots: { index: true, follow: true },
@@ -54,7 +54,7 @@ const jsonLd = {
     '@type': 'Organization',
     name: 'Business Sathi',
     url: 'https://business-sathi.vercel.app',
-    logo: { '@type': 'ImageObject', url: 'https://business-sathi.vercel.app/apple-icon.jpeg' },
+    logo: { '@type': 'ImageObject', url: 'https://business-sathi.vercel.app/apple-icon.avif' },
   },
   inLanguage: 'en-IN',
 }

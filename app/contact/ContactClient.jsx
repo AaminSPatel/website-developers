@@ -11,7 +11,7 @@ export function ContactClient() {
     <div>
       <PageHero
         effect="zoom"
-        images={['/hero1.png']}
+        images={['/hero1.avif']}
         title="Contact Expert Web Developers"
         subtitle="Ready to scale your business? Whether you are a Travel Agency in Delhi or a Startup in Bangalore, let's build a website that drives real growth."
       />

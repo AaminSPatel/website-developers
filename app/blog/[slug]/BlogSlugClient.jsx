@@ -377,7 +377,7 @@ export function BlogSlugClient({ post }) {
       name: 'Business Sathi',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://business-sathi.vercel.app/apple-icon.jpeg',
+        url: 'https://business-sathi.vercel.app/apple-icon.avif',
       },
       url: 'https://business-sathi.vercel.app',
       sameAs: [

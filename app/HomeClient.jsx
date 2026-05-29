@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+
 import { useRef, useState } from "react";
 import {
   MdArrowForward,
@@ -173,8 +174,8 @@ const heroRef = useRef(null);
 
             <motion.h1
               variants={fadeUp}
-              initial="hidden"
-              animate="visible"
+              initial={false}
+              animate={false}
               custom={1}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6"
             >

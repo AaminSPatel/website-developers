@@ -20,9 +20,9 @@ export const projectDetails = [
     ],
   link: "https://avantikatravels.com",
    images: [
-      { src: "/avantika.png", alt: "Avantika Travels homepage - Travel agency website developed by Business Sathi Indore Ujjain", title: "Avantika Travels - Award-winning travel portal by Business Sathi" },
-      { src: "/assets/avantika1.png", alt: "Avantika Travels booking page screenshot - Professional travel website by Business Sathi web developers MP", title: "Avantika Travels booking interface - Business Sathi portfolio" },
-      { src: "/assets/avantika3.png", alt: "Avantika Travels packages page - SEO optimized travel agency website Indore by Business Sathi", title: "Avantika Travels packages showcase" }
+      { src: "/avantika.avif", alt: "Avantika Travels homepage - Travel agency website developed by Business Sathi Indore Ujjain", title: "Avantika Travels - Award-winning travel portal by Business Sathi" },
+      { src: "/avantika1.avif", alt: "Avantika Travels booking page screenshot - Professional travel website by Business Sathi web developers MP", title: "Avantika Travels booking interface - Business Sathi portfolio" },
+      { src: "/avantika3.avif", alt: "Avantika Travels packages page - SEO optimized travel agency website Indore by Business Sathi", title: "Avantika Travels packages showcase" }
     ],
     industry: "Travel & Tourism",
     techStack: [
@@ -35,7 +35,7 @@ export const projectDetails = [
       quote: "I am very happy with your service you developed a exact website as i want and specially in my budget you designed very good and user friendly interface and backend also very easy to handle Thankyou for your service and in future if i required any technical support i will looking forward to you.  Thanyou ! 🙏",
       name: "Gautam Rathore",
       role: "Owner, Avantika Travels",
-    avatar: "/link:'#', images/clients/rahul.jpg" // Optional (agar photo na ho to hum initial use kar lenge)
+    avatar: "/link:'#', images/clients/rahul.avif" // Optional (agar photo na ho to hum initial use kar lenge)
   
     }
   },
@@ -62,9 +62,9 @@ export const projectDetails = [
     link: "https://safar--sathi.vercel.app",
  
     images: [
-      { src: "/safarsathi.png", alt: "Safar Sathi homepage - Multi-service booking platform by Business Sathi website developers Ujjain", title: "Safar Sathi - Revolutionary booking platform by Business Sathi" },
-      { src: "/assets/safar2.png", alt: "Safar Sathi dashboard screenshot - Advanced booking system developed by Business Sathi Indore", title: "Safar Sathi admin dashboard - Business Sathi portfolio" },
-      { src: "/assets/safar3.png", alt: "Safar Sathi mobile booking interface - Responsive travel platform by Business Sathi MP", title: "Safar Sathi mobile experience" }
+      { src: "/safarsathi.avif", alt: "Safar Sathi homepage - Multi-service booking platform by Business Sathi website developers Ujjain", title: "Safar Sathi - Revolutionary booking platform by Business Sathi" },
+      { src: "/safar2.avif", alt: "Safar Sathi dashboard screenshot - Advanced booking system developed by Business Sathi Indore", title: "Safar Sathi admin dashboard - Business Sathi portfolio" },
+      { src: "/safar3.avif", alt: "Safar Sathi mobile booking interface - Responsive travel platform by Business Sathi MP", title: "Safar Sathi mobile experience" }
     ],
     industry: "Transportation & Logistics",
     techStack: [
@@ -101,9 +101,9 @@ export const projectDetails = [
     ],
      link: "https://a2zdm.com/",
     images: [
-      { src: "/a2zdm.png", alt: "A2ZDM homepage - Digital marketing agency website by Business Sathi web development Indore Ujjain", title: "A2ZDM Digital Marketing - Business Sathi case study" },
-      { src: "/assets/az2.png", alt: "A2ZDM services page screenshot - Professional agency site by Business Sathi developers MP", title: "A2ZDM services showcase" },
-      { src: "/assets/az3.png", alt: "A2ZDM case studies section - SEO optimized agency website Ujjain by Business Sathi", title: "A2ZDM portfolio page" }
+      { src: "/a2zdm.avif", alt: "A2ZDM homepage - Digital marketing agency website by Business Sathi web development Indore Ujjain", title: "A2ZDM Digital Marketing - Business Sathi case study" },
+      { src: "/az2.avif", alt: "A2ZDM services page screenshot - Professional agency site by Business Sathi developers MP", title: "A2ZDM services showcase" },
+      { src: "/az3.avif", alt: "A2ZDM case studies section - SEO optimized agency website Ujjain by Business Sathi", title: "A2ZDM portfolio page" }
     ],
     industry: "Digital Marketing",
     techStack: [
@@ -139,9 +139,9 @@ export const projectDetails = [
     ],
      link: "https://aaminspatel.github.io/new-spotify/",
     images: [
-      { src: "/spotify.png", alt: "TuneFlow Music streaming platform homepage - Web app by Business Sathi Next.js developers Indore", title: "TuneFlow Music - Advanced streaming platform by Business Sathi" },
-      { src: "/assets/p112.png", alt: "TuneFlow player interface screenshot - Music app developed by Business Sathi Ujjain", title: "TuneFlow audio player interface" },
-      { src: "/assets/p113.png", alt: "TuneFlow artist dashboard - Professional music platform by Business Sathi web developers MP", title: "TuneFlow artist dashboard" }
+      { src: "/spotify.avif", alt: "TuneFlow Music streaming platform homepage - Web app by Business Sathi Next.js developers Indore", title: "TuneFlow Music - Advanced streaming platform by Business Sathi" },
+      { src: "/p112.avif", alt: "TuneFlow player interface screenshot - Music app developed by Business Sathi Ujjain", title: "TuneFlow audio player interface" },
+      { src: "/p113.avif", alt: "TuneFlow artist dashboard - Professional music platform by Business Sathi web developers MP", title: "TuneFlow artist dashboard" }
     ],
     industry: "Music & Entertainment",
     techStack: [
@@ -178,9 +178,9 @@ export const projectDetails = [
     ],
     link: "https://e-commerce-nu-nine.vercel.app",
     images: [
-      { src: "/dealify.png", alt: "Dealify e-commerce homepage - Online store developed by Business Sathi website company Indore", title: "Dealify Retail - Full e-commerce solution by Business Sathi" },
-      { src: "/assets/e2.png", alt: "Dealify product catalog screenshot - E-commerce platform by Business Sathi developers Ujjain", title: "Dealify product listing page" },
-      { src: "/assets/e3.png", alt: "Dealify checkout page - Secure shopping cart by Business Sathi web development MP", title: "Dealify secure checkout" }
+      { src: "/dealify.avif", alt: "Dealify e-commerce homepage - Online store developed by Business Sathi website company Indore", title: "Dealify Retail - Full e-commerce solution by Business Sathi" },
+      { src: "/e2.avif", alt: "Dealify product catalog screenshot - E-commerce platform by Business Sathi developers Ujjain", title: "Dealify product listing page" },
+      { src: "/e3.avif", alt: "Dealify checkout page - Secure shopping cart by Business Sathi web development MP", title: "Dealify secure checkout" }
     ],
     industry: "E-Commerce & Retail",
     techStack: [
@@ -217,9 +217,9 @@ export const projectDetails = [
     ],
     link: "https://flowers-three-gamma.vercel.app/",
     images: [
-      { src: "/flower.png", alt: "Flower Elegance wedding decoration homepage - Portfolio site by Business Sathi Indore Ujjain", title: "Flower Elegance - Premium wedding decor website by Business Sathi" },
-      { src: "/assets/pl2.png", alt: "Flower Elegance portfolio gallery screenshot - Event decoration site by Business Sathi MP", title: "Flower Elegance portfolio showcase" },
-      { src: "/assets/pl3.png", alt: "Flower Elegance packages page - Wedding planner website Ujjain by Business Sathi", title: "Flower Elegance service packages" }
+      { src: "/flower.avif", alt: "Flower Elegance wedding decoration homepage - Portfolio site by Business Sathi Indore Ujjain", title: "Flower Elegance - Premium wedding decor website by Business Sathi" },
+      { src: "/pl2.avif", alt: "Flower Elegance portfolio gallery screenshot - Event decoration site by Business Sathi MP", title: "Flower Elegance portfolio showcase" },
+      { src: "/pl3.avif", alt: "Flower Elegance packages page - Wedding planner website Ujjain by Business Sathi", title: "Flower Elegance service packages" }
     ],
     industry: "Wedding & Event Services",
     techStack: [
