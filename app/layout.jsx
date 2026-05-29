@@ -20,10 +20,10 @@ const geistMono = Geist_Mono({
 export const metadata = {
   metadataBase: new URL('https://business-sathi.vercel.app'),
   title: {
-    default: 'Business Sathi | Website Development Company Indore Ujjain',
+    default: 'Business Sathi — Best Web Developer in Ujjain and Indore',
     template: '%s | Business Sathi'
   },
-  description: 'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies and startups.',
+  description: 'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies and startups.Business Sathi — Best Web Developer in Ujjain and Indore',
   verification: {
     google: 'SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5J705R4KZFM',
   },
@@ -31,7 +31,7 @@ export const metadata = {
     canonical: '/',
   },
   // Baaki metadata ko concise rakha hai taaki verification tag jaldi detect ho
-  keywords: 'website development company Indore, web developer Ujjain, web design MP',
+  keywords: 'Business Sathi — Best Web Developer in Ujjain and Indore,website development company Indore, web developer Ujjain, web design MP',
   authors: [{ name: 'Business Sathi' }],
   robots: 'index, follow',
 }

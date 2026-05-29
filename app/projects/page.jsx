@@ -14,6 +14,7 @@ export const metadata = {
     'business website case studies Indore',
     'e-commerce development portfolio',
     'SEO website projects Ratlam Dewas',
+    'Business Sathi — Best Web Developer in Ujjain and Indore',
     'Business Sathi portfolio'
   ].join(', '),
   alternates: { canonical: '/projects' },
@@ -28,7 +29,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Business Sathi Portfolio | Indore Web Developer',
     description: 'Case studies from successful web projects in MP.',
-    images: ['/og-projects.png']
+    images: ['/og-projects.svg']
   },
   robots: { index: true, follow: true }
 }

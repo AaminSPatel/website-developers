@@ -11,6 +11,7 @@ export const metadata = {
   // Targeting: local (Indore/Ujjain/MP) + service (website development/SEO) + industry (travel/business)
   keywords: [
     // Primary local keywords
+    'Business Sathi — Best Web Developer in Ujjain and Indore',
     'website development company Indore',
     'website design Ujjain',
     'web developer Indore',
@@ -44,7 +45,7 @@ export const metadata = {
   openGraph: {
     title: 'Business Sathi — Website Development in Indore & Ujjain, MP',
     description:
-      'We build fast, SEO-ready websites for local businesses and travel agencies across Madhya Pradesh. 50+ websites delivered. 95+ SEO scores. Free consultation.',
+      'We build fast, SEO-ready websites for local businesses and travel agencies across Madhya Pradesh. 50+ websites delivered. 95+ SEO scores. Free consultation.Business Sathi — Best Web Developer in Ujjain and Indore',
     url: 'https://business-sathi.vercel.app/',
     siteName: 'Business Sathi',
     type: 'website',
@@ -54,7 +55,7 @@ export const metadata = {
         url: '/og-home.svg',
         width: 1200,
         height: 630,
-        alt: 'Business Sathi - Website Development Company in Indore & Ujjain',
+        alt: 'Business Sathi — Best Web Developer in Ujjain and Indore',
       },
     ],
   },
@@ -82,9 +83,9 @@ export const metadata = {
   },
 
   // ── Verification (add your actual codes) ──
-  verification: {
+ /*  verification: {
     google: 'YOUR_GOOGLE_SEARCH_CONSOLE_CODE',
-  },
+  }, */
 }
 
 // ── JSON-LD Structured Data ──────────────────────────────────────────────────
@@ -101,7 +102,7 @@ const jsonLd = {
       url: 'https://business-sathi.vercel.app',
       telephone: '+919302088025',
       email: 'aameenpatel122436@gmail.com',
-      foundingDate: '2023',
+      foundingDate: '2025',
       priceRange: '₹₹',
       image: 'https://business-sathi.vercel.app/apple-icon.jpeg',
       logo: {
@@ -140,7 +141,7 @@ const jsonLd = {
       sameAs: [
         'https://linkedin.com',
         'https://twitter.com',
-        'https://instagram.com',
+        'https://instagram.com/busines.sathi.vercel.app/',
       ],
     },
     // WebSite schema for Sitelinks search box
@@ -153,8 +154,8 @@ const jsonLd = {
       inLanguage: 'en-IN',
       potentialAction: {
         '@type': 'SearchAction',
-        target: 'https://business-sathi.vercel.app/blog?q={search_term_string}',
-        'query-input': 'required name=search_term_string',
+        target: 'https://business-sathi.vercel.app/blog',
+        
       },
     },
   ],
