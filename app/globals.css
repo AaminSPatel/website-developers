@@ -1,7 +1,6 @@
-/* Tailwind is processed by PostCSS at build time (do not import runtime CSS). */
-
-
-
+/* Tailwind (build-time) - Tailwind v4 */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
 /* ========================================
    OPTIMIZED CSS - Render-Blocking Removed
