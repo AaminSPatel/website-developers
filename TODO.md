@@ -1,9 +1,9 @@
-# Robots.txt & Sitemap Fix Progress
-
-## Steps:
-- [x] Create TODO.md
-- [x] Fix public/robots.txt (remove static plain-text block)
-- [x] Create app/robots.txt (dynamic version)
-- [x] Test locally: curl http://localhost:3000/robots.txt (use `curl -s http://localhost:3000/robots.txt` or browser)
-- [ ] Validate in Google Search Console after deploy
+- [ ] Fix Vercel pnpm install failure
+  - [ ] Align package manager usage (pnpm vs npm)
+  - [ ] Update vercel.json to use npm install OR remove package-lock forcing
+  - [ ] Add/ensure correct build command and output
+  - [ ] Push changes and redeploy on Vercel
+- [ ] Local verification
+  - [ ] Run install with the same package manager Vercel will use
+  - [ ] Run next build
 
