@@ -49,7 +49,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-6">
                 <div className="relative w-44 h-14 md:w-54 md:h-18 overflow-hidden rounded-sm group-hover:shadow-lg transition-all duration-300">
                              <Image 
-                                 src={'/logo1.avif'} 
+                                 src={'/logo-white1.png'} 
                                  alt='Business Sathi Logo' 
                                  fill
                                  className='object-cover'
