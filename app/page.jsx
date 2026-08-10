@@ -1,175 +1,153 @@
-import { HomeClient } from './HomeClient'
+import Hero from "@/components/Hero";
+import SectionHeading from "@/components/SectionHeading";
+import ServicesGrid from "@/components/ServicesGrid";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import ProjectsShowcase from "@/components/ProjectsShowcase";
+import GoogleReviewsSection from "@/components/GoogleReviewsSection";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import IndustriesGrid from "@/components/IndustriesGrid";
+import CTASection from "@/components/CTASection";
+import Counter from "@/components/Counter";
+import RevealOnScroll from "@/components/RevealOnScroll";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { stats } from "@/lib/siteData";
+
 export const metadata = {
-  // ── Primary Title with Local Keywords ──
-  title: 'Website Development Company in Indore & Ujjain | Business Sathi',
-  
-  // ── Meta Description with local intent + value ──
+  title: "Website Development & Digital Growth Studio in Indore",
   description:
-    'Best website development company in Indore & Ujjain. We build SEO-optimized, mobile-first websites for travel agencies, local businesses, and service providers across Madhya Pradesh. Get a free quote today!',
-
-  // ── Keyword Strategy ──
-  // Targeting: local (Indore/Ujjain/MP) + service (website development/SEO) + industry (travel/business)
-  keywords: [
-    // Primary local keywords
-    'Business Sathi — Best Web Developer in Ujjain and Indore',
-    'website development company Indore',
-    'website design Ujjain',
-    'web developer Indore',
-    'website developer in Ujjain',
-    'website developer Dewas',
-    'website developer Ratlam',
-    'web development company Madhya Pradesh',
-    // Service keywords
-    'SEO optimized website India',
-    'mobile-first website development',
-    'Next.js developer India',
-    'affordable website design India',
-    'local business website India',
-    // Industry keywords
-    'travel agency website development India',
-    'travel portal development',
-    'business website design Indore',
-    // Long-tail
-    'best website company in Indore',
-    'professional website developer Ujjain',
-    'website design for small business Indore',
-    'cheap website development Madhya Pradesh',
-  ],
-
-  // ── Canonical ──
-  alternates: {
-    canonical: 'https://business-sathi.vercel.app/',
-  },
-
-  // ── Open Graph (Facebook / WhatsApp Share) ──
-  openGraph: {
-    title: 'Business Sathi — Website Development in Indore & Ujjain, MP',
-    description:
-      'We build fast, SEO-ready websites for local businesses and travel agencies across Madhya Pradesh. 50+ websites delivered. 95+ SEO scores. Free consultation.Business Sathi — Best Web Developer in Ujjain and Indore',
-    url: 'https://business-sathi.vercel.app/',
-    siteName: 'Business Sathi',
-    type: 'website',
-    locale: 'en_IN',
-    images: [
-      {
-        url: '/og-home.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Business Sathi — Best Web Developer in Ujjain and Indore',
-      },
-    ],
-  },
-
-  // ── Twitter Card ──
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Business Sathi — Website Development Indore & Ujjain',
-    description:
-      'Professional website development for local businesses & travel agencies in MP. SEO-optimized, mobile-first, affordable.',
-    images: ['/og-home.avif'],
-  },
-
-  // ── Robots ──
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-
-  // ── Verification (add your actual codes) ──
- /*  verification: {
-    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_CODE',
-  }, */
-}
-
-// ── JSON-LD Structured Data ──────────────────────────────────────────────────
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    // LocalBusiness schema — critical for local SEO
-    {
-      '@type': 'LocalBusiness',
-      '@id': 'https://business-sathi.vercel.app/#organization',
-      name: 'Business Sathi',
-      description:
-        'Professional website development company in Indore & Ujjain, Madhya Pradesh. Specializing in SEO-optimized websites for travel agencies, local businesses, and service providers.',
-      url: 'https://business-sathi.vercel.app',
-      telephone: '+919302088025',
-      email: 'aameenpatel122436@gmail.com',
-      foundingDate: '2025',
-      priceRange: '₹₹',
-      image: 'https://business-sathi.vercel.app/apple-icon.avif',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://business-sathi.vercel.app/apple-icon.avif',
-      },
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Ujjain',
-        addressRegion: 'Madhya Pradesh',
-        addressCountry: 'IN',
-        postalCode: '456001',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 23.1765,
-        longitude: 75.7885,
-      },
-      areaServed: [
-        { '@type': 'City', name: 'Indore' },
-        { '@type': 'City', name: 'Ujjain' },
-        { '@type': 'City', name: 'Dewas' },
-        { '@type': 'City', name: 'Ratlam' },
-        { '@type': 'State', name: 'Madhya Pradesh' },
-      ],
-      hasOfferCatalog: {
-        '@type': 'OfferCatalog',
-        name: 'Web Development Services',
-        itemListElement: [
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Website Development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Travel Agency Portal Development' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Optimization Services' } },
-          { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-Commerce Website Development' } },
-        ],
-      },
-      sameAs: [
-        'https://linkedin.com',
-        'https://twitter.com',
-        'https://instagram.com/busines.sathi.vercel.app/',
-      ],
-    },
-    // WebSite schema for Sitelinks search box
-    {
-      '@type': 'WebSite',
-      '@id': 'https://business-sathi.vercel.app/#website',
-      url: 'https://business-sathi.vercel.app',
-      name: 'Business Sathi',
-      description: 'Website Development Company in Indore & Ujjain, Madhya Pradesh',
-      inLanguage: 'en-IN',
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: 'https://business-sathi.vercel.app/blog',
-        
-      },
-    },
-  ],
-}
+    "Business Sathi builds websites and manages digital growth — Google Business Profile, Meta Ads, SEO, and video — for local businesses across Indore.",
+};
 
 export default function HomePage() {
   return (
-    <>
-      {/* JSON-LD structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <HomeClient />
-    </>
-  )
+    <div className="relative">
+      {/* Fixed full-page background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="fixed inset-0 w-full h-full object-cover -z-10"
+      >
+        <source src="/bird.mp4" type="video/mp4" />
+      </video>
+
+      {/* Optional overlay so text/sections stay readable over the video */}
+      <div className="fixed inset-0 bg-white/60 -z-10" />
+
+      {/* All existing page content sits above the video */}
+      <div className="relative z-0">
+        <Hero />
+
+        {/* Stats strip */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 -mt-4 md:mt-4">
+          <RevealOnScroll y={30} className="grid grid-cols-2 md:grid-cols-4 gap-4 rounded-3xl border border-[#e7e7e7] bg-white p-8 md:p-10 glow">
+            {stats.map((s, i) => (
+              <RevealOnScroll
+                key={s.label}
+                y={16}
+                delay={0.1 + i * 0.08}
+                className="text-center"
+              >
+                <Counter value={s.value} suffix={s.suffix} isText={s.isText} />
+                <p className="mt-2 text-xs md:text-sm text-[#666666]">{s.label}</p>
+              </RevealOnScroll>
+            ))}
+          </RevealOnScroll>
+        </section>
+
+        {/* Services */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-24 md:py-32">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <SectionHeading
+              eyebrow="What We Do"
+              title="Everything your business needs to grow online."
+              description="Six focused services. No unnecessary upsells — just what actually moves the needle for your business."
+            />
+            <Link href="/services" className="btn-secondary shrink-0 self-start md:self-auto">
+              View All Services <ArrowRight size={16} />
+            </Link>
+          </div>
+          <ServicesGrid limit={6} />
+        </section>
+
+        {/* Why choose us */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-8">
+          <SectionHeading
+            eyebrow="Why Business Sathi"
+            title="Small studio. Straight answers. Real results."
+            description="We're not the biggest agency in Indore — we're just honest about what will actually help your business, and quick to respond when you need us."
+            align="center"
+          />
+          <div className="mt-14">
+            <RevealOnScroll y={30}>
+              <WhyChooseUs />
+            </RevealOnScroll>
+          </div>
+        </section>
+
+        {/* Recent work */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-24 md:py-32">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <SectionHeading
+              eyebrow="Recent Work"
+              title="Real projects, for real Indore businesses."
+              description="Every project starts with understanding the business first — the design comes after."
+            />
+            <Link href="/portfolio" className="btn-secondary shrink-0 self-start md:self-auto">
+              View Full Portfolio <ArrowRight size={16} />
+            </Link>
+          </div>
+          <ProjectsShowcase limit={4} />
+        </section>
+
+        {/* Reviews */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-8">
+          <SectionHeading
+            eyebrow="Client Feedback"
+            title="What business owners say after working with us."
+            align="center"
+          />
+          <div className="mt-14">
+            <GoogleReviewsSection limit={3} />
+          </div>
+        </section>
+
+        {/* Process */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-24 md:py-32">
+          <SectionHeading
+            eyebrow="Our Process"
+            title="From first call to launch — and beyond."
+            align="center"
+          />
+          <div className="mt-16">
+            <ProcessTimeline />
+          </div>
+        </section>
+
+        {/* Industries */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-4 md:py-8">
+          <SectionHeading
+            eyebrow="Who We Work With"
+            title="Industries we understand well."
+            align="center"
+          />
+          <div className="mt-14">
+            <RevealOnScroll y={30}>
+              <IndustriesGrid />
+            </RevealOnScroll>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="max-w-7xl mx-auto px-6 md:px-8 py-24 md:py-32">
+          <RevealOnScroll y={40} duration={0.8}>
+            <CTASection />
+          </RevealOnScroll>
+        </section>
+      </div>
+    </div>
+  );
 }

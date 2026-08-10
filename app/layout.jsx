@@ -1,108 +1,178 @@
-import { Poppins, Geist_Mono } from 'next/font/google'
-import './globals.css'
-import { AppClient } from './AppClient'
-import Script from 'next/script'
+import { Sora, Outfit, Space_Mono } from "next/font/google";
+import { Syne, Manrope } from "next/font/google";
+import { Epilogue, Schibsted_Grotesk, Chivo_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Plus_Jakarta_Sans, Fira_Code } from "next/font/google";
+import Script from "next/script";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CallButton from "@/components/CallButton";
+import ScrollProgress from "@/components/ScrollProgress";
+import { brand } from "@/lib/siteData";
 
-// Fonts configuration with CSS variables
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
-})
 
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono',
-  display: 'swap',
-})
+const sora = Sora({
+  subsets: ["latin"],
+  variable: "--font-sora",
+  display: "swap",
+});
 
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-space-mono",
+  display: "swap",
+});
+
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+  variable: "--font-fira-code",
+  display: "swap",
+});
+
+
+const epilogue = Epilogue({
+  subsets: ["latin"],
+  variable: "--font-epilogue",
+  display: "swap",
+});
+
+const schibsted = Schibsted_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-schibsted",
+  display: "swap",
+});
+
+const chivoMono = Chivo_Mono({
+  subsets: ["latin"],
+  variable: "--font-chivo-mono",
+  display: "swap",
+});
 export const metadata = {
-  metadataBase: new URL('https://business-sathi.vercel.app'),
+  metadataBase: new URL(brand.website),
   title: {
-    default: 'Business Sathi — Best Web Developer in Ujjain and Indore',
-    template: '%s | Business Sathi',
+    default: `${brand.name} — Website Development & Digital Growth in Indore`,
+    template: `%s | ${brand.name}`,
   },
   description:
-    'Business Sathi - #1 website development company in Indore & Ujjain. SEO-optimized Next.js websites for travel agencies and startups.Business Sathi — Best Web Developer in Ujjain and Indore',
-  verification: {
-    google: 'SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5R4KZFM',
+    "Business Sathi is an Ujjain-based digital studio helping local businesses grow online through website development, Google Business Profile optimization, Meta Ads management, SEO, and video editing.",
+  keywords: [
+    "website development Indore",
+    "web developer Indore",
+    "website developer India",
+    "Google Business Profile Management",
+    "Google Business optimization",
+    "Small Business Website",
+    "Business Website Developer",
+    "SEO Services Indore",
+    "AI Video Generation",
+    "Video Editing Indore",
+    "Local Business Marketing",
+    "Digital Agency Indore",
+  ],
+  authors: [{ name: brand.name }],
+  creator: brand.name,
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: brand.website,
+    siteName: brand.name,
+    title: `${brand.name} — Website Development & Digital Growth in Ujjain`,
+    description:
+      "Websites and digital growth services for local businesses in Ujjain — website development, Google Business Profile,  SEO, and video.",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&q=80",
+        width: 1200,
+        height: 630,
+        alt: brand.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${brand.name} — Website Development & Digital Growth in Ujjain`,
+    description:
+      "Websites and digital growth services for local businesses in Ujjain.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+    },
   },
   alternates: {
-    canonical: '/',
+    canonical: brand.website,
   },
-  // Baaki metadata ko concise rakha hai taaki verification tag jaldi detect ho
-  keywords:
-    'Business Sathi — Best Web Developer in Ujjain and Indore,website development company Indore, web developer Ujjain, web design MP',
-  authors: [{ name: 'Business Sathi' }],
-  robots: 'index, follow',
-}
-
-const schemaData = {
-  '@context': 'https://schema.org',
-  '@type': ['Organization', 'LocalBusiness'],
-  name: 'Business Sathi',
-  url: 'https://business-sathi.vercel.app',
-  logo: 'https://business-sathi.vercel.app/logo.avif',
-  telephone: '+919302088025',
-  priceRange: '₹₹',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Ujjain',
-    addressRegion: 'Madhya Pradesh',
-    postalCode: '456010',
-    addressCountry: 'IN',
+  verification: {
+    google: "SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5J705R4KZFM", 
   },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 23.1765,
-    longitude: 75.7885,
-  },
-}
-
+};
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: brand.name,
+    description:
+      "Website development and digital growth studio serving Indore & Ujjain businesses.",
+    url: brand.website,
+    email: brand.email,
+    telephone: brand.phone,
+    areaServed: {
+      "@type": "City",
+      name: "Ujjain",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Ujjain",
+      addressRegion: "Madhya Pradesh",
+      addressCountry: "IN",
+    },
+    priceRange: "₹₹",
+  };
+
   return (
-    <html lang="en" className={`${poppins.variable} ${geistMono.variable}`}>
-      <head>
-        {/* Verification meta tag */}
-        <meta
-          name="google-site-verification"
-          content="SpeVecqWTh2X61e4RV8XTjrx8FkRCkYW5R4KZFM"
-        />
-
-        {/* Resource Hints: preconnect/dns-prefetch for third-parties */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-        <link rel="dns-prefetch" href="https://cdn.counter.dev" />
-        <link rel="dns-prefetch" href="https://wa.me" />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://cdn.counter.dev" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://wa.me" />
-      </head>
-
-      <body className={`${poppins.className} ${geistMono.className} antialiased`}>
-        {/* Counter.dev */}
-        <Script
-          id="counter-dev-script"
+    <html lang="en" className={`${sora.variable} ${outfit.variable} ${firaCode.variable}`}>
+      <body className="bg-[#FAFAFA] text-[#111111] font-body antialiased">
+         <Script
           src="https://cdn.counter.dev/script.js"
           data-id="95795ebe-d6a8-4887-abef-7dbb03a06eb2"
-          data-utcoffset="6"
-          strategy="lazyOnload"
-        />
-
-        {/* JSON-LD Schema */}
-        <Script
-          id="schema-org"
-          type="application/ld+json"
+          data-utcoffset="5.5" 
           strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
-
-        <AppClient>{children}</AppClient>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <ScrollProgress />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+        <CallButton />
+        <WhatsAppButton />
       </body>
     </html>
-  )
+  );
 }
-
