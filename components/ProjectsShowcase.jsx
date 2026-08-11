@@ -24,12 +24,12 @@ export default function ProjectsShowcase({ limit, projectsOverride }) {
             href={`/portfolio/${project.slug}`}
             className="group block overflow-hidden rounded-3xl border border-[#e7e7e7] bg-white card-lift"
           >
-            <div className="relative h-64 w-full overflow-hidden">
+            <div className="relative h-54 md:h-82 w-full overflow-hidden">
               <Image
                 src={project.thumbnail}
                 alt={`${project.name} — ${project.industry} website by Business Sathi`}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, 60vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

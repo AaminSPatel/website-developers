@@ -52,8 +52,8 @@ export default function Navbar() {
           }`}
         >
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="relative flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-brand text-white font-display font-bold text-sm">
-              BS
+            <span className="relative flex h-8 w-8 items-center justify-center rounded-full ">
+               <img src="/icon.png" alt="Business Sathi Logo icon" className="" />
               <span className="absolute -inset-0.5 rounded-xl bg-gradient-brand opacity-0 group-hover:opacity-40 blur-md transition-opacity" />
             </span>
             <span className="font-display font-semibold text-[17px] tracking-tight">

@@ -17,7 +17,7 @@ export default function ProcessTimeline() {
       <div className="absolute left-[19px] top-2 bottom-2 w-px bg-[#e7e7e7] md:left-1/2 md:-translate-x-1/2" />
       <motion.div
         style={{ height: lineHeight }}
-        className="absolute left-[19px] top-2 w-px bg-gradient-to-b from-[#2563EB] to-[#4F46E5] md:left-1/2 md:-translate-x-1/2"
+        className="absolute left-[19px] top-2 w-[1.5px] bg-gradient-to-b from-[#25eb6e] to-[#09b418] md:left-1/2 md:-translate-x-1/2"
       />
 
       <div className="space-y-10">
@@ -32,8 +32,10 @@ export default function ProcessTimeline() {
               i % 2 === 0 ? "md:pr-10" : "md:ml-auto md:pl-10 md:text-left"
             }`}
           >
-            <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-brand font-mono text-xs font-semibold text-white md:absolute md:top-0 md:h-8 md:w-8 md:text-[11px]"
-              style={i % 2 === 0 ? { right: "-36px" } : { left: "-36px" }}
+           <div
+              className={`relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-brand font-mono text-xs font-semibold text-white md:absolute md:top-0 md:h-8 md:w-8 md:text-[11px] ${
+                i % 2 === 0 ? "md:right-[-36px]" : "md:left-[-36px]"
+              }`}
             >
               {String(i + 1).padStart(2, "0")}
             </div>

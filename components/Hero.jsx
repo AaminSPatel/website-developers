@@ -3,8 +3,18 @@
 import { useRef, useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { ArrowRight, CheckCircle2, ChevronDown } from "lucide-react";
-import { brand } from "@/lib/siteData";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ChevronDown,
+  Send,
+  User,
+  Phone as PhoneIcon,
+  Loader2,
+  CheckCircle2 as Check2,
+  Mail,
+} from "lucide-react";
+import { brand, services } from "@/lib/siteData";
 
 // ---- CONFIG -----------------------------------------------------------
 const TOTAL_FRAMES = 120;
@@ -20,6 +30,7 @@ export default function Hero() {
 
   const [firstFrameReady, setFirstFrameReady] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false); // default false = safe for SSR + mobile
+  const [miniFormVisible, setMiniFormVisible] = useState(false);
 
   // ---- detect desktop AFTER mount, never on server ----
   useEffect(() => {
@@ -143,9 +154,14 @@ export default function Hero() {
     };
   }, [isDesktop, loadFrame, drawFrame]);
 
+  // ---- single scroll listener: drives both frame drawing AND mini-form visibility ----
   useMotionValueEvent(frameIndexMV, "change", (latest) => {
     if (!isDesktop) return;
     const target = Math.min(TOTAL_FRAMES, Math.max(1, Math.round(latest)));
+
+    // show mini inquiry form during the last 30 frames
+    setMiniFormVisible(target >= TOTAL_FRAMES - 30);
+
     if (target === currentDrawnFrame.current) return;
 
     if (!imagesRef.current[target]) loadFrame(target, "high");
@@ -209,7 +225,7 @@ export default function Hero() {
   );
 
   // ---- MOBILE: plain, lightweight hero — zero frame images, zero scroll-jacking ----
- if (!isDesktop) {
+  if (!isDesktop) {
     return (
       <section ref={sectionRef} className="relative bg-white px-6 py-16">
         <motion.div
@@ -226,7 +242,7 @@ export default function Hero() {
   // ---- DESKTOP: scroll-scrubbed canvas hero ----
   return (
     <section ref={sectionRef} className="relative bg-white" style={{ height: "380vh" }}>
-      <div className="sticky top-6 h-screen w-full overflow-hidden bg-white ">
+      <div className="sticky top-6 h-screen w-full overflow-hidden bg-white">
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full"
@@ -244,6 +260,8 @@ export default function Hero() {
           <LeftContent />
         </motion.div>
 
+        <MiniInquiryForm visible={miniFormVisible} />
+
         <motion.div
           style={{ opacity: scrollHintOpacity }}
           className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-1.5 md:flex"
@@ -260,5 +278,115 @@ export default function Hero() {
         </motion.div>
       </div>
     </section>
+  );
+}
+
+// ---- Mini inquiry form shown during the final 30 frames on desktop ----
+function MiniInquiryForm({ visible }) {
+  const [form, setForm] = useState({ name: "", contact: "", reason: "" });
+  const [loading, setLoading] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          contact: form.contact,
+          service: form.reason,
+          source: "Hero Mini Form",
+        }),
+      });
+      const data = await res.json();
+      if (!data.success) {
+        setError(data.error || "Kuch galat ho gaya");
+        setLoading(false);
+        return;
+      }
+      setSent(true);
+    } catch {
+      setError("Network error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 24 }}
+      animate={{ opacity: visible ? 1 : 0, x: visible ? 0 : 24 }}
+      transition={{ duration: 0.35 }}
+      style={{ pointerEvents: visible ? "auto" : "none" }}
+      className="absolute right-6 top-1/2 z-30 w-[300px] -translate-y-1/2 rounded-2xl border border-[#e7e7e7] bg-white/95 backdrop-blur p-5 shadow-xl hidden md:block"
+    >
+      {sent ? (
+        <div className="flex flex-col items-center text-center py-6">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#10B981]/10 text-[#10B981] mb-3">
+            <Check2 size={20} />
+          </span>
+          <p className="text-sm font-semibold">Thanks! We&apos;ll reach out shortly.</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <p className="text-sm font-display font-semibold mb-1">Quick Enquiry</p>
+
+          <div className="relative">
+            <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#999]" />
+            <input
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="Your name"
+              required
+              className="w-full rounded-lg border border-[#e7e7e7] bg-[#FAFAFA] pl-9 pr-3 py-2 text-sm focus:border-[#2563EB] focus:outline-none"
+            />
+          </div>
+
+          <div className="relative">
+            <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#999]" />
+            <input
+              name="contact"
+              value={form.contact}
+              onChange={handleChange}
+              placeholder="Enter email"
+              required
+              className="w-full rounded-lg border border-[#e7e7e7] bg-[#FAFAFA] pl-9 pr-3 py-2 text-sm focus:border-[#2563EB] focus:outline-none"
+            />
+          </div>
+
+          <select
+            name="reason"
+            value={form.reason}
+            onChange={handleChange}
+            required
+            className="w-full rounded-lg border border-[#e7e7e7] bg-[#FAFAFA] px-3 py-2 text-sm focus:border-[#2563EB] focus:outline-none"
+          >
+            <option value="">Select a reason</option>
+            {services.map((s) => (
+              <option key={s.slug} value={s.title}>{s.title}</option>
+            ))}
+          </select>
+
+          {error && <p className="text-xs text-red-500">{error}</p>}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn-primary w-full justify-center text-sm py-2 disabled:opacity-60"
+          >
+            {loading ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
+            {loading ? "Sending..." : "Send Enquiry"}
+          </button>
+        </form>
+      )}
+    </motion.div>
   );
 }

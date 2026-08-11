@@ -42,7 +42,7 @@ export default function HomePage() {
         <Hero />
 
         {/* Stats strip */}
-        <section className="max-w-7xl mx-auto px-6 md:px-8 -mt-4 md:mt-4">
+        <section className="max-w-7xl mx-auto px-6 md:px-8 mt-4 md:mt-4">
           <RevealOnScroll y={30} className="grid grid-cols-2 md:grid-cols-4 gap-4 rounded-3xl border border-[#e7e7e7] bg-white p-8 md:p-10 glow">
             {stats.map((s, i) => (
               <RevealOnScroll

@@ -8,8 +8,8 @@
   --color-card: #ffffff;
   --color-ink: #111111;
   --color-muted: #666666;
-  --color-accent: #25eb63;
-  --color-accent-2: #4fe546;
+  --color-accent: #16a34a;
+  --color-accent-2: #22c55e;
   --color-success: #10b981;
   --color-line: #e7e7e7;
 }
@@ -32,7 +32,7 @@ body {
 }
 
 ::selection {
-  background-color: #2563eb;
+  background-color: #16a34a;
   color: #ffffff;
 }
 
@@ -45,17 +45,17 @@ body {
   background: #fafafa;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #2563eb, #4f46e5);
+  background: linear-gradient(180deg, #16a34a, #15803d);
   border-radius: 999px;
   border: 2px solid #fafafa;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: #15803d;
 }
 
 /* Focus visibility */
 :focus-visible {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #16a34a;
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -74,14 +74,14 @@ body {
 /* ---------- Utilities ---------- */
 
 .text-gradient {
-  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  background: linear-gradient(90deg, #16a34a, #22c55e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .bg-gradient-brand {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(135deg, #16a34a, #22c55e);
 }
 .hero-bg-video {
   position: absolute;
@@ -145,7 +145,7 @@ body {
 
 /* Glow */
 .glow {
-  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.08), 0 20px 60px -20px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.08), 0 20px 60px -20px rgba(22, 163, 74, 0.35);
 }
 
 .glow-success {
@@ -194,13 +194,13 @@ body {
   font-weight: 600;
   font-size: 0.95rem;
   color: #ffffff;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(135deg, #16a34a, #22c55e);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s;
-  box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.55);
+  box-shadow: 0 8px 24px -8px rgba(22, 163, 74, 0.55);
 }
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.015);
-  box-shadow: 0 14px 32px -8px rgba(37, 99, 235, 0.6);
+  box-shadow: 0 14px 32px -8px rgba(22, 163, 74, 0.6);
 }
 .btn-primary:active {
   transform: translateY(0) scale(0.99);
@@ -222,8 +222,8 @@ body {
 }
 .btn-secondary:hover {
   transform: translateY(-2px);
-  border-color: #2563eb;
-  background: #f5f8ff;
+  border-color: #16a34a;
+  background: #f2fbf5;
 }
 
 .btn-whatsapp {
@@ -249,7 +249,7 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #2563eb;
+  color: #16a34a;
   font-weight: 600;
 }
 
@@ -258,7 +258,7 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 999px;
-  border: 1.5px solid #2563eb;
+  border: 1.5px solid #16a34a;
   animation: radar-pulse 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 @keyframes radar-pulse {

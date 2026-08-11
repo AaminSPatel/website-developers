@@ -61,7 +61,7 @@ export default async function CaseStudyPage({ params }) {
       </section>
 
       <section className="max-w-5xl mx-auto px-6 md:px-8">
-        <div className="relative h-64 sm:h-80 md:h-[440px] w-full overflow-hidden rounded-3xl">
+        <div className="relative h-56 sm:h-82 md:h-[670px] w-full overflow-hidden rounded-3xl">
           <Image src={project.image} alt={project.name} fill className="object-cover" priority />
         </div>
       </section>
