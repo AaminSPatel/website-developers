@@ -2,16 +2,18 @@ import { brand, services, projects, blogPosts } from "@/lib/siteData";
 
 export default function sitemap() {
   const base = brand.website.replace(/\/$/, "");
+
+  // Static pages
   const staticRoutes = [
     "",
     "/about",
-    "/services",
-    "/portfolio",
-    "/reviews",
     "/blog",
-    "/faq",
     "/contact",
+    "/faq",
+    "/portfolio",
     "/privacy-policy",
+    "/reviews",
+    "/services",
   ].map((route) => ({
     url: `${base}${route}`,
     lastModified: new Date(),
@@ -19,26 +21,34 @@ export default function sitemap() {
     priority: route === "" ? 1 : 0.7,
   }));
 
-  const serviceRoutes = services.map((s) => ({
-    url: `${base}/services/${s.slug}`,
+  // Individual service pages
+  const serviceRoutes = services.map((service) => ({
+    url: `${base}/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.8,
   }));
 
-  const projectRoutes = projects.map((p) => ({
-    url: `${base}/portfolio/${p.slug}`,
+  // Individual portfolio pages
+  const projectRoutes = projects.map((project) => ({
+    url: `${base}/portfolio/${project.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  const blogRoutes = blogPosts.map((b) => ({
-    url: `${base}/blog/${b.slug}`,
+  // Individual blog pages
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${base}/blog/${post.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.5,
   }));
 
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...projectRoutes,
+    ...blogRoutes,
+  ];
 }
