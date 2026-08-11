@@ -164,7 +164,7 @@ export default function Hero() {
 
   // ---- shared left content ----
   const LeftContent = ({ animated = true }) => (
-    <div className="max-w-xl py-6">
+    <div className="max-w-xl py-8">
       <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#e7e7e7] bg-white px-4 py-1.5">
         <span className="h-1.5 w-1.5 rounded-full bg-[#10B981]" />
         <span className="text-xs font-medium text-[#666666]">
@@ -225,8 +225,8 @@ export default function Hero() {
 
   // ---- DESKTOP: scroll-scrubbed canvas hero ----
   return (
-    <section ref={sectionRef} className="relative" style={{ height: "380vh" }}>
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
+    <section ref={sectionRef} className="relative bg-white" style={{ height: "380vh" }}>
+      <div className="sticky top-6 h-screen w-full overflow-hidden bg-white ">
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full"
@@ -239,7 +239,7 @@ export default function Hero() {
 
         <motion.div
           style={{ opacity: contentOpacity, y: contentY }}
-          className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 md:px-8"
+          className="relative z-20 mx-auto flex h-full max-w-7xl items-center px-6 md:px-8 py-8"
         >
           <LeftContent />
         </motion.div>
