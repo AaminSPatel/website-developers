@@ -35,9 +35,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-12">
           <div>
             <Link href="/" className="inline-flex items-center gap-2 mb-5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-white font-display font-bold text-sm">
-                BS
-              </span>
+               <span className="relative flex h-8 w-8 items-center justify-center rounded-full ">
+               <img src="/icon.png" alt="Business Sathi Logo icon" className="rounded-full" />
+              <span className="absolute -inset-0.5 rounded-xl bg-gradient-brand opacity-0 group-hover:opacity-40 blur-md transition-opacity" />
+            </span>
               <span className="font-display font-semibold text-lg">{brand.shortName}</span>
             </Link>
             <p className="text-white/55 text-sm leading-relaxed max-w-xs mb-6">
