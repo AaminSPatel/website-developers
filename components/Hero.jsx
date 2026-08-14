@@ -13,6 +13,7 @@ import {
   Loader2,
   CheckCircle2 as Check2,
   Mail,
+  X,
 } from "lucide-react";
 import { brand, services } from "@/lib/siteData";
 
@@ -20,6 +21,7 @@ import { brand, services } from "@/lib/siteData";
 const TOTAL_FRAMES = 120;
 const FADE_START_FRAME = 100;
 const FRAME_PATH = (i) => `/frames/frame_${String(i).padStart(3, "0")}.jpg`;
+const MOBILE_FORM_DELAY_MS = 6000; // form dikhne ka wait time mobile pe
 
 export default function Hero() {
   const sectionRef = useRef(null);
@@ -235,6 +237,9 @@ export default function Hero() {
         >
           <LeftContent animated={false} />
         </motion.div>
+
+        {/* time-based mini form for mobile/small screens */}
+        <MobileMiniForm />
       </section>
     );
   }
@@ -260,7 +265,7 @@ export default function Hero() {
           <LeftContent />
         </motion.div>
 
-        <MiniInquiryForm visible={miniFormVisible} />
+        <MiniInquiryForm visible={miniFormVisible} variant="desktop" />
 
         <motion.div
           style={{ opacity: scrollHintOpacity }}
@@ -281,8 +286,35 @@ export default function Hero() {
   );
 }
 
-// ---- Mini inquiry form shown during the final 30 frames on desktop ----
-function MiniInquiryForm({ visible }) {
+// ---- Mobile wrapper: shows the mini form after a fixed delay, dismissible ----
+function MobileMiniForm() {
+  const [visible, setVisible] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (!dismissed) setVisible(true);
+    }, MOBILE_FORM_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [dismissed]);
+
+  if (dismissed) return null;
+
+  return (
+    <MiniInquiryForm
+      visible={visible}
+      variant="mobile"
+      onDismiss={() => {
+        setVisible(false);
+        setDismissed(true);
+      }}
+    />
+  );
+}
+
+// ---- Mini inquiry form: desktop = floating side card (scroll-triggered), ----
+// ---- mobile = bottom sheet (time-triggered) --------------------------------
+function MiniInquiryForm({ visible, variant = "desktop", onDismiss }) {
   const [form, setForm] = useState({ name: "", contact: "", reason: "" });
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -302,7 +334,7 @@ function MiniInquiryForm({ visible }) {
           name: form.name,
           contact: form.contact,
           service: form.reason,
-          source: "Hero Mini Form",
+          source: variant === "mobile" ? "Hero Mobile Mini Form" : "Hero Mini Form",
         }),
       });
       const data = await res.json();
@@ -319,14 +351,35 @@ function MiniInquiryForm({ visible }) {
     }
   };
 
+  const isMobile = variant === "mobile";
+
+  const wrapperClass = isMobile
+    ? "fixed inset-x-0 bottom-0 z-40 w-full rounded-t-3xl border-t border-[#e7e7e7] bg-white/95 backdrop-blur p-5 pb-6 shadow-[0_-8px_30px_rgba(0,0,0,0.12)] md:hidden"
+    : "absolute right-6 top-1/2 z-30 w-[300px] -translate-y-1/2 rounded-2xl border border-[#e7e7e7] bg-white/95 backdrop-blur p-5 shadow-xl hidden md:block";
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: 24 }}
-      animate={{ opacity: visible ? 1 : 0, x: visible ? 0 : 24 }}
-      transition={{ duration: 0.35 }}
+      initial={isMobile ? { opacity: 0, y: 80 } : { opacity: 0, x: 24 }}
+      animate={
+        isMobile
+          ? { opacity: visible ? 1 : 0, y: visible ? 0 : 80 }
+          : { opacity: visible ? 1 : 0, x: visible ? 0 : 24 }
+      }
+      transition={{ duration: 0.35, ease: "easeOut" }}
       style={{ pointerEvents: visible ? "auto" : "none" }}
-      className="absolute right-6 top-1/2 z-30 w-[300px] -translate-y-1/2 rounded-2xl border border-[#e7e7e7] bg-white/95 backdrop-blur p-5 shadow-xl hidden md:block"
+      className={wrapperClass}
     >
+      {isMobile && onDismiss && (
+        <button
+          type="button"
+          onClick={onDismiss}
+          aria-label="Close"
+          className="absolute right-4 top-4 flex h-7 w-7 items-center justify-center rounded-full bg-[#F5F5F5] text-[#666666]"
+        >
+          <X size={14} />
+        </button>
+      )}
+
       {sent ? (
         <div className="flex flex-col items-center text-center py-6">
           <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#10B981]/10 text-[#10B981] mb-3">
