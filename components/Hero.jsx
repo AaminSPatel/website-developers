@@ -354,7 +354,7 @@ function MiniInquiryForm({ visible, variant = "desktop", onDismiss }) {
   const isMobile = variant === "mobile";
 
   const wrapperClass = isMobile
-    ? "fixed inset-x-0 bottom-0 z-40 w-full rounded-t-3xl border-t border-[#e7e7e7] bg-white/95 backdrop-blur p-5 pb-6 shadow-[0_-8px_30px_rgba(0,0,0,0.12)] md:hidden"
+    ? "fixed inset-x-0 bottom-22 left-4 z-[4000] w-[320px] rounded-3xl border-t border-[#e7e7e7] bg-white/95 backdrop-blur p-5 pb-6 shadow-[0_-8px_30px_rgba(0,0,0,0.12)] md:hidden"
     : "absolute right-6 top-1/2 z-30 w-[300px] -translate-y-1/2 rounded-2xl border border-[#e7e7e7] bg-white/95 backdrop-blur p-5 shadow-xl hidden md:block";
 
   return (
@@ -389,7 +389,15 @@ function MiniInquiryForm({ visible, variant = "desktop", onDismiss }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-3">
-          <p className="text-sm font-display font-semibold mb-1">Quick Enquiry</p>
+           <div className="mb-2">
+            <p className="text-xl font-bold text-[#1a1a1a]">
+              Let&apos;s grow your business.
+            </p>
+
+            <p className="text-sm text-[#888]">
+              Get a quick project estimate.
+            </p>
+          </div>
 
           <div className="relative">
             <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#999]" />
